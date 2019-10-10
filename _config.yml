@@ -1,5 +1,5 @@
 # SITE CONFIGURATION
-baseurl: ""
+baseurl: "/"
 url: "https://whynot.fail"
 
 # THEME-SPECIFIC CONFIGURATION
