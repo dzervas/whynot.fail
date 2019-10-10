@@ -1,0 +1,11 @@
+---
+layout: post
+---
+
+{{ content }}
+
+{% if site.utterances_repo or site.theme_settings.utterances_repo %}
+<div class="comments">
+  {% include utterances.html %}
+</div>
+{% endif %}
