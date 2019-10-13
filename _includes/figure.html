@@ -1,0 +1,41 @@
+{% assign urls = include.url | split: ", " %}
+{% assign id = "now" | date: "%N" %}
+
+{% comment %}
+<figure>
+  <div class="figimages">
+    {% for url in urls %}
+      <a href="{{ url }}">
+        <img src="{{ url }}" alt="{{ include.description }}">
+      </a>
+    {% endfor %}
+  </div>
+  <figcaption>{{ include.description }}</figcaption>
+</figure>
+{% endcomment %}
+
+<div id="{{ id }}" class="flexslider">
+  <ul class="slides">
+    {% for url in urls %}
+      <li>
+        <img src="{{ url }}" alt="{{ include.description }}">
+        <p class="flex-caption">{{ include.description }}</p>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
+
+<script>
+  $(window).load(function() {
+    $('.flexslider#{{ id }}').flexslider({
+      animation: "slide",
+      controlNav: false,
+      {% if urls.size > 1 %}
+        directionNav: true,
+      {% else %}
+        directionNav: false,
+      {% endif %}
+      touch: true
+    });
+  });
+</script>
