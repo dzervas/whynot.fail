@@ -5,6 +5,7 @@ tags: [factory, 3D-printing, rostock-mini, delta]
 author: dzervas
 permalink: /factory/plastic
 excerpt_separator: ---
+build: failing
 ---
 
 All I ever wanted, was a tiny Chinese factory inside my house. I’m not talking

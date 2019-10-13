@@ -13,6 +13,9 @@ layout: default
     {% unless page.hide_title %}
       <h1 id="{{ page.title | cgi_escape }}" class="title">{{ page.title }}</h1>
       {% include post_info.html author=page.author date=page.date %}
+      {% if page.build %}
+        <img src="https://raw.githubusercontent.com/travis-ci/travis-api/master/public/images/result/{{ page.build }}.png" style="padding: 7px;" />
+      {% endif %}
     {% endunless %}
   </header>
   <section class="post-content">
