@@ -12,7 +12,15 @@ favicon: assets/favicon.ico # Icon displayed in the tab
 header_text: Why not fail? # Change Blog header text
 header_feature_image: assets/img/depressed-man.jpg
 footer_text: >
-  Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+  Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>. Supported by <a href="https://plausible.io/">Plausible</a>
+  <script>
+  (function (w,d,s,o,f,js,fjs) {
+  w[o] = w[o] || function () { (w[o].q = w[o].q || []).push(arguments) };
+  js = d.createElement(s), fjs = d.getElementsByTagName(s)[0];
+  js.id = o; js.src = f; js.async = 1; fjs.parentNode.insertBefore(js, fjs);
+  }(window, document, 'script', 'plausible', 'https://plausible.io/js/p.js'));
+  plausible('page')
+  </script>
 
 # Blog
 excerpt: true                                           # Or "truncate" (first 250 characters), "false" to disable
