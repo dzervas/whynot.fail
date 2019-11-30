@@ -1,0 +1,25 @@
+---
+label: Post
+hide_body: false
+fields:
+- type: text
+  name: layout
+  label: layout
+- type: text
+  name: title
+  label: title
+- type: list
+  name: tags
+  label: tags
+- type: text
+  name: author
+  label: author
+- type: text
+  name: permalink
+  label: permalink
+- type: text
+  name: excerpt_separator
+  label: excerpt_separator
+- type: text
+  name: build
+  label: build
