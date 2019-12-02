@@ -1,11 +1,15 @@
 ---
-layout: post
-title: Chinese Factory v0.1 - The Plastic
-tags: [factory, 3D-printing, rostock-mini, delta]
 author: dzervas
-permalink: /factory/plastic
-excerpt_separator: ---
 build: failing
+date: "2019-10-11T00:00:00Z"
+excerpt_separator: '---'
+tags:
+- factory
+- 3D-printing
+- rostock-mini
+- delta
+title: Chinese Factory v0.1 - The Plastic
+url: /factory/plastic
 ---
 
 All I ever wanted, was a tiny Chinese factory inside my house. I’m not talking
@@ -16,9 +20,9 @@ myself to sleep, before I can get what I want. But it's a one time thing :)
 (per machine).
 
 After having so much stuff in mind, it was clear what was the first machine that
-I needed: * *angel voices* * a 3D printer.
+I needed: *angel voices* a 3D printer.
 
----
+<!--more-->
 
 Not only I wanted to make several dumb plastic stuff for the house (like a hanger,
 soap holder, etc.) and enclosures for several hardware projects, but most
@@ -48,10 +52,7 @@ community? LOL NO. A FUCKING REPRAP DELTA PRINTER THAN NOBODY HAS EVER HEARD BEF
 I have no idea how I settled for that thing, really. Maybe the lack of money.
 The printer I'm talking about is [Rostock Mini](https://reprap.org/wiki/Rostock_mini).
 
-{% include figure.html
-  url="/assets/img/factory/plastic/crowd-dissaproves.jpg"
-  description="You can see the raction of the 3D Printing community for my choice"
-%}
+{{< figure src="/img/factory/plastic/crowd-dissaproves.jpg" caption="You can see the raction of the 3D Printing community for my choice" >}}
 
 So, let's start gathering parts: [3DHubs](https://www.3dhubs.com/) for 3D printed
 parts and eBay for everything else. Now great ideas started flying... Why get a
@@ -71,10 +72,10 @@ are GT2 belts. So a good idea is carbon fiber rods. The printer was designed for
 5mm carbon fiber rods but I got 1m long 6mm OD carbon fiber rod and cut it by
 hand.
 
-{% include figure.html
-  url="/assets/img/factory/plastic/rostock-mini-carbon-rod.jpg, /assets/img/factory/plastic/rostock-mini-broken-plastic.jpg"
-  description="The carbon rods - clearly cut by hand"
-%}
+{{< gallery >}}
+    {{< figure src="/img/factory/plastic/rostock-mini-carbon-rod.jpg" caption="The carbon rods - clearly cut by hand" >}}
+    {{< figure src="/img/factory/plastic/rostock-mini-broken-plastic.jpg" caption="The carbon rod mounts - clearly \"post-processed\" with a drill" >}}
+{{< /gallery >}}
 
 The rods where not of the exactly same length and 3D printing teaches you that
 almost everything has to be precise as fuck. But that did not prove as huge of
@@ -106,10 +107,7 @@ Uuugh... Some time passes and I finally find a CNC, right in my city, Heraklion.
 YEYA. I cut the base DXFs in a CNC! YEYA!!! Wait, that doesn't seem right. The
 holes are way off. No...
 
-{% include figure.html
-  url="/assets/img/factory/plastic/rostock-mini-base.jpg"
-  description="The base is clearly completely disoriented, as well as my workspace"
-%}
+{{< figure src="/img/factory/plastic/rostock-mini-base.jpg" caption="The base is clearly completely disoriented, as well as my workspace" >}}
 
 But STILL, I thought that this piece of crap might be able to work, so lets move
 on...
@@ -122,8 +120,6 @@ heatbed works, hotend works. Lets try to melt some PLA. YEY IT WORKS!
 I just play around for some time (less than an hour) and everything goes to hell.
 I thought that currently I didn't need the PROVIDED fan that sits on the hotend,
 as I was just testing... The nut that holds the PTFE (push fit nut?) had melted...
-
----
 
 That was the last sign that I needed to let this project to the side, until I
 get a proper 3D printer as a kit with auto bed leveling and a community to support
