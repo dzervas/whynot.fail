@@ -1,8 +1,7 @@
 ---
-author: dzervas
+writer: dzervas
 build: failing
-date: "2019-10-11T00:00:00Z"
-excerpt_separator: '---'
+date: "2019-10-11"
 tags:
 - factory
 - 3D-printing
@@ -10,6 +9,7 @@ tags:
 - delta
 title: Chinese Factory v0.1 - The Plastic
 url: /factory/plastic
+image: /img/factory/plastic/image.jpg
 ---
 
 All I ever wanted, was a tiny Chinese factory inside my house. I’m not talking

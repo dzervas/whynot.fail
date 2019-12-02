@@ -1,8 +1,6 @@
 ---
-layout: page
+type: about
 title: About
-permalink: /about
-feature-img: "assets/img/thinking-man.jpg"
 ---
 
 Your next door humanoid with a grain of love for programming, infosec,
