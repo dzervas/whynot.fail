@@ -10,6 +10,8 @@ sections:
 - type: jekyll-posts
   label: Posts
   create: all
+  templates:
+  - post
 upload_dir: assets
 public_path: "/assets"
 front_matter_path: ''
