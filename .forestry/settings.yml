@@ -12,8 +12,8 @@ sections:
   create: all
   templates:
   - post
-upload_dir: assets
-public_path: "/assets"
+upload_dir: static
+public_path: ''
 front_matter_path: ''
 use_front_matter_path: false
 file_template: ":filename:"
