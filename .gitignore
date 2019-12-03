@@ -29,3 +29,4 @@ jekyll-theme-type-on-strap.gemspec
 .jekyll-cache/*
 test/*
 .jekyll-metadata
+resources/
