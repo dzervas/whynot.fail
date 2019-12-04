@@ -8,8 +8,8 @@ tags:
 - rostock-mini
 - delta
 title: Chinese Factory v0.1 - The Plastic
-url: /factory/plastic
-image: /img/factory/plastic/image.jpg
+url: /factory/plastic-v0.1
+image: /img/factory/plastic-v0.1/image.jpg
 ---
 
 All I ever wanted, was a tiny Chinese factory inside my house. I’m not talking
@@ -52,7 +52,10 @@ community? LOL NO. A FUCKING REPRAP DELTA PRINTER THAN NOBODY HAS EVER HEARD BEF
 I have no idea how I settled for that thing, really. Maybe the lack of money.
 The printer I'm talking about is [Rostock Mini](https://reprap.org/wiki/Rostock_mini).
 
-{{< figure src="/img/factory/plastic/crowd-dissaproves.jpg" caption="You can see the raction of the 3D Printing community for my choice" >}}
+{{<
+	figure src="/img/factory/plastic-v0.1/crowd-dissaproves.jpg"
+	caption="You can see the raction of the 3D Printing community for my choice"
+>}}
 
 So, let's start gathering parts: [3DHubs](https://www.3dhubs.com/) for 3D printed
 parts and eBay for everything else. Now great ideas started flying... Why get a
@@ -73,8 +76,14 @@ are GT2 belts. So a good idea is carbon fiber rods. The printer was designed for
 hand.
 
 {{< gallery >}}
-    {{< figure src="/img/factory/plastic/rostock-mini-carbon-rod.jpg" caption="The carbon rods - clearly cut by hand" >}}
-    {{< figure src="/img/factory/plastic/rostock-mini-broken-plastic.jpg" caption="The carbon rod mounts - clearly \"post-processed\" with a drill" >}}
+    {{< figure
+		src="/img/factory/plastic-v0.1/rostock-mini-carbon-rod.jpg"
+		caption="The carbon rods - clearly cut by hand"
+	>}}
+	{{< figure
+		src="/img/factory/plastic-v0.1/rostock-mini-broken-plastic.jpg"
+		caption="The carbon rod mounts - clearly \"post-processed\" with a drill"
+	>}}
 {{< /gallery >}}
 
 The rods where not of the exactly same length and 3D printing teaches you that
@@ -107,7 +116,10 @@ Uuugh... Some time passes and I finally find a CNC, right in my city, Heraklion.
 YEYA. I cut the base DXFs in a CNC! YEYA!!! Wait, that doesn't seem right. The
 holes are way off. No...
 
-{{< figure src="/img/factory/plastic/rostock-mini-base.jpg" caption="The base is clearly completely disoriented, as well as my workspace" >}}
+{{< figure
+	src="/img/factory/plastic-v0.1/rostock-mini-base.jpg"
+	caption="The base is clearly completely disoriented, as well as my workspace"
+>}}
 
 But STILL, I thought that this piece of crap might be able to work, so lets move
 on...
