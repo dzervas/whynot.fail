@@ -53,7 +53,7 @@ I have no idea how I settled for that thing, really. Maybe the lack of money.
 The printer I'm talking about is [Rostock Mini](https://reprap.org/wiki/Rostock_mini).
 
 {{<
-	figure src="/img/factory/plastic-v0.1/crowd-dissaproves.jpg"
+	figure src="/img/factory/plastic-v01/crowd-dissaproves.jpg"
 	caption="You can see the raction of the 3D Printing community for my choice"
 >}}
 
@@ -77,11 +77,11 @@ hand.
 
 {{< gallery >}}
     {{< figure
-		src="/img/factory/plastic-v0.1/rostock-mini-carbon-rod.jpg"
+		src="/img/factory/plastic-v01/rostock-mini-carbon-rod.jpg"
 		caption="The carbon rods - clearly cut by hand"
 	>}}
 	{{< figure
-		src="/img/factory/plastic-v0.1/rostock-mini-broken-plastic.jpg"
+		src="/img/factory/plastic-v01/rostock-mini-broken-plastic.jpg"
 		caption="The carbon rod mounts - clearly \"post-processed\" with a drill"
 	>}}
 {{< /gallery >}}
@@ -117,7 +117,7 @@ YEYA. I cut the base DXFs in a CNC! YEYA!!! Wait, that doesn't seem right. The
 holes are way off. No...
 
 {{< figure
-	src="/img/factory/plastic-v0.1/rostock-mini-base.jpg"
+	src="/img/factory/plastic-v01/rostock-mini-base.jpg"
 	caption="The base is clearly completely disoriented, as well as my workspace"
 >}}
 
