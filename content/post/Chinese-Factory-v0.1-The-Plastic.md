@@ -8,8 +8,8 @@ tags:
 - rostock-mini
 - delta
 title: Chinese Factory v0.1 - The Plastic
-url: /factory/plastic-v0.1
-image: /img/factory/plastic-v0.1/image.jpg
+url: /factory/plastic-v01
+image: /img/factory/plastic-v01/image.jpg
 ---
 
 All I ever wanted, was a tiny Chinese factory inside my house. I’m not talking
