@@ -27,12 +27,12 @@ Welcome ladies and gentlemen on another miserable and painful part oooooof
  - 1 month waiting
  - Smokey electronics
 
-This time, I thought I knew, once I again. That I learned from my mistakes. If
+This time, once again, I thought I knew, that I learned from my mistakes. If
 you don't know what I'm talking about, check [this](/factory/plastic-v01) out. It
-was time to buy my first, whole, kit 3D printer. Backed by a very big community,
+was time to buy my first, whole, 3D printer kit. Backed by a very big community,
 Ender 3 by Creality was a very good shot. Everyone was astonshed by the results
 that this baby could achieve. Medium printing speed, medium noise, but the
-object was very nice. I also ordered with it TWO BlTouch clones. Not one (couse
+object was very nice. I also ordered with it TWO BlTouch clones. Not one (cause
 I knew), but TWO. Noice.
 
 {{< figure
@@ -56,7 +56,7 @@ model and I hit print. AND IT PRINTS. The bed was a bit off. BUT IT PRINTS.
 I tried not to cry cause that shithole that I called home would flood in an
 instant and burn my printer.
 
-Ok, everything works, I level the bed a bit and I fire up Cura for some serius
+Ok, everything works, I level the bed a bit and I fire up Cura for some serious
 (meh) shit: my first useful model. A little [ventring](https://www.thingiverse.com/thing:2912394)
 to cool the parts all around the hotend. And it prints it smooth as fuck.
 I just couldn't believe it... I had a working 3D printer!
@@ -103,7 +103,7 @@ it happens. Problem was that they were soldered on the PCB. BTW, a quick note:
 > 
 > Thank you.
 
-After I was done panicing and crying over my dead printer, I remembered that
+After I was done panicking and crying over my dead printer, I remembered that
 I know how to wield a soldering iron. So I found the pinouts of the Creality
 "Melzi" board and scratched the traces (to expose some copper and solder on it)
 of `dir` & `step` to break out the pins and hook them on the backup stepper
@@ -156,7 +156,7 @@ About a year passes and I get a girlfriend. I tell her that I have a 3D printer
 that is currently in an unknown state. She was AMAZED and asked me why I don't
 fix it. That was it. That was the slap that I needed to get back in track and
 fix the damn thing. When a partner gets excited about a nerdy thing you don't
-let neither the parter nor the thing go. You just hold on to what you do. Until
+let neither the partner nor the thing go. You just hold on to what you do. Until
 they orgasm. Or until you orgasm. Or both. Or until you finish the project (lol).
 Anyway...
 
@@ -166,7 +166,7 @@ Creality board for about $20 more. Kinda stupid move as the price was insane
 the rabbit hole again...
 
 I hook it up, I hook up the BLTouch and *BOOM*. It works... and unbelievably
-silent. A quick google search showed my that I luckily upgraded to TMC drivers
+silent. A quick google search showed that I luckily upgraded to TMC drivers
 that are extremely silent. The only noise was the fans! Wow...
 
 ## The Happy Ending
