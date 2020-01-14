@@ -28,7 +28,7 @@ backstories (and I've been watching How to get away with murder).
 ## The story
 
 The project that all this happend for is not a new idea to me. It boiled
-inside me for quite some time. I'm referring to [mage](https://github.com/dzervas/mage)
+inside me for quite some time. I'm referring to mage
 I started writing it about 6 months ago, when a friend asked me for a stable
 tool that is able to listen for TCP shells and have TTY support for his OSCP
 (that's a story for another day, for more check out [netcatty](https://github.com/dzervas/netcatty)).
@@ -71,7 +71,7 @@ packet reception (and maybe sometime packet retransmission?)
 That's all good, but I'm still talking about a Go project huh? No...
 
 As any good project, you have to write it at least twice for it to be good. I
-think I maybe overdid it and rewrote it too fast. [Here](https://github.com/dzervas/mage-rs).
+think I maybe overdid it and rewrote it too fast. [Here](https://github.com/dzervas/mage).
 I rewrote it in rust. Rust was a much better fit, as it's much closer to the
 system, it doesn't carry a GC and the overal Rust - `insert-lang-here` interfacing
 I THOUGHT was easier. If I only knew...
@@ -84,7 +84,7 @@ To start implementing wrapping, I had to create a libC API. All answers led to
 `cbindgen`, a very cool project that all it does is generate C headers, but to
 use it, you need to create a C API!
 
-The "final" struct that I wanted to export was `Connection` (see [here](https://github.com/dzervas/mage-rs/blob/master/src/connection.rs)):
+The "final" struct that I wanted to export was `Connection` (see [here](https://github.com/dzervas/mage/blob/master/src/connection.rs)):
 
 ```rust
 pub struct Connection<'conn> {

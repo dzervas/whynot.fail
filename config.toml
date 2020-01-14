@@ -7,6 +7,9 @@ paginate = 5
 preserveTaxonomyNames = true
 assetDir = "static"
 
+[author]
+name = "Dimitris Zervas"
+
 [params]
 slogan = "Why not fail?"
 description = "Cause when you fail, somebody has to laugh at you"
