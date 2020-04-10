@@ -1,4 +1,4 @@
-name: CI
+name: Hugo Build
 
 on:
   push:
@@ -12,10 +12,13 @@ jobs:
       - uses: actions/checkout@v1
         with:
           submodules: true
+
       - name: Hugo setup
         uses: peaceiris/actions-hugo@v2
+
       - name: Build site
-        run: hugo
+        run: hugo --minify
+
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v2.5.0
         env:

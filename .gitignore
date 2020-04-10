@@ -30,3 +30,4 @@ jekyll-theme-type-on-strap.gemspec
 test/*
 .jekyll-metadata
 resources/
+public/
