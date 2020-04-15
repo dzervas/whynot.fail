@@ -9,6 +9,12 @@ url: /homelab/lets-encrypt-the-house
 image: /img/homelab/lets-encrypt-the-house/image.jpeg
 ---
 
+(___NOTE___: This whole setup described is useless. Cloudflare offers this whole
+service for free with a much easier setup and 0 maintenance. Reported by an
+[HN comment](https://news.ycombinator.com/item?id=22838330) (my handle on HN
+is `ttouch`). Don't use what I describe bellow unless you really have a reason
+not to use Cloudflare. That's what this blog is about. Failures :) )
+
 That's what my mother always said when I was little. And don't talk to strangers.
 And the cold comes from the feet (so never walk barefoot). I never got it.
 How the hell do you use proper signed certificates in a private network?

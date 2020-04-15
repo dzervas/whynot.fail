@@ -2,8 +2,8 @@
     {{.Inner}}
 </div>
 
-{{ if not (.Scratch.Get "mermaid") }}
+{{- if not (.Scratch.Get "mermaid") -}}
     {{ .Scratch.Set "mermaid" true }}
     <!-- MermaidJS support -->
     <script async src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
-{{ end }}
+{{- end -}}
