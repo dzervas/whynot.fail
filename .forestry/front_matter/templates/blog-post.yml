@@ -23,3 +23,5 @@ fields:
 - type: file
   name: image
   label: image
+pages:
+- content/post/micropython-on-bluefruit-nrf52832-with-j-link-and-openocd.md
