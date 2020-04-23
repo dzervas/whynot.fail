@@ -29,6 +29,7 @@ Now the bootloader should be flash and we're able to flash over serial from now 
 
     git clone https://github.com/micropython/micropython
     cd micropython/ports/nrf
+    ./drivers/bluetooth/download_ble_stack.sh
     make BOARD=feather52 SD=s132 FROZEN_MPY_DIR=freeze all
     pip install --user adafruit-nrfutil
     adafruit-nrfutil dfu genpkg --dev-type 0x0052 --application build-feather52-s132/firmware.hex firmware.zip
