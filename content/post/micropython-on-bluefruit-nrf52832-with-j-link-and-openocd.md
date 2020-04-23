@@ -1,12 +1,11 @@
 +++
 build = "passing"
 date = 2020-04-22T21:00:00Z
-draft = true
 image = ""
 tags = ["notes", "hardware"]
 title = "MicroPython on Bluefruit NRF52832 with J-Link and openocd"
 url = "notes/micropython-on-nrf52832-with-openocd"
-writer = "dzervasg"
+writer = "dzervas"
 
 +++
 First of all, lets flash Adafruit's NRF52 bootloader for easier future flashing
