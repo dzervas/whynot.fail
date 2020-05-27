@@ -1,10 +1,9 @@
 +++
 build = "failing"
 date = 2020-05-27T14:15:34Z
-draft = true
 image = "/img/hardware/magicforce-68-reversing/image.jpeg"
 tags = ["hardware"]
-title = "Adding more magic to Magicforce 68"
+title = "Adding more magic to the Magicforce 68"
 url = "hardware/magicforce-68-reversing"
 writer = "dzervas"
 
@@ -24,7 +23,7 @@ After the 6 screws under the keyboard and removed, the bottom cover is free and 
 This is what I collected:
 It uses the [Holtek HT68FB550](https://www.holtek.com/productdetail?p_p_auth=q0FpqQ4D&p_p_id=productvgpageportlet_WAR_holtekprodportlet&p_p_lifecycle=0&p_p_state=maximized&p_p_mode=view&_productvgpageportlet_WAR_holtekprodportlet_virtualGroupId=318) MCU - [Datasheet](https://www.holtek.com/documents/10179/116711/HT68FB540_550_560v170.pdf) - LQFP48 package
 
-It exposes in the 5 pin header:
+It exposes in the 5 pin header (bottom left on photo):
 
 * `VCC`
 * `GND`
@@ -93,13 +92,14 @@ There was a side idea, that apart from the regular bluetooth keyboard functional
 
 I was forced to write the whole firmware from scratch in Arduino. Ugh... "Δε γαμιεται..." (roughly translates to "Fuck it..." in Greek). I'll do it. I'll hook the rows & columns of the keyboard, connectt them to my MCU and control them. I was sure that the on-board MCU won't interfere (it did) and it'll work like a charm (it didn't) and I'll throw in an OLED as well (I didn't). But before that, let's write & test the firmware. Then I'll solder wires on the PCB.
 
-{{< figure src="" caption="The test setup - the MCU, a keypad & an OLED" >}}
+{{< figure src="/img/hardware/magicforce-68-reversing/test_with_keypad_oled.jpeg" caption="The test setup - the MCU, a keypad & an OLED" >}}
 
-There you go, [Plikter](https://github.com/dzervas/plikter). It is comprised of the firmware that runs on the feather and 2 shift registers that read the columns as there are not enough pins on the feather - and of course these are on a custom board whose gerbers you'll find in the repo - made with a plotter following the etching method described perfectly by [stavros](https://www.stavros.io/posts/make-pcbs-at-home/). Soldering time!
+There you go, [Plikter](https://github.com/dzervas/plikter). It is comprised of the firmware that runs on the feather and 2 daisy chained shift registers ([TI CD4021BE](https://www.arduino.cc/en/uploads/Tutorial/TI_CD4021.pdf)) that read the columns as there are not enough pins on the feather - and of course these are on a custom board whose gerbers you'll find in the repo - made with a plotter following the etching method described perfectly by [stavros](https://www.stavros.io/posts/make-pcbs-at-home/). Soldering time!
 
 {{< gallery >}}
-{{< figure src="" caption="The Plikter board" >}}
-{{< figure src="" caption="Keyboard hooked - wires from rows & columnns to the MCU & Plikter board" >}}
+{{< figure src="/img/hardware/magicforce-68-reversing/plikter_pcb_finished.jpeg" caption="The Plikter board - just 2 shift registers daisy chained" >}}
+{{< figure src="/img/hardware/magicforce-68-reversing/plikter_hooks_finished.jpeg" caption="Keyboard hooks bottom - wires from rows to the MCU & columnns to the Plikter board" >}}
+{{< figure src="/img/hardware/magicforce-68-reversing/plikter_hooks_top.jpeg" caption="Keyboard hooks from top" >}}
 {{< /gallery >}}
 
 # The outcome
