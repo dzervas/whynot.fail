@@ -5,6 +5,7 @@ fields:
 - type: text
   name: writer
   label: writer
+  default: dzervas
 - name: build
   type: select
   default: unknown
