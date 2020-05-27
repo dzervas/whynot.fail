@@ -54,7 +54,7 @@ Done!
     Type "help()" for more information.
     >>>
 
-If you want to play with other kind of firmware (Rust/C/whatever) and you have to flash ELF or `hex` files, here is a little helper:
+If you want to play with other kind of firmware (Rust/C/whatever) and you have to flash ELF or `hex` files, here is a little helper (put it on your `.bashrc` or `.zshrc`):
 
 ```shell script
 function adafruit-nrfutil-hex() {
