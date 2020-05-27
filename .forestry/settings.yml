@@ -19,6 +19,7 @@ file_template: ":filename:"
 build:
   preview_env:
   - HUGO_ENV=development
+  - HUGO_VERSION=latest
   preview_output_directory: public
   preview_docker_image: forestryio/hugo:latest
   mount_path: "/srv"
