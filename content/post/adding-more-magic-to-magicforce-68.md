@@ -2,7 +2,7 @@
 build = "failing"
 date = 2020-05-27T14:15:34Z
 image = "/img/hardware/magicforce-68-reversing/image.jpeg"
-tags = ["hardware"]
+tags = ["hardware", "reversing", "microcontrollers", "bluetooth", "arduino"]
 title = "Adding more magic to the Magicforce 68"
 url = "hardware/magicforce-68-reversing"
 writer = "dzervas"
