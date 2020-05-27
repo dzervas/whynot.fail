@@ -5,14 +5,28 @@ fields:
 - type: text
   name: writer
   label: writer
-- type: text
-  name: build
+- name: build
+  type: select
+  default: unknown
+  config:
+    required: true
+    options:
+    - unknown
+    - failing
+    - passing
+    source:
+      type: simple
+      section: 
+      file: 
+      path: 
   label: build
 - type: datetime
   name: date
   label: date
-- type: list
-  name: tags
+  default: now
+- name: tags
+  type: tag_list
+  default: []
   label: tags
 - type: text
   name: title
@@ -20,8 +34,10 @@ fields:
 - type: text
   name: url
   label: url
+  description: Permalink to the post
 - type: file
   name: image
   label: image
+  description: Header image
 pages:
 - content/post/micropython-on-bluefruit-nrf52832-with-j-link-and-openocd.md
