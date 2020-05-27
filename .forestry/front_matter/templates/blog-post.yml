@@ -41,4 +41,5 @@ fields:
   label: image
   description: Header image
 pages:
+- content/post/adding-more-magic-to-magicforce-68.md
 - content/post/micropython-on-bluefruit-nrf52832-with-j-link-and-openocd.md
