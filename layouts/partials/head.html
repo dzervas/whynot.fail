@@ -20,7 +20,7 @@
 <meta name="googlebot" content="index,follow,snippet,archive">
 <link rel="stylesheet" id="ct-tracks-google-fonts-css" href="https://fonts.googleapis.com/css?family=Raleway%3A400%2C700&amp;subset=latin%2Clatin-ext&amp;ver=4.7.2" type="text/css" media="all">
 <!-- Upgraded to Font Awesome 5.3 no need for local files using all.css so all icons are available -->
-<link rel="preload" as="style" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" type="text/css" media="all">
 
 {{ $css := resources.Match "css/*" | resources.Concat "css/bundle.css" | minify | fingerprint }}
 <style type="text/css" media="all">{{ $css.Content | safeCSS }}</style>
@@ -46,4 +46,3 @@
 	<script defer src="https://unpkg.com/photoswipe/dist/photoswipe.min.js" crossorigin="anonymous"></script>
 	<script defer src="https://unpkg.com/photoswipe/dist/photoswipe-ui-default.min.js" crossorigin="anonymous"></script>
 {{ end }}
-
