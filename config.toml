@@ -23,12 +23,36 @@ copyright = [
 [[menu.main]]
 name = "Home"
 url = "/"
-weight = 1
+weight = 2
 
 [[menu.main]]
 name = "About"
 url = "about/"
+weight = 3
+
+[[menu.main]]
+identifier = "webring"
+name = "Tech Makers Webring"
+url = "https://webring.stavros.io/"
+weight = 1
+
+[[menu.main]]
+parent = "webring"
+name = "Previous"
+url = "https://webring.stavros.io/prev"
+weight = 1
+
+[[menu.main]]
+parent = "webring"
+name = "Random"
+url = "https://webring.stavros.io/random"
 weight = 2
+
+[[menu.main]]
+parent = "webring"
+name = "Next"
+url = "https://webring.stavros.io/next"
+weight = 3
 
 [params.social]
 #email = "dzervas@dzervas.gr"
