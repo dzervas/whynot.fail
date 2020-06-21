@@ -2,7 +2,6 @@ baseURL = "https://whynot.fail"
 disablePathToLower = true
 languageCode = "en-us"
 title = "WhyNot.Fail"
-theme = "hugo-nederburg-theme"
 paginate = 5
 preserveTaxonomyNames = true
 assetDir = "static"
