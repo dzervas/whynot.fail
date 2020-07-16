@@ -7,9 +7,9 @@ public_folder: "/img"
 
 # Git backend
 backend:
-  name: github
+  name: git-gateway
   branch: master
-  repo: dzervas/whynot.fail
+  # repo: dzervas/whynot.fail
 
 # Content structure
 collections:
