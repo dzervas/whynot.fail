@@ -12,8 +12,8 @@ url: /factory/plastic-v01
 image: /img/factory/plastic-v01/image.jpg
 ---
 
-All I ever wanted, was a tiny Chinese factory inside my house. I’m not talking
-about the people, suicidal thoughts or racism against Chinese people, I’m
+All I ever wanted, was a tiny Chinese factory inside my house. I'm not talking
+about the people, suicidal thoughts or racism against Chinese people, I'm
 talking about being able to make stuff. Quickly and effortlessly. So, instead of
 paying a factory and waiting for a month, I'd like to pay 10x the cost and cry
 myself to sleep, before I can get what I want. But it's a one time thing :)

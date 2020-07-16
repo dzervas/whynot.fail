@@ -1,0 +1,50 @@
+# Do not commit drafts
+publish_mode: editorial_workflow
+
+# Media folders
+media_folder: "static/img"
+public_folder: "/img"
+
+# Git backend
+backend:
+  name: github
+  branch: master
+  repo: dzervas/whynot.fail
+
+# Content structure
+collections:
+  - name: "blog" # Used in routes, e.g., /admin/collections/blog
+    label: "Blog" # Used in the UI
+    folder: "content/post" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    # slug: "{{slug}}"
+    fields: # The fields for each document, usually in front matter
+      - label: "Writer"
+        name: "writer"
+        widget: "string"
+        default: "dzervas"
+        required: true
+      - label: "Build Status"
+        name: "build"
+        widget: "list"
+        allow_add: false
+        default: ["unknown", "passing", "failing"]
+        required: true
+      - label: "Publish Date"
+        name: "date"
+        widget: "datetime"
+        required: true
+      - label: "Tags"
+        name: "tags"
+        widget: "list"
+        allow_add: true
+        required: true
+      - label: "URL"
+        name: "url"
+        widget: "string"
+        default: "//{{slug}}"
+        required: true
+        pattern: ['/\w+/.*', "Must be in the form /<tag>/<slug>"]
+      - label: "Featured Image"
+        name: "image"
+        widget: "image"
