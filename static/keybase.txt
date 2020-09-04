@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/dzervas
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://whynot.fail
+  * I am dzervas (https://keybase.io/dzervas) on keybase.
+  * I have a public key ASAOwtR71Rk56PHSqVVgri0oSV6H0ZHkGSxN6P7AQFU9Cwo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "01019cdf00ac28ffd06edd61152b1c68c3e0609b928b806566255b274f29339f48240a",
+      "host": "keybase.io",
+      "kid": "01200ec2d47bd51939e8f1d2a95560ae2d28495e87d191e4192c4de8fec040553d0b0a",
+      "uid": "4b03a5d3d0bc81bec1da5a677a404b00",
+      "username": "dzervas"
+    },
+    "merkle_root": {
+      "ctime": 1599245884,
+      "hash": "0078e79fe8a4164a26f9124d0a6c8d52014cc1ede0eb7d7eaab0515ef958a16b4703e5c36aefe1c75a6a9688b96926dc7b50d0d9feb1807d85f0090882ad4530",
+      "hash_meta": "75961b36e3464078af247c9130a57289601727fe4585e1ef5b6b233272d8843f",
+      "seqno": 17476906
+    },
+    "service": {
+      "entropy": "7rzQm+WylCF6cR86PEvMAw2F",
+      "hostname": "whynot.fail",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "5.5.1"
+  },
+  "ctime": 1599245960,
+  "expire_in": 504576000,
+  "prev": "abe3aa95f3c1bec93cd834f0c047b271a14e20eaec6d3a12cb2f76a8c57e3ecf",
+  "seqno": 81,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgDsLUe9UZOejx0qlVYK4tKEleh9GR5BksTej+wEBVPQsKp3BheWxvYWTESpcCUcQgq+OqlfPBvsk82DTwwEeycaFOIOrsbToSyy92qMV+Ps/EINM08IGvi1emco9EJaoJfZl7N9ZajLXyIHnUS8/M69aPAgHCo3NpZ8RAGRp8CLXz7n7Q40oqD8nbgLUIj2ySjubZfyLHGDMtliC18FDcD9hCw+83kfbByBmn+cBFyNeqqHPMqANAOrapB6hzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIOQghjORIJdXPODz/rlgg+X3Tgf5Q93So7KDz7Xb0EDjo3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/dzervas
+
+==================================================================
