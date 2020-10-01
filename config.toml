@@ -5,6 +5,7 @@ title = "WhyNot.Fail"
 paginate = 5
 preserveTaxonomyNames = true
 assetDir = "static"
+enableRobotsTXT = true
 
 [author]
 name = "Dimitris Zervas"
