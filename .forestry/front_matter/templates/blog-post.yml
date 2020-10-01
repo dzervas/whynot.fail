@@ -7,6 +7,8 @@ fields:
   name: writer
   label: writer
   default: dzervas
+  config:
+    required: true
 - name: build
   type: select
   default: unknown
@@ -26,6 +28,8 @@ fields:
   name: date
   label: date
   default: now
+  config:
+    required: true
 - name: tags
   type: tag_list
   default: []
@@ -33,10 +37,14 @@ fields:
 - type: text
   name: title
   label: title
+  config:
+    required: true
 - type: text
   name: url
   label: url
   description: Permalink to the post
+  config:
+    required: true
 - type: file
   name: image
   label: image
