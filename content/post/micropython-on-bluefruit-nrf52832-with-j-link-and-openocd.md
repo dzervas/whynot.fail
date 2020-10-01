@@ -1,13 +1,14 @@
-+++
-build = "passing"
-date = 2020-04-22T21:00:00Z
-image = ""
-tags = ["notes", "hardware"]
-title = "MicroPython on Bluefruit NRF52832 with J-Link and openocd"
-url = "notes/micropython-on-nrf52832-with-openocd"
-writer = "dzervas"
+---
+writer: dzervas
+build: failing
+date: "2020-04-22"
+tags:
+- notes
+- hardware
+title: MicroPython on Bluefruit NRF52832 with J-Link and openocd
+url: notes/micropython-on-nrf52832-with-openocd
+---
 
-+++
 First of all, lets flash Adafruit's NRF52 bootloader for easier future flashing
 
 My J-Link was "Broken. No longer used" - or so the JLink tools said (AKA bought from e-bay). So I had to go to [openocd](http://openocd.org)).
