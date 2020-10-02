@@ -4,9 +4,8 @@ hide_body: false
 display_field: title
 fields:
 - type: text
-  name: writer
-  label: writer
-  default: dzervas
+  name: title
+  label: Title
   config:
     required: true
 - name: build
@@ -23,10 +22,10 @@ fields:
       section: 
       file: 
       path: 
-  label: build
+  label: Build
 - type: datetime
   name: date
-  label: date
+  label: Date
   default: now
   config:
     required: true
@@ -35,22 +34,23 @@ fields:
 - name: tags
   type: tag_list
   default: []
-  label: tags
-- type: text
-  name: title
-  label: title
-  config:
-    required: true
+  label: Tags
 - type: text
   name: url
-  label: url
+  label: URL
   description: Permalink to the post
   config:
     required: true
 - type: file
   name: image
-  label: image
+  label: Head Image
   description: Header image
+- type: text
+  name: writer
+  label: Writer
+  default: dzervas
+  config:
+    required: true
 pages:
 - content/post/adding-more-magic-to-magicforce-68.md
 - content/post/micropython-on-bluefruit-nrf52832-with-j-link-and-openocd.md
