@@ -29,11 +29,7 @@ Now lets make those two KISS, run Rust on MCUs while using the Arduino Framework
 
 # HOw hArD CAn tHAT bE?
 
-{{<
-    figure src="/img/coding/rusty-arduino-bindings/how-hard-can-that-be.jpg"
-    caption="An intern designing a future proof API"
-
->}}
+![An intern designing a future proof API](/img/coding/rusty-arduino-bindings/how-hard-can-that-be.jpg)
 
 What I want to achieve is to be able to call `digitalRead` and `Serial.println`
 from Rust code that will run on my NRF52. I choose the NRF52 cause I want to

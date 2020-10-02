@@ -52,10 +52,7 @@ community? LOL NO. A FUCKING REPRAP DELTA PRINTER THAN NOBODY HAS EVER HEARD BEF
 I have no idea how I settled for that thing, really. Maybe the lack of money.
 The printer I'm talking about is [Rostock Mini](https://reprap.org/wiki/Rostock_mini).
 
-{{<
-	figure src="/img/factory/plastic-v01/crowd-dissaproves.jpg"
-	caption="You can see the raction of the 3D Printing community for my choice"
->}}
+![You can see the raction of the 3D Printing community for my choice](/img/factory/plastic-v01/crowd-dissaproves.jpg)
 
 So, let's start gathering parts: [3DHubs](https://www.3dhubs.com/) for 3D printed
 parts and eBay for everything else. Now great ideas started flying... Why get a
