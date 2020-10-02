@@ -75,16 +75,10 @@ are GT2 belts. So a good idea is carbon fiber rods. The printer was designed for
 5mm carbon fiber rods but I got 1m long 6mm OD carbon fiber rod and cut it by
 hand.
 
-{{< gallery >}}
-    {{< figure
-		src="/img/factory/plastic-v01/rostock-mini-carbon-rod.jpg"
-		caption="The carbon rods - clearly cut by hand"
-	>}}
-	{{< figure
-		src="/img/factory/plastic-v01/rostock-mini-broken-plastic.jpg"
-		caption="The carbon rod mounts - clearly \"post-processed\" with a drill"
-	>}}
-{{< /gallery >}}
+{{% gallery %}}
+![The carbon rods - clearly cut by hand](/img/factory/plastic-v01/rostock-mini-carbon-rod.jpg)
+![The carbon rod mounts - clearly "post-processed" with a drill](/img/factory/plastic-v01/rostock-mini-broken-plastic.jpg)
+{{% /gallery %}}
 
 The rods where not of the exactly same length and 3D printing teaches you that
 almost everything has to be precise as fuck. But that did not prove as huge of

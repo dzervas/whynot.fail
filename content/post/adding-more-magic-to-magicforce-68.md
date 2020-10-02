@@ -22,7 +22,9 @@ The first step in determining what I was against, was to at least partially disa
 
 After the 6 screws under the keyboard and removed, the bottom cover is free and can be carefully removed as well (it has wires to the mini-USB  connector board, so beware). The nice red PCB is now ready to be destroyed 😈
 
+{{< gallery >}}
 {{< figure src="/img/hardware/magicforce-68-reversing/magicforce_pcb_back.jpeg" caption="Pretty simple schematic, hackable to the bone" >}}
+{{< /gallery >}}
 
 This is what I collected:
 It uses the [Holtek HT68FB550](https://www.holtek.com/productdetail?p_p_auth=q0FpqQ4D&p_p_id=productvgpageportlet_WAR_holtekprodportlet&p_p_lifecycle=0&p_p_state=maximized&p_p_mode=view&_productvgpageportlet_WAR_holtekprodportlet_virtualGroupId=318) MCU - [Datasheet](https://www.holtek.com/documents/10179/116711/HT68FB540_550_560v170.pdf) - LQFP48 package

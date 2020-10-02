@@ -1,0 +1,6 @@
+{{- $thumbURL := .Destination -}}
+{{- if in resources .Destination -}}
+	{{- $thumbURL = ((resources.Get .Destination).Fit "1280x720").Permalink -}}
+{{- end -}}
+
+<img itemprop="thumbnail" src="{{ $thumbURL }}" alt="{{ .Text }}"/>

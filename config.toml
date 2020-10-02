@@ -11,6 +11,9 @@ metaDataFormat = "toml"
 [author]
 name = "Dimitris Zervas"
 
+[markup.goldmark.renderer]
+unsafe= true
+
 [params]
 slogan = "Why not fail?"
 description = "Cause when you fail, somebody has to laugh at you"
