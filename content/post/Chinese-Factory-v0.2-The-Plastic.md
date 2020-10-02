@@ -35,10 +35,7 @@ that this baby could achieve. Medium printing speed, medium noise, but the
 object was very nice. I also ordered with it TWO BlTouch clones. Not one (cause
 I knew), but TWO. Noice.
 
-{{< figure
-	src="/img/factory/plastic-v02/waiting-the-order.gif"
-	caption="Me waiting for a month my order to arrive"
->}}
+![Me waiting for a month my order to arrive](/img/factory/plastic-v02/waiting-the-order.gif)
 
 I saw a couple youtube videos, just to be sure and get some tips, but the build
 process was pretty simple. They nagged that it lacked a step or two or a screw,
@@ -61,10 +58,7 @@ Ok, everything works, I level the bed a bit and I fire up Cura for some serious
 to cool the parts all around the hotend. And it prints it smooth as fuck.
 I just couldn't believe it... I had a working 3D printer!
 
-{{< figure
-	src="/img/factory/plastic-v02/ventring.jpg"
-	caption="Ventring is loading :D"
->}}
+![Ventring is loading :D](/img/factory/plastic-v02/ventring.jpg)
 
 So now, lets mount the BLTouch. I start printing the model, but somehow, I
 forgot that the silver "ear" of the paper clip holding the bed is open on the
@@ -82,16 +76,13 @@ dead. Everything else seemed fine. Thermistors, heaters, extruder, all fine.
 The screen was completely optional to me, as I ran the printer via USB, so the
 real problem was XYZ. Debugging was officially in progress...
 
-{{< figure
-	src="/img/factory/plastic-v02/ender-3.jpg"
-	caption="You can see the \"ears\" of the clips on the left and right side of the bed - moments before the disaster"
->}}
+![You can see the \"ears\" of the clips on the left and right side of the bed - moments before the disaster](/img/factory/plastic-v02/ender-3.jpg)
 
 I was pretty sure that the stepper controllers were fried. They are fragile and
 it happens. Problem was that they were soldered on the PCB. BTW, a quick note:
 
 > Dear 3D printing community,
-> 
+>
 > That's enough. PLEASE understand that the 3D printing controllers break. A lot.
 > Removable microcontrollers and stepper drivers, are NOT optional.
 > I know you like overselling AVR based crap at $100+, but that's enough.
@@ -100,7 +91,7 @@ it happens. Problem was that they were soldered on the PCB. BTW, a quick note:
 > especially when dealing with stepper drivers, missing? For real? FUCK. OFF.
 > No 24v support? FUUUUCK. OOOOOFF.
 > Not breaking out unused GPIOs? FUUUUUUUUUUUUUCK. OOOOOOOOOOOOOOOOOFF.
-> 
+>
 > Thank you.
 
 After I was done panicking and crying over my dead printer, I remembered that
@@ -110,20 +101,11 @@ of `dir` & `step` to break out the pins and hook them on the backup stepper
 drivers that I had. I quickly soldered a circuit on protoboard
 (with solder bridges) to have a nice pinout and hooked the board on it.
 
-{{< gallery >}}
-	{{< figure
-		src="/img/factory/plastic-v02/pcb-steppers-broken-out.jpg"
-		caption="Here you can see the craftmanship that went into breaking out the stepper motors' pins..."
-	>}}
-	{{< figure
-		src="/img/factory/plastic-v02/custom-stepper-pcb-front.jpg"
-		caption="Front side of the custom stepper motor PCB"
-	>}}
-	{{< figure
-		src="/img/factory/plastic-v02/custom-stepper-pcb-front.jpg"
-		caption="Back side of the custom stepper motor PCB"
-	>}}
-{{< /gallery >}}
+{{% gallery %}}
+	![Here you can see the craftmanship that went into breaking out the stepper motors' pins...](/img/factory/plastic-v02/pcb-steppers-broken-out.jpg)
+	![Front side of the custom stepper motor PCB](/img/factory/plastic-v02/custom-stepper-pcb-front.jpg)
+	![Back side of the custom stepper motor PCB](/img/factory/plastic-v02/custom-stepper-pcb-front.jpg)
+{{% /gallery %}}
 
 Nope, XYZ still dead. Ugh...
 
@@ -181,10 +163,7 @@ After some playing around and overcoming some difficulties:
 - Glass bed with carbon finish is amazing - well worth the 20$
 - OctoPrint is quite neat & it can send you image notification on Telegram
 
-{{< figure
-	src="/img/factory/plastic-v02/print-successful.jpg"
-	caption="Example of successful print! :) The design was a bust, but who cares"
->}}
+![Example of successful print! :) The design was a bust, but who cares](/img/factory/plastic-v02/print-successful.jpg)
 
 The printer was actually fine. It still prints very nicely! I've print several
 stuff for home and the GF even got the handle of [tinkercad](https://tinkercad.com)

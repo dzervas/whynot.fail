@@ -49,10 +49,7 @@ connection to a russian server on port 1337 just opened? Remember when the
 connection would get killed and your server banned after 5' you got a shell?
 Well mage is willing to do its magic to stop this madness.
 
-{{< figure
-	src="/img/coding/rust-c-api-pain/blue-team-laughing.jpg"
-	caption="The blue team laughing at your windows/meterpreter/reverse_tcp"
->}}
+![The blue team laughing at your windows/meterpreter/reverse_tcp](/img/coding/rust-c-api-pain/blue-team-laughing.jpg)
 
 The idea is that you generate a binary payload (msf or whatever) and you "wrap"
 it using mage. By wrap I mean that the mage .so (or .dll) would be injected
@@ -155,10 +152,7 @@ This is the problem. I don't know how to pass TcpStream to a new static
 `Connection`. I tried making it static as well, `Box`ing and `Rc`ing them.
 Didn't fucking work. If anyone can help, please do so...
 
-{{< figure
-	src="/img/coding/rust-c-api-pain/code-after-trial-and-error.jpg"
-	caption="My code after all the \"tries\""
->}}
+![My code after all the \"tries\"](/img/coding/rust-c-api-pain/code-after-trial-and-error.jpg)
 
 ---
 

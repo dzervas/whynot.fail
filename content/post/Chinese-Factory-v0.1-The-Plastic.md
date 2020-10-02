@@ -110,10 +110,7 @@ Uuugh... Some time passes and I finally find a CNC, right in my city, Heraklion.
 YEYA. I cut the base DXFs in a CNC! YEYA!!! Wait, that doesn't seem right. The
 holes are way off. No...
 
-{{< figure
-	src="/img/factory/plastic-v01/rostock-mini-base.jpg"
-	caption="The base is clearly completely disoriented, as well as my workspace"
->}}
+![The base is clearly completely disoriented, as well as my workspace](/img/factory/plastic-v01/rostock-mini-base.jpg)
 
 But STILL, I thought that this piece of crap might be able to work, so lets move
 on...

@@ -49,10 +49,7 @@ Then *poof*, out of nowhere: use a whole domain, or a subdomain that points
 at a DNS server inside my home network, just to prove LE that you own it
 and use the signed certificates however I like.
 
-{{< figure
-	src="/img/homelab/lets-encrypt-the-house/the-idea.gif"
-	caption="I miss Futurama so fucking much..."
->}}
+![I miss Futurama so fucking much...](/img/homelab/lets-encrypt-the-house/the-idea.gif)
 
 At that point, I thought that this was kinda abusing Let's Encrypt,
 but then again, isn't that how VPCs work now?
@@ -72,10 +69,7 @@ to my server over VPN? Bingo! :D
 
 ## ACME challenges
 
-{{< figure
-	src="/img/homelab/lets-encrypt-the-house/acme.jpeg"
-	caption="It's widely known that ACME can be very challenging when it comes to safe tool usage"
->}}
+![It's widely known that ACME can be very challenging when it comes to safe tool usage](/img/homelab/lets-encrypt-the-house/acme.jpeg)
 
 Let's Encrypt is a CA that issues certificates for free AND automatically.
 It's really amazing. They did the web a better place!
@@ -216,7 +210,7 @@ We can reference the variables anywhere using the `$<name>` notation.
 
 Next we have a function definition with `@def &<name>([arguments...]) = {<rules}`.
 
-We can call the function with the `&<name>([arguments...]);` notation. 
+We can call the function with the `&<name>([arguments...]);` notation.
 
 Now about the rules. This happens after the above piece of "code" executes:
 
@@ -228,7 +222,7 @@ Now about the rules. This happens after the above piece of "code" executes:
    otherwise wireguard will block the packet as it's not in the `AllowedIPs`
 4. (last line) Keep track of what packet has changed addresses and change them
    back (or do other stuff) when the answer comes back from the acme-dns server
-   
+
 ### Set up acme-dns
 
 Well that's easy - docker. End of story
@@ -255,9 +249,6 @@ generated & stored. I went with traefik and will describe it in a next post.
 Until then, check out acme-dns [clients](https://github.com/joohoi/acme-dns#clients)
 on how to use acme-dns!
 
-{{< figure
-	src="/img/homelab/lets-encrypt-the-house/obama-done.jpeg"
->}}
+![](/img/homelab/lets-encrypt-the-house/obama-done.jpeg)
 
 Have fun & stay safe!
-

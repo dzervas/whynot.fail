@@ -22,9 +22,7 @@ The first step in determining what I was against, was to at least partially disa
 
 After the 6 screws under the keyboard and removed, the bottom cover is free and can be carefully removed as well (it has wires to the mini-USB  connector board, so beware). The nice red PCB is now ready to be destroyed 😈
 
-{{< gallery >}}
-{{< figure src="/img/hardware/magicforce-68-reversing/magicforce_pcb_back.jpeg" caption="Pretty simple schematic, hackable to the bone" >}}
-{{< /gallery >}}
+![Pretty simple schematic, hackable to the bone](/img/hardware/magicforce-68-reversing/magicforce_pcb_back.jpeg)
 
 This is what I collected:
 It uses the [Holtek HT68FB550](https://www.holtek.com/productdetail?p_p_auth=q0FpqQ4D&p_p_id=productvgpageportlet_WAR_holtekprodportlet&p_p_lifecycle=0&p_p_state=maximized&p_p_mode=view&_productvgpageportlet_WAR_holtekprodportlet_virtualGroupId=318) MCU - [Datasheet](https://www.holtek.com/documents/10179/116711/HT68FB540_550_560v170.pdf) - LQFP48 package
@@ -75,11 +73,11 @@ All LEDs have a common cathode on Pin 39 - `PA5/SDIA/TP1_0` and a common anode t
 
 These are all the data that I gathered. Also, (spoiler) I ended up desoldering all of the switches to create my own keyboard so I got access to the front of the PCB. It's empty, but it's VERY time consuming to remove all the buttons so here are some photos:
 
-{{< gallery >}}
-{{< figure src="/img/hardware/magicforce-68-reversing/magicforce_pcb_front.jpeg" caption="Full front side of the PCB" >}}
-{{< figure src="/img/hardware/magicforce-68-reversing/magicforce_pcb_front_botright.jpeg" caption="Middle bottom  - space button" >}}
-{{< figure src="/img/hardware/magicforce-68-reversing/magicforce_pcb_front_middle.jpeg" caption="Bottom right - arrows & headers" >}}
-{{< /gallery >}}
+{{% gallery %}}
+![Full front side of the PCB](/img/hardware/magicforce-68-reversing/magicforce_pcb_front.jpeg)
+![Middle bottom  - space button](/img/hardware/magicforce-68-reversing/magicforce_pcb_front_botright.jpeg)
+![Bottom right - arrows & headers](/img/hardware/magicforce-68-reversing/magicforce_pcb_front_middle.jpeg)
+{{% /gallery %}}
 
 # The hack
 
@@ -98,15 +96,15 @@ There was a side idea, that apart from the regular bluetooth keyboard functional
 
 I was forced to write the whole firmware from scratch in Arduino. Ugh... "Δε γαμιεται..." (roughly translates to "Fuck it..." in Greek). I'll do it. I'll hook the rows & columns of the keyboard, connectt them to my MCU and control them. I was sure that the on-board MCU won't interfere (it did) and it'll work like a charm (it didn't) and I'll throw in an OLED as well (I didn't). But before that, let's write & test the firmware. Then I'll solder wires on the PCB.
 
-{{< figure src="/img/hardware/magicforce-68-reversing/test_with_keypad_oled.jpeg" caption="The test setup - the MCU, a keypad & an OLED" >}}
+![The test setup - the MCU, a keypad & an OLED](/img/hardware/magicforce-68-reversing/test_with_keypad_oled.jpeg)
 
 There you go, [Plikter](https://github.com/dzervas/plikter). It is comprised of the firmware that runs on the feather and 2 daisy chained shift registers ([TI CD4021BE](https://www.arduino.cc/en/uploads/Tutorial/TI_CD4021.pdf)) that read the columns as there are not enough pins on the feather - and of course these are on a custom board whose gerbers you'll find in the repo - made with a plotter following the etching method described perfectly by [stavros](https://www.stavros.io/posts/make-pcbs-at-home/). Soldering time!
 
-{{< gallery >}}
-{{< figure src="/img/hardware/magicforce-68-reversing/plikter_pcb_finished.jpeg" caption="The Plikter board - just 2 shift registers daisy chained" >}}
-{{< figure src="/img/hardware/magicforce-68-reversing/plikter_hooks_finished.jpeg" caption="Keyboard hooks bottom - wires from rows to the MCU & columnns to the Plikter board" >}}
-{{< figure src="/img/hardware/magicforce-68-reversing/plikter_hooks_top.jpeg" caption="Keyboard hooks from top" >}}
-{{< /gallery >}}
+{{% gallery %}}
+![The Plikter board - just 2 shift registers daisy chained](/img/hardware/magicforce-68-reversing/plikter_pcb_finished.jpeg)
+![Keyboard hooks bottom - wires from rows to the MCU & columnns to the Plikter board](/img/hardware/magicforce-68-reversing/plikter_hooks_finished.jpeg)
+![Keyboard hooks from top](/img/hardware/magicforce-68-reversing/plikter_hooks_top.jpeg)
+{{% /gallery %}}
 
 # The outcome
 
