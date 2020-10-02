@@ -30,6 +30,8 @@ fields:
   default: now
   config:
     required: true
+    date_format: DD/MM/YYYY
+    export_format: YYYY-MM-DD
 - name: tags
   type: tag_list
   default: []
