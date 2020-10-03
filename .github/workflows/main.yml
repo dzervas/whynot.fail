@@ -10,8 +10,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-        with:
-          submodules: true
+
+      - name: Setup NPM
+        uses: actions/setup-node@v1
+      - name: Install dependencies
+        run: npm install
 
       - name: Hugo setup
         uses: peaceiris/actions-hugo@v2

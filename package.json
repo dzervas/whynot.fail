@@ -1,0 +1,6 @@
+{
+	"dependencies": {
+		"@fortawesome/fontawesome-free": "*",
+		"fontsource-raleway": "*"
+	}
+}
