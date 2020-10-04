@@ -49,13 +49,7 @@ window.addEventListener("DOMContentLoaded", function (event) {
 		request.addEventListener("load", function (event) {
 			lookup = {};
 			index = lunr(function () {
-				// Uncomment the following line and replace de by the right language
-				// code to use a lunr language pack.
-
-				// this.use(lunr.de);
-
 				this.ref("uri");
-
 				// If you added more searchable fields to the search index, list them here.
 				this.field("title");
 				this.field("content");
@@ -95,7 +89,6 @@ window.addEventListener("DOMContentLoaded", function (event) {
 		else
 			title.textContent = `Found ${results.length} results for “${term}”`;
 		target.appendChild(title);
-		document.title = title.textContent;
 
 		var template = document.getElementById("search-result-template");
 		for (var result of results) {
@@ -106,36 +99,11 @@ window.addEventListener("DOMContentLoaded", function (event) {
 			element.querySelector(".summary-title-link").href = doc.uri;
 			element.querySelector(".summary-title-link").textContent = doc.title;
 			var termIndex = doc.content.search(term);
-			element.querySelector(".summary").textContent = doc.content.substring(termIndex - 16, termIndex + 16) + '...';
+			element.querySelector(".summary").textContent = "..." + doc.content.substring(termIndex - 16, termIndex + 16) + "...";
 			element.querySelector(".tags").textContent = doc.tags.join(", ");
 			target.appendChild(element);
 		}
 
 		searchDone();
-	}
-
-	// This matches Hugo's own summary logic:
-	// https://github.com/gohugoio/hugo/blob/b5f39d23b8/helpers/content.go#L543
-	function truncate(text, minWords) {
-		var match;
-		var result = "";
-		var wordCount = 0;
-		var regexp = /(\S+)(\s*)/g;
-		while (match = regexp.exec(text)) {
-			wordCount++;
-			if (wordCount <= minWords)
-				result += match[0];
-			else {
-				var char1 = match[1][match[1].length - 1];
-				var char2 = match[2][0];
-				if (/[.?!"]/.test(char1) || char2 == "\n") {
-					result += match[1];
-					break;
-				}
-				else
-					result += match[0];
-			}
-		}
-		return result;
 	}
 }, false);
