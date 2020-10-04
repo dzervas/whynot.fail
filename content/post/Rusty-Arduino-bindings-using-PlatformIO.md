@@ -82,7 +82,7 @@ I started fumbling with platformio to incorporate bindgen execution, Rust compil
 
 I could build blinky with one command, good.
 
-![Too soon...](/img/64176833-silhouette-of-happy-people-jumping-over-firework-concept-about-having-fun-and-success.jpg)
+![Too soon...](/img/happy-fireworks.jpeg)
 
 # Doing something usefull
 
