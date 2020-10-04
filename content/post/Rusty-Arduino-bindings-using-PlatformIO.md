@@ -11,18 +11,19 @@ tags:
 title: Rusty Arduino bindings using PlatformIO
 url: "/coding/rusty-arduino-bindings"
 image: "/img/coding/rusty-arduino-bindings/image.jpg"
-draft: true
 
 ---
-Oh Rust, how much I love you... Love at ~~first~~ third sight, like I had with my English teacher. She was ugly but I was 10 and she was a female that stood near me for an hour and talked to me in a soothing voice. That's what Rust is, ugly but it's there for you with a calm voice.
+Oh Rust, how much I love you... Love at ~~first~~ third sight, like I had with my English teacher. She was ugly but I was 10 and she was a female that stood near me for an hour and talked to me in a soothing voice. That's what Rust is, ugly but it's there for you with a soothing voice.
 
 <!--more-->
 
-On the other side we have C++ that the Arduino Framework is written on. Classes here and there, mixed with C, requiring a 3 day workshop to understand what's the "standard" way of blinking a LED - hence the headache of each Arduino library taking the matters on their own hands. I hate reading C++ by the way.
+On the other side we have C++ that the Arduino Framework is written on. Classes here and there, mixed with C, requiring a 3 day workshop to understand what's the "standard" way of blinking a LED - hence the headache of each Arduino library taking the matters on their own hands. I hate reading C++ by the way and don't know how to write it. That's why I want to just forget about it and just call it from Rust.
 
-I'm gonna use [PlatformIO](platformio.org/) which is the swiss-army-knife for the Arduino Framework - manages libraries, board definitions, toolchains, flashing... Everything that you'd possibly need to write and deploy code to an MCU.
+I'm gonna use [PlatformIO](platformio.org/) which is the swiss-army-knife for the Arduino Framework - manages libraries, board definitions, toolchains, flashing... Everything that you'd possibly need to write and deploy code to an MCU. Apart from Rust. pio knows nothing about Rust and was never intended to do so.
 
 Now lets make those two KISS, run Rust on MCUs while using the Arduino Framework!
+
+TL;DR: My attempt lives in [this](https://github.com/dzervas/platformio-arduino-rust) repo. I failed.
 
 # HOw hArD CAn tHAT bE?
 
@@ -36,7 +37,7 @@ support for it, unlike XTensa (ESP32/8266) and AVR (ATMega/ATTiny).
 First of all, let's lay down some ground rules on HOW I am willing to achieve that:
 
 * I'm not re-writing Arduino code - I'm not gonna implement the whole standard library, I have a life to live as well
-* I'm not re-writing Rust `std`
+* I'm not re-writing Rust `std - see above`
 * Automatic binding creation with [bindgen](https://github.com/rust-lang/rust-bindgen) - I won't write a different crate for each and every target
 * At least some basic support for some 3rd party Arduino libraries - such as the [BlueFruit](https://github.com/adafruit/Adafruit_nRF52_Arduino/tree/master/libraries/Bluefruit52Lib) that gives me all the core Bluetooth functionality for the NRF52 and is very well maintained
 * Minimum boilerplate so that all this work does not remain a "Blink.rs"
@@ -80,6 +81,8 @@ There's a reason that I don't have exact commands of the above steps so everyone
 I started fumbling with platformio to incorporate bindgen execution, Rust compilation and final code linking with just a `platformio run`. Then I met [SCons](https://scons.org/). SCons is the build system that platformio uses to put all these bits and pieces together: toolchains, frameworks, compilers, linkers, linker scripts, source code, header files, etc. I tried to manually change variables, redefine functions, and all the good monkey patching that Python can do but it was a dead end. My brain stack pointer was always overflowing, I just couldn't follow what was done where and why. Nevertheless, I kinda [did it](https://github.com/dzervas/platformio-arduino-rust/blob/master/cargo_build.py). Didn't have a good time though.
 
 I could build blinky with one command, good.
+
+![Too soon...](/img/64176833-silhouette-of-happy-people-jumping-over-firework-concept-about-having-fun-and-success.jpg)
 
 # Doing something usefull
 
