@@ -13,7 +13,7 @@
 	{{ $writer := $scratch.Get "writer" }}
 	<div id="loop-container" class="loop-container">
 		{{ if and (isset .Params "image") .Params.image }}
-				{{ $image := (resources.Get .Params.image).Fit "1080x1920" }}
+				{{ $image := (resources.Get .Params.image).Fit "1280x720" }}
 				<div class="post type-post status-publish format-standard has-post-thumbnail hentry category-design tag-design tag-standard-2 tag-tagalicious tag-travel entry full-without-featured odd excerpt-1">
 				<div class='featured-image lazy lazy-bg-image' {{ if isset .Site.Params "usepostimgfolder" }} data-background="{{ .Permalink }}{{ $image.Permalink }}"{{ else }} data-background="{{ $image.Permalink | absURL }}"{{ end }}>
 			</div>

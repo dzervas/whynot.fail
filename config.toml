@@ -36,7 +36,7 @@ weight = 2
 
 [[menu.main]]
 identifier = "webring"
-name = "Tech Makers Webring"
+name = "Webring"
 url = "https://webring.stavros.io/"
 weight = 3
 
@@ -59,22 +59,13 @@ url = "https://webring.stavros.io/next"
 weight = 3
 
 [module]
+    [[module.mounts]]
+    source = "static"
+    target = "static"
 
-[[module.mounts]]
-source = "node_modules/@fortawesome/fontawesome-free/css/all.min.css"
-target = "static/css/101-fontawesome-all.min.css"
-
-[[module.mounts]]
-source = "node_modules/fontsource-raleway/latin-ext-400-normal.css"
-target = "static/css/101-railway-400.css"
-
-[[module.mounts]]
-source = "node_modules/fontsource-raleway/700.css"
-target = "static/css/101-railway-700.css"
-
-[[module.mounts]]
-source = "node_modules/fontsource-raleway/files/"
-target = "static/files/"
+    [[module.mounts]]
+    source = "node_modules/lunr/lunr.min.js"
+    target = "static/vendor/lunr.min.js"
 
 [params.social]
 #email = "dzervas@dzervas.gr"
@@ -92,3 +83,12 @@ email = "dzervas@dzervas.gr"
 bio = "Creator of this site and lover of fails."
 twitter = "https://twitter.com/_dzervas"
 github = "https://github.com/dzervas"
+
+[outputFormats.SearchIndex]
+basename = "search"
+mediaType = "application/json"
+isPlainText = true
+notAlternative = true
+
+[outputs]
+home = ["HTML", "RSS", "SearchIndex"]

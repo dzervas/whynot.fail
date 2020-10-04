@@ -38,6 +38,21 @@
 					{{ end }}
 				</li>
 			{{ end }}
+			<li class='menu-item-type-post_type menu-item-object-page' style='margin-left: 10px; '>
+				<input id="search-input" type="search" style="min-height: 30px; line-height: normal; background-color: #110800; font-weight: 700;" placeholder="Search" />
+				<ul class="sub-menu" id="search-results">
+
+				</ul>
+
+				<template id="search-result-template">
+					<li class='menu-item menu-item-type-post_type menu-item-object-page'>
+						<a class='summary-title-link' style='padding: 0;'></a>
+						<p class='summary' style='margin: 0;'></p>
+						<b>Tags:&nbsp;</b><i class='tags'></i>
+					</li>
+				</template>
+			</li>
 		</ul>
 	</div>
+
 </div>

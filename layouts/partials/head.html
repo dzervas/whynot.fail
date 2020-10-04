@@ -19,6 +19,7 @@
 <meta name="robots" content="all,follow">
 <meta name="googlebot" content="index,follow,snippet,archive">
 <link rel="stylesheet" id="ct-tracks-google-fonts-css" href="https://fonts.googleapis.com/css?family=Raleway:400,700&subset=latin&display=swap" type="text/css" media="all">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" type="text/css" media="all">
 
 {{ $css := resources.Match "css/*" | resources.Concat "css/bundle.css" | minify | fingerprint }}
 <style type="text/css" media="all">{{ $css.Content | safeCSS }}</style>
@@ -34,6 +35,10 @@
 <script src="https://unpkg.com/jquery/dist/jquery.min.js" crossorigin="anonymous"></script>
 <script defer src="https://unpkg.com/jquery-migrate/dist/jquery-migrate.min.js" crossorigin="anonymous"></script>
 <script defer src="{{ (resources.Get "js/production.min.js").Permalink }}"></script>
+{{ $lunr := resources.Get "js/lunr.min.js" | minify }}
+{{ $lunrSearch := resources.Get "js/lunr-search.js" | minify}}
+<script>{{ $lunr.Content | safeJS }}</script>
+<script>{{ $lunrSearch.Content | safeJS }}</script>
 
 {{ if $.IsPage }}
 	<link rel="stylesheet" href="https://unpkg.com/photoswipe/dist/photoswipe.css" crossorigin="anonymous" />
