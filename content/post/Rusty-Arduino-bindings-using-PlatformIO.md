@@ -14,10 +14,7 @@ image: "/img/coding/rusty-arduino-bindings/image.jpg"
 draft: true
 
 ---
-Oh Rust, how much I love you... Love at ~~first~~ third sight,
-like I had with my English teacher. She was ugly but I was 10 and she was
-a female that stood near me for an hour and talked to me in a calm voice.
-That's what Rust is, ugly but it's there for you with a calm voice.
+Oh Rust, how much I love you... Love at ~~first~~ third sight, like I had with my English teacher. She was ugly but I was 10 and she was a female that stood near me for an hour and talked to me in a soothing voice. That's what Rust is, ugly but it's there for you with a calm voice.
 
 <!--more-->
 
