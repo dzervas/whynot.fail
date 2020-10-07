@@ -102,9 +102,9 @@ drivers that I had. I quickly soldered a circuit on protoboard
 (with solder bridges) to have a nice pinout and hooked the board on it.
 
 {{% gallery %}}
-	![Here you can see the craftmanship that went into breaking out the stepper motors' pins...](/img/factory/plastic-v02/pcb-steppers-broken-out.jpg)
-	![Front side of the custom stepper motor PCB](/img/factory/plastic-v02/custom-stepper-pcb-front.jpg)
-	![Back side of the custom stepper motor PCB](/img/factory/plastic-v02/custom-stepper-pcb-front.jpg)
+![Here you can see the craftmanship that went into breaking out the stepper motors' pins...](/img/factory/plastic-v02/pcb-steppers-broken-out.jpg)
+![Front side of the custom stepper motor PCB](/img/factory/plastic-v02/custom-stepper-pcb-front.jpg)
+![Back side of the custom stepper motor PCB](/img/factory/plastic-v02/custom-stepper-pcb-front.jpg)
 {{% /gallery %}}
 
 Nope, XYZ still dead. Ugh...
