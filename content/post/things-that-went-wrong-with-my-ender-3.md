@@ -1,6 +1,6 @@
 +++
 build = "failing"
-date = 2020-10-08T00:00:00Z
+date = 2020-10-07T00:00:00Z
 image = "/img/ender-3-sad.jpg"
 tags = ["3D-printing", "ender-3", "rant", "factory"]
 title = "Things that went wrong with my Ender 3"
