@@ -109,7 +109,7 @@
 		{{end}}
 
 		{{ if .Site.Params.plausible }}
-			<script async defer data-domain="{{ .Site.Params.plausible }}" src="https://plausible.io/js/plausible.js"></script>
+			<script async defer data-domain="{{ .Site.Params.plausible }}" src="https://{{ .Site.Params.plausibleCustomDomain | default "plausible.io" }}/js/index.js"></script>
 		{{ end }}
 
 		{{ if .Site.Params.social.rss }}
