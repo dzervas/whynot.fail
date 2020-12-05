@@ -16,7 +16,8 @@ fi
 # Process the labels to tags
 export POST_TAGS=""
 export ADDITIONAL_DATA=""
-for label in ${POST_LABELS//,/ }; do
+IFS=","
+for label in ${POST_LABELS}; do
 	if grep -q ":" <<< "${label}"; then
 		ADDITIONAL_DATA=$(echo -en "${ADDITIONAL_DATA}\n${label}")
 	elif [ "${label}" != "published" ]; then
