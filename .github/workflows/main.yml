@@ -6,22 +6,24 @@ on:
     - master
   issues:
     types:
-    - labeled
+    - closed
+    - deleted
     - edited
+    - labeled
+    - unlabeled
+    - reopened
 
 # We have several possible workflows:
 # - Push to master (regular static site generator)
 # - Label an issue as "published" by the repo owner
 # - Edit an issue which is "published" by the repo owner
 
-# TODO: Remove a post when label is removed or when issue is closed
-
 jobs:
   build:
     # To see available associations: https://developer.github.com/v4/enum/commentauthorassociation/
     # Be careful that if this is left too open, it could result in arbitrary file
     # upload, as the filename is directly derived from the issue title
-    if: ${{ github.event_name != 'issues' || (github.event.issue.state == 'open' && github.event.issue.author_association == 'owner' && (github.event.label.name == 'published' || github.event.action == 'edited')) }}
+    if: ${{ github.event_name != 'issues' || github.event.issue.author_association == 'owner' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
@@ -36,6 +38,12 @@ jobs:
         with:
           extended: true
 
+      # If the trigger came from and issue and:
+      # - issue is open and
+      # - has a "published" label or
+      # - labeled as "published" and
+      # - is either: edited, labeled or reopened
+      # then, process it as a post
       - name: Publish issue post
         env:
           POST_AUTHOR: ${{ github.event.issue.user.login }}
@@ -44,7 +52,17 @@ jobs:
           POST_LABELS: ${{ join(github.event.issue.labels.*.name, ',') }}
           POST_TITLE: ${{ github.event.issue.title }}
         run: ./.github/issue_parser.sh > "content/post/${POST_TITLE}.md"
-        if: ${{ github.event_name == 'issues' }}
+        if: ${{ github.event_name == 'issues' && github.event.issue.state == 'open' && (contains(github.event.issue.labels.*.name, 'published') || github.event.label.name == 'published') && contains(fromJson('["edited", "labeled", "reopened"]'), github.event.action) }}
+
+      # If the trigger came from and issue and:
+      # - issue is not open or
+      # - doesn't have a "published" label or
+      # - unlabeled as "published" and
+      # - is either: closed, unlabeled or deleted
+      # then, remove the post
+      - name: Delete issue post
+        run: rm "content/post/${POST_TITLE}.md"
+        if: ${{ github.event_name == 'issues' && (github.event.issue.state != 'open' || !contains(github.event.issue.labels.*.name, 'published') || github.event.label.name == 'published') && contains(fromJson('["closed", "deleted", "unlabeled"]'), github.event.action) }}
 
       - name: Build site
         run: hugo --minify --gc
