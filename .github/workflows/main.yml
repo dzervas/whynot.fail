@@ -61,7 +61,9 @@ jobs:
       # - is either: closed, unlabeled or deleted
       # then, remove the post
       - name: Delete issue post
-        run: rm "content/post/${POST_TITLE}.md"
+        env:
+          POST_BODY: ${{ github.event.issue.body }}
+        run: rm "$(head -n 1 <<< ${POST_BODY} | cut -d, -f3)"
         if: ${{ github.event_name == 'issues' && (github.event.issue.state != 'open' || !contains(github.event.issue.labels.*.name, 'published') || github.event.label.name == 'published') && contains(fromJson('["closed", "deleted", "unlabeled"]'), github.event.action) }}
 
       - name: Build site
