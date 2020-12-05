@@ -32,7 +32,7 @@
 
 		<div class="excerpt-container">
 			<div class="excerpt-meta">
-				<span class="date">{{ .Date.Format "02 January" }}</span>
+				<span class="date">{{ .Date.Format "02 January '06" }}</span>
 
 				{{ if and (isset .Site.Params "authorlink") .Site.Params.authorLink }}
 					{{ if and (isset .Site.Params "author") .Site.Params.author }}
