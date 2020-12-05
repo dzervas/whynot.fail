@@ -4,9 +4,24 @@ on:
   push:
     branches:
     - master
+  issues:
+    types:
+    - labeled
+    - edited
+
+# We have several possible workflows:
+# - Push to master (regular static site generator)
+# - Label an issue as "published" by the repo owner
+# - Edit an issue which is "published" by the repo owner
+
+# TODO: Remove a post when label is removed or when issue is closed
 
 jobs:
   build:
+    # To see available associations: https://developer.github.com/v4/enum/commentauthorassociation/
+    # Be careful that if this is left too open, it could result in arbitrary file
+    # upload, as the filename is directly derived from the issue title
+    if: ${{ github.event_name != 'issues' || (github.event.issue.state == 'open' && github.event.issue.author_association == 'owner' && (github.event.label.name == 'published' || github.event.action == 'edited')) }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
@@ -21,12 +36,25 @@ jobs:
         with:
           extended: true
 
+      - name: Publish issue post
+        env:
+          POST_AUTHOR: ${{ github.event.issue.user.login }}
+          POST_BODY: ${{ github.event.issue.body }}
+          POST_DATE: ${{ github.event.issue.created_at }}
+          POST_LABELS: ${{ join(github.event.issue.labels.*.name, ',') }}
+          POST_TITLE: ${{ github.event.issue.title }}
+        run: ./.github/issue_parser.sh > "content/post/${POST_TITLE}.md"
+        if: ${{ github.event_name == 'issues' }}
+
       - name: Build site
         run: hugo --minify --gc
 
       - name: Deploy to gh-pages
-        uses: peaceiris/actions-gh-pages@v2.5.0
-        env:
-          ACTIONS_DEPLOY_KEY: ${{secrets.ACTIONS_DEPLOY_KEY}}
-          PUBLISH_BRANCH: gh-pages
-          PUBLISH_DIR: ./public
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          deploy_key: ${{secrets.ACTIONS_DEPLOY_KEY}}
+          publish_branch: gh-pages
+          publish_dir: ./public
+          # This is needed as every time we rebuild we don't know which issues
+          # are published and which not
+          keep_files: true
