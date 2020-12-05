@@ -26,6 +26,10 @@ jobs:
     if: ${{ github.event_name != 'issues' || github.event.issue.author_association == 'owner' }}
     runs-on: ubuntu-latest
     steps:
+      - name: Wait other runs
+        uses: softprops/turnstyle@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - uses: actions/checkout@v1
 
       - name: Setup NPM
@@ -63,7 +67,7 @@ jobs:
       - name: Delete issue post
         env:
           POST_BODY: ${{ github.event.issue.body }}
-        run: rm "$(head -n 1 <<< ${POST_BODY} | cut -d, -f3)"
+        run: rm -r ./public/$(echo -n "${POST_BODY}" | head -n 1 | cut -d, -f3)
         if: ${{ github.event_name == 'issues' && (github.event.issue.state != 'open' || !contains(github.event.issue.labels.*.name, 'published') || github.event.label.name == 'published') && contains(fromJson('["closed", "deleted", "unlabeled"]'), github.event.action) }}
 
       - name: Build site
