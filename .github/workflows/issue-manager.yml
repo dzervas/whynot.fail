@@ -62,5 +62,5 @@ jobs:
           git config --global user.name 'Issue Manager Action'
           git config --global user.email 'none'
           git add "content/post/${POST_TITLE}.md"
-          git commit -m "Reflecting post changes of issue #${{ github.event.issue.id }}"
+          git commit -m "Reflecting post changes of issue #${{ github.event.issue.number }}"
           git push
