@@ -1,0 +1,66 @@
+name: Hugo Build
+
+on:
+  issues:
+    types:
+    - closed
+    - deleted
+    - edited
+    - labeled
+    - unlabeled
+    - reopened
+
+# We have several possible workflows:
+# - Push to master (regular static site generator)
+# - Label an issue as "published" by the repo owner
+# - Edit an issue which is "published" by the repo owner
+
+jobs:
+  build:
+    # To see available associations: https://developer.github.com/v4/enum/commentauthorassociation/
+    # Be careful that if this is left too open, it could result in arbitrary file
+    # upload, as the filename is directly derived from the issue title
+    if: ${{ github.event.issue.author_association == 'owner' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ssh-key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+
+      # If the trigger came from and issue and:
+      # - issue is open and
+      # - has a "published" label or
+      # - labeled as "published" and
+      # - is either: edited, labeled or reopened
+      # then, process it as a post
+      - name: Publish issue post
+        env:
+          POST_AUTHOR: ${{ github.event.issue.user.login }}
+          POST_BODY: ${{ github.event.issue.body }}
+          POST_DATE: ${{ github.event.issue.created_at }}
+          POST_LABELS: ${{ join(github.event.issue.labels.*.name, ',') }}
+          POST_TITLE: ${{ github.event.issue.title }}
+        run: ./.github/issue_parser.sh > "content/post/${POST_TITLE}.md"
+        if: ${{ contains(fromJson('["edited", "labeled", "reopened"]'), github.event.action) && github.event.issue.state == 'open' && (contains(github.event.issue.labels.*.name, 'published') || github.event.label.name == 'published') }}
+
+      # If the trigger came from and issue and:
+      # - issue is not open or
+      # - doesn't have a "published" label or
+      # - unlabeled as "published" and
+      # - is either: closed, unlabeled or deleted
+      # then, remove the post
+      - name: Delete issue post
+        env:
+          POST_TITLE: ${{ github.event.issue.title }}
+        run: rm "content/post/${POST_TITLE}.md"
+        if: ${{ contains(fromJson('["closed", "deleted", "unlabeled"]'), github.event.action) && (github.event.issue.state != 'open' || !contains(github.event.issue.labels.*.name, 'published') || github.event.label.name == 'published') }}
+
+      - name: Commit changes
+        env:
+          POST_TITLE: ${{ github.event.issue.title }}
+        run: |
+          git config --global user.name 'Issue Manager Action'
+          git config --global user.email 'none'
+          git add "content/post/${POST_TITLE}.md"
+          git commit -m "Reflecting post changes of issue #${{ github.event.issue.id }}"
+          git push
