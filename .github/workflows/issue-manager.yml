@@ -23,6 +23,11 @@ jobs:
     if: ${{ github.event.issue.author_association == 'owner' }}
     runs-on: ubuntu-latest
     steps:
+      - name: Wait other runs
+        uses: softprops/turnstyle@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - uses: actions/checkout@v2
         with:
           ssh-key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
