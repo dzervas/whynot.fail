@@ -1,14 +1,15 @@
 ---
 writer: dzervas
 build: failing
-date: "2020-04-22"
+date: 2020-04-22
 tags:
 - notes
 - hardware
 title: MicroPython on Bluefruit NRF52832 with J-Link and openocd
 url: notes/micropython-on-nrf52832-with-openocd
----
+image: ''
 
+---
 First of all, lets flash Adafruit's NRF52 bootloader for easier future flashing
 
 My J-Link was "Broken. No longer used" - or so the JLink tools said (AKA bought from e-bay). So I had to go to [openocd](http://openocd.org)).
@@ -16,7 +17,10 @@ My J-Link was "Broken. No longer used" - or so the JLink tools said (AKA bought 
 Connect the J-Link (or any SWD capable debugger supported by openocd - even an FT232 breakout will do) to the target - I have a Bluefruit by Adafruit.
 
 ```shell script
+pip3 install --user intelhex
+
 git clone https://github.com/adafruit/Adafruit_nRF52_Bootloader
+git submodule update --init
 cd Adafruit_nRF52_Bootloader
 
 make BOARD=feather_nrf52832 all
