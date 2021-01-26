@@ -1,7 +1,6 @@
 +++
 build = "passing"
 date = 2021-01-26T00:00:00Z
-draft = true
 image = "/img/1a4e4dbf-30ef-4196-8780-09c05f3851bc.jpg"
 tags = ["3D-printing"]
 title = "Dry your filaments in the drawer"
@@ -223,23 +222,15 @@ display:
 
 ## Assembly of the drawer
 
-{{ gallery }}
-
-![Mount for the screen. 3D model here: https://www.tinkercad.com/things/6QjqsUzVEbo-nokia-3310-screen-mount](/img/e723c6d6-9461-4a1e-ae5d-52acf73942c5.jpg)
-
+{{% gallery %}}
+![Mount for the screen. 3D model [here](https://www.tinkercad.com/things/6QjqsUzVEbo-nokia-3310-screen-mount)](/img/e723c6d6-9461-4a1e-ae5d-52acf73942c5.jpg)
 ![The ESP skyscrapper screwed inside the drawer](/img/97f24523-15f7-4add-a306-7f46df47ae40.jpg)
-
 ![Heatbed connected to the ESP](/img/b24a5ecd-920b-4314-9fea-49dcb72508cc.jpg)
-
 ![A small hole to pass the 12V line (goes to a "lab" PSU lane that is always on)](/img/7196e71f-592e-49e1-93d1-976b3e64cf29.jpg)
-
 ![Did some cable management cause Prusa taught me that it matters](/img/7b9dda09-7308-4b9d-bf1c-5fb62611b17a.jpg)
-
 ![Previous photo but from another angle to fuck up your brain](/img/23009cda-d366-4255-b4ab-212602cfb598.jpg)
-
 ![It works! :tada:](/img/29238800-6b78-42c2-b587-9cd630694019.jpg)
-
-{{ /gallery }}
+{{% /gallery %}}
 
 ## So? Did it work? How well?
 
