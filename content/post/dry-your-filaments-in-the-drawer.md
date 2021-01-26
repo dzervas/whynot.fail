@@ -13,7 +13,9 @@ This is a weekend project to keep your filaments safe & dry. It's very easy to r
 
 <!--more-->
 
-After a long term abusive relationship with the 3D printing hobby, where I was brutally murdered several times as described \[here\](/factory/things-that-went-wrong-with-my-ender-3/), it was finally time to find a good partner and settle down. I bought the Original Prusa MK3S. I can finally print dickbutts using plastic. The printer just works, there's nothing more to add.
+After a long term abusive relationship with the 3D printing hobby, where I was brutally murdered several times as described [here](/factory/things-that-went-wrong-with-my-ender-3/), it was finally time to find a good partner and settle down. I bought the Original Prusa MK3S. I can finally print dickbutts using plastic. The printer just works, there's nothing more to add.
+
+![Prusa holding a poker face after the Ender 3 told it what it went through](/img/1a1ff1fb-250b-48bc-a1aa-fe6da47cb05c.jpg)
 
 But getting through so much, I can now fully appreciate my printer and do the best I can to keep it happy and a big part of that is to buy good quality filament (I use Prusament and Devil Design) and keep it dry (around 20% humidity and below 60C, for almost all filaments and materials).
 
@@ -21,13 +23,14 @@ But getting through so much, I can now fully appreciate my printer and do the be
 
 There are many ready made solutions to keep your filaments dry. Either purpose-built [filament dryers](https://www.printdry.com/) or generic vertical food dehydrators to dry a filament before use or after misplacing it inside your pool, but they don't take care of the permanent/long term storage.
 
-There are also filament containers, which take care of storage as well. This is the most used type as you just set the target humidity and forget it. Of course there are both ready made storage solutions <link> and DIY <prusa link>.
+There are also filament containers, which take care of storage as well. This is the most used type as you just set the target humidity and forget it. Of course there are both [ready made](https://www.printdry.com/) storage solutions and [DIY](https://blog.prusaprinters.org/dryboxes-and-alternative-spool-holders-not-only-for-multimaterial-upgrade_30525/).
 
-Dehydrating filament boils (hehe) downs more or less to the following building blocks:
+Dehydrating filament boils (hehe) down to more or less the following building blocks:
 
-- Moisture absorbers (silica gel, the small non-edible salt packs that you get with electronics)
-- Heat - just heat it up and moisture will evaporate
-- Dehydrator - no idea how they work, so I'll market it as "magic boxes that lower humidity"
+* Moisture absorbers (silica gel, the small non-edible salt packs that you get with electronics)
+* Heat - just heat it up and moisture will evaporate
+* Dehydrator - no idea how they work, so I'll market it as "magic boxes that lower humidity"
+* (There's also vacuum that I just learned at the time of writing but not at the time of project planning. More info: [https://www.youtube.com/watch?v=eqQRN9TUw08](https://www.youtube.com/watch?v=eqQRN9TUw08 "https://www.youtube.com/watch?v=eqQRN9TUw08"))
 
 I wanted something that integrates with my lab (no random plastic containers here and there) and be dirt cheap with stuff I had around - I had just spent a lot on a new printer and my lab starts to seem like a garbage disposal place from the various random parts I've collected over the years for "future projects" - lets make this one of them. So it's set, I'll build something on my own.
 
@@ -39,41 +42,45 @@ My target was to use as much "building blocks" as possible (aka have around), so
 
 Silica gel requires no further explanation - as packages from all over the world arrive at your house, you'll gonna build a big stock of them and never run out.
 
-For the heat part though, I took an interesting turn: Use the small heatbed I had when I tried to make a delta printer <delta link>.
+For the heat part though, I took an interesting turn: Use the small heatbed I had when I tried to make a [delta printer](/factory/plastic-v01/) and then spent thousands in therapy for PTSD.
 
-The electronics to control the heatbed was the easy part, I instantly knew I'd use one of the thousands ESP8266 WeMos Minis I had lying around (I had no need for WiFi or the horsepower, but it's a buck each and I had thousands), with a DHT22 temperature & humidity sensor and probably a screen to have a view on what's going on
+The electronics to control the heatbed was the easiest part - I instantly knew I'd use one of the thousands ESP8266 WeMos Minis I had lying around (I had no need for WiFi or the horsepower, but it's a buck each and I had thousands), with a DHT22 temperature & humidity sensor and probably a screen to have a view on what's going on
 
 So the plan was the following:
 
-- Make the temperature/humidity controller using the ESP
-- Install the heatbed and wire it to the ESP
-- Throw in silica gel
+* Make the temperature/humidity controller using the ESP
+* Install the heatbed and wire it to the ESP
+* Throw in silica gel bags
 
 ## Building the climate controller
 
 For this recipe you're going to need:
 
-- WeMos Mini
-- DHT22 temperature/humidity sensor (the white one, the blue is garbage)
-- PCD8544 screen (Nokia 3310 screen)
-- Some wire
-- (optionally) WeMos Dual Base
+* WeMos Mini
+* DHT22 temperature/humidity sensor (the white one, the blue is garbage)
+* PCD8544 screen (Nokia 3310 screen)
+* Some wire
+* (optionally) WeMos Dual Base
 
 Lego time! 🙂
 
 3 minutes later I had both my debugging and (almost) finalized hardware. Yey!
 
-At this point I should point out that you can use the exact same components but not in "WeMos mini shield" form and use a breadboard, solder on protoboard or even make a board with your 3d printer <stavros link>, but I wouldn't go that way. Just buy a bunch of WeMos shields from aliexpress for a couple of euros each and never go back. It's fun!
+![Lego for adults](/img/6ab1063c-a8a3-4b36-83a0-584a05bed0b2.jpg)
+
+At this point I should point out that you can use the exact same components but not in "WeMos mini shield" form and use a breadboard, solder on protoboard or even [make a board with your 3d printer](https://www.stavros.io/posts/make-pcbs-at-home/), but I wouldn't go that way. Just buy a bunch of WeMos shields from aliexpress for a couple of euros each and never go back. It's fun!
+
+I should point out that for no apparent reason, my obsession kicked in and I "had" to make a shield for the 5V voltage regulator (I wanted to feed from the same 12V line that I was gonna feed the bed) and a "backpack" shield on the relay that breaks out 2 pins to connect the bed thermistor to. I don't know why I didn't use a breadboard. My overengineering could not be tamed.
 
 ## Programming the climate controller
 
-Another cheat mode I used in this project apart from WeMos is <link> ESPHome. I love this lil fella...
+Another cheat mode I used in this project apart from WeMos is [ESPHome](https://esphome.io/). I love this lil fella!
 
-ESPHome is a firmware for the ESP family that transforms it to an IoT item. It's the programming equivalent of Lego (TM) for sensor-based projects in YAML. Definitely check it out - it's easier than you think and it does not need (but is able to talk to) any other home automation services, devices or bridges.
+ESPHome is a firmware for the ESP family that transforms it to an IoT device. It's the programming equivalent of Lego (TM) for sensor-based projects in YAML. Definitely check it out - it's easier than you think and it does not need (but is able to talk to) any other home automation services, devices or bridges.
 
 I say that it's a cheat as there's no need for WiFi capability per-se (although it's nice to watch the humidity on your phone) but I didn't NOT want it and ESPHome made the whole project much easier and give the ability to program/update it over the air for free (as in beer, freedom, time, the boobs and the rest). Noice.
 
-The resulting yaml I used:
+The resulting YAML I used (reading the thermistor was a tad tricky and I was stupid enough to lose the forum link that explained it):
 
 ```yaml
 esphome:
@@ -213,3 +220,33 @@ display:
       it.printf(0, 34, id(font3), "%.1f°C", id(filament_temp).state);
       it.printf(42, 34, id(font3), "%.0f°C", id(heatbed_temp).state);
 ```
+
+## Assembly of the drawer
+
+{{ gallery }}
+
+![](/img/e723c6d6-9461-4a1e-ae5d-52acf73942c5.jpg)
+
+![](/img/97f24523-15f7-4add-a306-7f46df47ae40.jpg)
+
+![](/img/b24a5ecd-920b-4314-9fea-49dcb72508cc.jpg)
+
+![](/img/7196e71f-592e-49e1-93d1-976b3e64cf29.jpg)
+
+![](/img/7b9dda09-7308-4b9d-bf1c-5fb62611b17a.jpg)
+
+![](/img/23009cda-d366-4255-b4ab-212602cfb598.jpg)
+
+![](/img/29238800-6b78-42c2-b587-9cd630694019.jpg)
+
+{{ /gallery }}
+
+## So? Did it work? How well?
+
+It actually did! And pretty well! I wouldn't want to change any humidity controlling related stuff. Here are some numbers and graphs to make you believe me:
+
+![Yey! Graphs and timelines!](/img/untitled.png)
+
+What I might fix at some point is to remove the upper wood lip to allow me to sit the filaments vertically - right now they're sitting horizontally and I can fit 4 of them.
+
+Another thing I'd like is to swap the relay with a mosfet to avoid that clicking sound - most times I don't even hear it but it would be neat, and as I'm at it design a proper 12V->5V shield.
