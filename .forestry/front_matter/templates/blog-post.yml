@@ -53,5 +53,6 @@ fields:
     required: true
 pages:
 - content/post/adding-more-magic-to-magicforce-68.md
+- content/post/dry-your-filaments-in-the-drawer.md
 - content/post/micropython-on-bluefruit-nrf52832-with-j-link-and-openocd.md
 - content/post/things-that-went-wrong-with-my-ender-3.md
