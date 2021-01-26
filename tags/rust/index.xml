@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>rust on WhyNot.Fail</title><link>https://whynot.fail/tags/rust/</link><description>Recent content in rust on WhyNot.Fail</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 04 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://whynot.fail/tags/rust/index.xml" rel="self" type="application/rss+xml"/><item><title>Rusty Arduino bindings using PlatformIO</title><link>https://whynot.fail/coding/rusty-arduino-bindings/</link><pubDate>Sun, 04 Oct 2020 00:00:00 +0000</pubDate><guid>https://whynot.fail/coding/rusty-arduino-bindings/</guid><description>&lt;p>Oh Rust, how much I love you&amp;hellip; Love at &lt;del>first&lt;/del> third sight, like I had with my English teacher. She was ugly but I was 10 and she was a female that stood near me for an hour and talked to me in a soothing voice. That&amp;rsquo;s what Rust is, ugly but it&amp;rsquo;s there for you with a soothing voice.&lt;/p></description></item><item><title>Rust, let me share your awesomeness with C</title><link>https://whynot.fail/coding/rust-c-api-pain/</link><pubDate>Wed, 04 Dec 2019 00:00:00 +0000</pubDate><guid>https://whynot.fail/coding/rust-c-api-pain/</guid><description>&lt;p>Ahoy reader, this is kinda an open letter. But mostly is my desperation in
+computer font. Rust why don&amp;rsquo;t you love me? I read about you, I spent nights
+and days. I fought the borrow checker monster for you. I learned about lifetimes.
+And you promised two things:&lt;/p>
+&lt;ul>
+&lt;li>&amp;ldquo;Systems&amp;rdquo; language, close to C&lt;/li>
+&lt;li>Memory safety&lt;/li>
+&lt;/ul>
+&lt;p>I just wanna call you via a C binary. I don&amp;rsquo;t want you to fly. I just wanna
+love you&amp;hellip;&lt;/p></description></item></channel></rss>
