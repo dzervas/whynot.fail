@@ -2,7 +2,7 @@
 build = "passing"
 date = 2021-01-26T00:00:00Z
 image = "/img/1a4e4dbf-30ef-4196-8780-09c05f3851bc.jpg"
-tags = ["3D-printing"]
+tags = ["3D-printing", "factory"]
 title = "Dry your filaments in the drawer"
 url = "/factory/filament-drawer"
 writer = "dzervas"
