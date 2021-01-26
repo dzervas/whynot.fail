@@ -225,19 +225,19 @@ display:
 
 {{ gallery }}
 
-![](/img/e723c6d6-9461-4a1e-ae5d-52acf73942c5.jpg)
+![Mount for the screen. 3D model here: https://www.tinkercad.com/things/6QjqsUzVEbo-nokia-3310-screen-mount](/img/e723c6d6-9461-4a1e-ae5d-52acf73942c5.jpg)
 
-![](/img/97f24523-15f7-4add-a306-7f46df47ae40.jpg)
+![The ESP skyscrapper screwed inside the drawer](/img/97f24523-15f7-4add-a306-7f46df47ae40.jpg)
 
-![](/img/b24a5ecd-920b-4314-9fea-49dcb72508cc.jpg)
+![Heatbed connected to the ESP](/img/b24a5ecd-920b-4314-9fea-49dcb72508cc.jpg)
 
-![](/img/7196e71f-592e-49e1-93d1-976b3e64cf29.jpg)
+![A small hole to pass the 12V line (goes to a "lab" PSU lane that is always on)](/img/7196e71f-592e-49e1-93d1-976b3e64cf29.jpg)
 
-![](/img/7b9dda09-7308-4b9d-bf1c-5fb62611b17a.jpg)
+![Did some cable management cause Prusa taught me that it matters](/img/7b9dda09-7308-4b9d-bf1c-5fb62611b17a.jpg)
 
-![](/img/23009cda-d366-4255-b4ab-212602cfb598.jpg)
+![Previous photo but from another angle to fuck up your brain](/img/23009cda-d366-4255-b4ab-212602cfb598.jpg)
 
-![](/img/29238800-6b78-42c2-b587-9cd630694019.jpg)
+![It works! :tada:](/img/29238800-6b78-42c2-b587-9cd630694019.jpg)
 
 {{ /gallery }}
 
@@ -246,6 +246,8 @@ display:
 It actually did! And pretty well! I wouldn't want to change any humidity controlling related stuff. Here are some numbers and graphs to make you believe me:
 
 ![Yey! Graphs and timelines!](/img/untitled.png)
+
+Above you see that as soon as the heatbed temperature raises (top red) ambient temperature humidity falls (bottom red). Top blue is ambient temperature - must be kept below the glass temperature of the materials inside the drawer - in my case 60C for PLA & PETG.
 
 What I might fix at some point is to remove the upper wood lip to allow me to sit the filaments vertically - right now they're sitting horizontally and I can fit 4 of them.
 
