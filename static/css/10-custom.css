@@ -1981,7 +1981,7 @@ li.pingback:first-child {
 }
 
 /* when secondary menu is open */
-#main, #title-info, #toggle-navigation, #site-header, #site-footer {
+.main, .title-info, .toggle-navigation, .site-header, .site-footer {
   -webkit-transition: -webkit-transform 0.3s ease;
           transition: transform 0.3s ease;
 }
