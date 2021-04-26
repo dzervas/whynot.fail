@@ -41,6 +41,10 @@ class App extends Component{
 					content: "Lorem ipsum dolor sit amet",
 				}
 			],
+
+			discussions_owner: "dzervas",
+			discussions_repo: "whynot.fail",
+			discussions_category: "posts",
 		};
 	}
 

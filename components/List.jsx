@@ -1,7 +1,49 @@
 import React, { Component } from "react";
 import { HashLink as Link } from "react-router-hash-link";
+import { ApolloClient, InMemoryCache, gql } from '@apollo/client';
 
 export default class List extends Component {
+	componentDidMount() {
+
+		const client = new ApolloClient({
+			uri: 'https://api.github.com/graphql',
+			cache: new InMemoryCache()
+		});
+
+		client
+			.query({
+				query: gql`
+query {
+  repository(owner: "dzervas", name: "whynot.fail") {
+    issues(last: 5) {
+      edges {
+        node {
+          title
+          url
+          labels(first:5) {
+            edges {
+              node {
+                name
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+			`,
+			options: {
+				context: {
+					headers: {
+						"GraphQL-Features": "discussions_api",
+					}
+				}
+			}
+		})
+			.then(result => console.log(result));
+	}
+
 	render() {
 		var posts = [];
 		console.log(this.props)
