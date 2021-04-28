@@ -8,7 +8,7 @@ url = "/factory/filament-drawer"
 writer = "dzervas"
 
 +++
-This is a weekend project to keep your filaments safe & dry. It's very easy to rebuild and adapt to your needs an available spare parts.
+This is a weekend project to keep your filaments safe & dry. It's very easy to rebuild and adapt to your needs with (hopefully) available spare parts.
 
 <!--more-->
 
@@ -223,7 +223,7 @@ display:
 ## Assembly of the drawer
 
 {{% gallery %}}
-![Mount for the screen. 3D model [here](https://www.tinkercad.com/things/6QjqsUzVEbo-nokia-3310-screen-mount)](/img/e723c6d6-9461-4a1e-ae5d-52acf73942c5.jpg)
+![Mount for the screen. 3D model ](/img/e723c6d6-9461-4a1e-ae5d-52acf73942c5.jpg)
 ![The ESP skyscrapper screwed inside the drawer](/img/97f24523-15f7-4add-a306-7f46df47ae40.jpg)
 ![Heatbed connected to the ESP](/img/b24a5ecd-920b-4314-9fea-49dcb72508cc.jpg)
 ![A small hole to pass the 12V line (goes to a "lab" PSU lane that is always on)](/img/7196e71f-592e-49e1-93d1-976b3e64cf29.jpg)
