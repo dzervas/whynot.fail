@@ -1,6 +1,6 @@
 ---
 writer: dzervas
-build: failing
+build: passing
 date: 2020-04-22
 tags:
 - notes
