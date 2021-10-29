@@ -15,7 +15,7 @@ And I found the way, but most importantly, I found the workflow. Let me show you
 
 <!-- more -->
 
-First of all, in case you missed the title, my solution is CNC milling. The upfront cost is quite budget friendly (less than 200 euros), no nasty chemicals are involved and you can safely toss that awfully bad "PCB drill" out the window. The process takes about 30' of which 5 are manual labor (preparing gcode and toolchanging
+First of all, in case you missed the title, my solution is CNC milling. The upfront cost is quite budget friendly (less than 200 euros), no nasty chemicals are involved and you can safely toss that awfully bad "PCB drill" out the window. The process takes about 30' of which 5 are manual labor (preparing gcode and toolchanging)
 
 ## Required tools
 
@@ -183,9 +183,35 @@ Continue to Step 2 from Workflow and you'll be done in minutes!
 
 ## The End
 
-This was quite a journey for me and it took me about 2 years to finish this workflow. Takes about 30' to make a small board, it's almost free. The cutters don't wear much, copper clads are dirt cheap and widely available even in local stores. The boards turn out amazingly well with almost no post-processing required - maybe some flying copper hair
+This was quite a journey for me and it took me about 2 years to finish this workflow. Takes about 30' to make a small board, it's almost free. The cutters don't wear much, copper clads are dirt cheap and widely available even in local stores. The boards turn out amazingly well with almost no post-processing required - maybe some flying copper hair.
+
+I'm already preparing the workflow for a double sided PCB workflow, most probably using a spindle camera (it's cheap, don't freak out). Stay tuned.
+
+What I haven't figured out is how to apply solder mask. It needs a weird spring-loaded tool that is able to remove 0.01-0.02 material. If you have any cool ideas, leave a comment!
+
+## Alternative PCB making methods
+
+This is a list on ways to make PCBs at home and why I chose milling over everything else:
+
+* Toner transfer with iron
+  * Needs a toner printer
+  * Needs good alignment
+  * Needs photosensitive board
+  * Needs nasty chemicals that are messy
+  * Hand drilling (ew)
+* Plotter marker (have a plotter with a permanent marker on bare copper clad, there's an awesome guide by Stavros [here](https://www.stavros.io/posts/make-pcbs-at-home/))
+  * Hand drilling
+  * Nasty chemicals
+* Laser engraver (Photosensitive board that is marked by the laser)
+  * Hand drilling
+  * Nasty chemicals
+* CNC Milling
+  * Not super clean traces
+  * A bit tedious to do for the first time
 
 ## Troubleshooting
+
+I wanna keep this section up-to-date with problems that I stumble upon. If you have any problems, even machine-specific, please leave a comment.
 
 ### Even after leveling, I get uneven traces that are too deep or shallow
 
