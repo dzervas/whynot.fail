@@ -22,7 +22,7 @@ First of all, in case you missed the title, my solution is CNC milling. The upfr
 While not on the "simple" side, the tools that are required are cheap and can sit on your workbench.
 
 * A CNC. Almost any CNC. If you're a cheap fuck, a CNC 3018 will cut it (I recommend [this](https://www.sainsmart.com/products/sainsmart-genmitsu-cnc-router-3018-prover-kit)). The requirements for the CNC are the following:
-  * Probe support (we'll make a custom "probe") to autolevel the PCB
+  * Probe support to autolevel the PCB (it's just 2 wires that when they make contact a limit is triggered. You attach one on the copper and one on the cutter so you can map out how crooked the board is)
   * 1/8" chuck (== 3.175mm for normal humans) - all cutters I found have a 1/8" shunk
   * has a GRBL-family controller (not Mach3 or LinuxCNC)
   * At least 10krpm spindle
@@ -65,9 +65,15 @@ The whole idea is the following:
     4. Press `Scan` (the BIG button with the gear icon, NOT the small one)
     5. Do **NOT** press the small `Autolevel` button
  9. Start the cut
-10. After it's finished, load the `drill` file WITHOUT saving changes to previous file and WITHOUT deleting the probe mesh (it pops up 2 questions that you should both answer with No), change the tool and start the cut
-11. Repeat step 10 for milldrill and outline
-12. Profit!
+10. After it's finished, load the `drill` file WITHOUT saving changes to previous file and WITHOUT deleting the probe mesh (it pops up 2 questions that you should both answer with No) and change the tool
+11. Go to XY origin, wipe a bit the point under the cutter and do a regular probe to set the tool's offset and set `Z=0` after the probe touches
+12. Start the cut
+13. Repeat steps 10-12 for milldrill and outline
+14. Profit!
+
+To avoid breathing all the fiberglass cut you can have a small syringe filled with water and squirt some as the cuts go. It really helps keep everything super clean.
+
+Another idea is to squirt some WD-40 or cutting fluid during the cut - I haven't tested it but it sounds pretty good and maybe WD-40 isn't conductive (so you don't have to wipe it during probing for tool changes). An idea by [James](https://incoherency.co.uk/blog/).
 
 ## Configuring pcb2gcode
 
