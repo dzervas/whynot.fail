@@ -4,6 +4,7 @@ on:
   push:
     branches:
     - master
+  workflow_dispatch:
 
 # We have several possible workflows:
 # - Push to master (regular static site generator)
@@ -17,7 +18,11 @@ jobs:
     # upload, as the filename is directly derived from the issue title
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
+      - uses: actions/checkout@v3
+        with:
+          repository: dzervas/notion-markdown
+          path: notion-markdown
 
       - name: Setup NPM
         uses: actions/setup-node@v1
@@ -28,6 +33,9 @@ jobs:
         uses: peaceiris/actions-hugo@v2
         with:
           extended: true
+
+      - name: Download notion pages
+        run: pushd content/post/ && python ../../notion-markdown/getter.py ${{ secrets.NOTIONDB_ID }} && popd
 
       - name: Build site
         run: hugo --minify --gc
