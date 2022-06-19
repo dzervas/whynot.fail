@@ -35,7 +35,7 @@ jobs:
           extended: true
 
       - name: Download notion pages
-        run: pushd content/post/ && python ../../notion-markdown/getter.py ${{ secrets.NOTIONDB_ID }} && popd
+        run: notion-markdown/getter.py -c content/post -d static/img -u /img ${{ secrets.NOTIONDB_ID }}
 
       - name: Build site
         run: hugo --minify --gc
