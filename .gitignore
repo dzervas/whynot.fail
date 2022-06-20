@@ -32,3 +32,4 @@ test/*
 .jekyll-metadata
 resources/
 public/
+.hugo_build.lock
