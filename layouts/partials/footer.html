@@ -51,6 +51,15 @@
 		</a>
 		</li>
 		{{end}}
+	
+		{{ with .Site.Params.social.mastodon }}
+		<li>
+		<a href="{{ . }}"  class="mastodon" target="_blank">
+			<i class="fab fa-mastodon" title="mastodon"></i>
+			<span class="screen-reader-text">mastodon</span>
+		</a>
+		</li>
+		{{end}}
 
 		{{ with .Site.Params.social.instagram }}
 		<li>
