@@ -71,6 +71,7 @@ weight = 3
 [params.social]
 #email = "dzervas@dzervas.gr"
 #twitter = "https://twitter.com/_dzervas"
+mastodon = "https://kafeneio.social/@dzervas"
 github = "https://github.com/dzervas/whynot.fail"
 rss = true
 
