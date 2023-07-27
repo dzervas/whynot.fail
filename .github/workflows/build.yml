@@ -3,7 +3,7 @@ name: Hugo Build
 on:
   push:
     branches:
-    - master
+    - main
   workflow_dispatch:
 
 # We have several possible workflows:
