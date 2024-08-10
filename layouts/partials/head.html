@@ -29,8 +29,6 @@
 <link href="{{ with .OutputFormats.Get "RSS" }}{{ .RelPermalink }}{{ end }}" rel="feed" type="application/rss+xml" title="{{ .Site.Title | default "" }}" />
 {{ end }}
 
-{{ template "_internal/google_analytics_async.html" . }}
-
 <!-- JavaScript -->
 <script src="https://unpkg.com/jquery/dist/jquery.min.js" crossorigin="anonymous"></script>
 <script defer src="https://unpkg.com/jquery-migrate/dist/jquery-migrate.min.js" crossorigin="anonymous"></script>

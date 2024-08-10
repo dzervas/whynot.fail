@@ -242,9 +242,14 @@
 				{{ template "_internal/disqus.html" . }}
 
 				{{ with .Site.Params.social.utterances }}
-				<script src="https://utteranc.es/client.js" repo="{{ .repo }}" issue-term="{{ .issueTerm | default "
-					title" }}" theme="{{ .theme | default " github-light" }}" crossorigin="anonymous" async>
-					</script>
+				<script
+					src="https://utteranc.es/client.js"
+					repo="{{ .repo }}"
+					issue-term="{{ .issueTerm | default "title" }}"
+					theme="{{ .theme | default "github-light" }}"
+					crossorigin="anonymous"
+					async>
+				</script>
 				{{ end }}
 			</section>
 		</div>

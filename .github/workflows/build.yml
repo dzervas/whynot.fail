@@ -17,6 +17,8 @@ jobs:
     # Be careful that if this is left too open, it could result in arbitrary file
     # upload, as the filename is directly derived from the issue title
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
       - uses: actions/checkout@v4
@@ -43,7 +45,6 @@ jobs:
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v4
         with:
-          deploy_key: ${{secrets.ACTIONS_DEPLOY_KEY}}
-          publish_branch: gh-pages
-          publish_dir: ./public
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           force_orphan: true
+          cname: whynot.fail
