@@ -18,19 +18,19 @@ jobs:
     # upload, as the filename is directly derived from the issue title
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
         with:
           repository: dzervas/notion-markdown
           path: notion-markdown
 
       - name: Setup NPM
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v4
       - name: Install dependencies
         run: npm ci
 
       - name: Hugo setup
-        uses: peaceiris/actions-hugo@v2
+        uses: peaceiris/actions-hugo@v3
         with:
           extended: true
 
@@ -41,7 +41,7 @@ jobs:
         run: hugo --minify --gc
 
       - name: Deploy to gh-pages
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v4
         with:
           deploy_key: ${{secrets.ACTIONS_DEPLOY_KEY}}
           publish_branch: gh-pages
