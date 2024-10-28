@@ -107,13 +107,9 @@
 						</div>
 						<div class="bio">
 							{{ if and (isset .Params "writer") $writer.bio }}
-							{{ range $writer.bio  }}
-							<p>{{ . | default "" | safeHTML }}</p>
-							{{ end }}
+							<p>{{ $writer.bio | default "" | safeHTML }}</p>
 							{{ else }}
-							{{ range .Site.Params.bio  }}
-							<p>{{ . | default "" | safeHTML }}</p>
-							{{ end }}
+							<p>{{ .Site.Params.bio | default "" | safeHTML }}</p>
 							{{ end }}
 
 							{{ if isset .Params "writer" }}
