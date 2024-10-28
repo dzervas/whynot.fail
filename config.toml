@@ -2,19 +2,17 @@ baseURL = "https://whynot.fail"
 disablePathToLower = true
 languageCode = "en-us"
 title = "WhyNot.Fail"
-paginate = 5
 preserveTaxonomyNames = true
 assetDir = "static"
 enableRobotsTXT = true
 metaDataFormat = "toml"
-
-[author]
-name = "Dimitris Zervas"
+pagination.pagerSize = 5
 
 [markup.goldmark.renderer]
 unsafe= true
 
 [params]
+author = "Dimitris Zervas"
 slogan = "Why not fail?"
 description = "Cause when you fail, somebody has to laugh at you"
 #email = "dzervas@dzervas.gr"
