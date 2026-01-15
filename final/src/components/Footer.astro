@@ -11,20 +11,19 @@ const socialLinks = [
   { href: '/rss.xml', icon: 'rss' as const, label: 'RSS Feed' },
 ];
 
-const currentYear = new Date().getFullYear();
 ---
 
 <footer class="site-footer">
   <div class="footer-separator" aria-hidden="true"></div>
-  
+
   <div class="footer-inner">
     <div class="footer-main">
       <nav class="footer-social" aria-label="Social links">
         <ul class="social-list">
           {socialLinks.map((link) => (
             <li>
-              <a 
-                href={link.href} 
+              <a
+                href={link.href}
                 class="social-link"
                 target={link.href.startsWith('http') ? '_blank' : undefined}
                 rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
@@ -37,7 +36,7 @@ const currentYear = new Date().getFullYear();
         </ul>
       </nav>
     </div>
-    
+
   </div>
 </footer>
 

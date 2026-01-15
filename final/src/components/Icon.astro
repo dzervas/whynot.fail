@@ -40,7 +40,7 @@ const iconParts = name === 'mastodon'
 
 const iconMarkup = name === 'mastodon'
   ? mastodonSvg
-  : iconParts
+  : (iconParts || [])
       .map(([tag, attrs]) => {
         const attrString = Object.entries(attrs)
           .map(([key, value]) => `${key}="${value}"`)

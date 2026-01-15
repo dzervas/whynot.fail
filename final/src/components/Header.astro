@@ -3,7 +3,6 @@
  * Site Header with navigation
  * Terminal Noir style with dashed separator
  */
-import Icon from './Icon.astro';
 
 interface Props {
   currentPath?: string;
@@ -23,18 +22,18 @@ const navItems = [
     <a href="/" class="logo" aria-label="WhyNot.Fail">
       <pre class="ascii-logo" aria-hidden="true">{`
  █   █ █ █ █ █ █▄ █ █▀█ ▀█▀
- █▄█▄█ █▀█ ▀█▀ █ ▀█ █▄█  █ 
+ █▄█▄█ █▀█ ▀█▀ █ ▀█ █▄█  █
         ·FAIL·
       `}</pre>
       <span class="logo-tagline">// cause_when_you_fail_somebody_has_to_laugh_at_you</span>
     </a>
-    
+
     <nav class="nav-main" aria-label="Main navigation">
       <ul class="nav-list">
         {navItems.map((item) => (
           <li>
-            <a 
-              href={item.href} 
+            <a
+              href={item.href}
               class:list={['nav-link', { active: currentPath === item.href }]}
             >
               {item.label}
@@ -44,7 +43,7 @@ const navItems = [
       </ul>
     </nav>
   </div>
-  
+
   <div class="header-separator" aria-hidden="true"></div>
 </header>
 
@@ -120,7 +119,7 @@ const navItems = [
     color: var(--color-accent);
   }
 
-  
+
   .header-separator {
     margin-top: 1.5rem;
     height: 1px;

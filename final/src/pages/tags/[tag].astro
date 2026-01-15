@@ -5,16 +5,15 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PostCard from '../../components/PostCard.astro';
-import Icon from '../../components/Icon.astro';
 
 export async function getStaticPaths() {
   const posts = await getCollection('posts');
-  
+
   // Get all unique tags
-  const tags = [...new Set(posts.flatMap(post => 
+  const tags = [...new Set(posts.flatMap(post =>
     post.data.tags.map(t => t.toLowerCase())
   ))];
-  
+
   return tags.map(tag => ({
     params: { tag },
     props: {
@@ -39,7 +38,7 @@ const { tag, posts } = Astro.props;
     <header class="page-header">
       <h1 class="page-title">{tag}</h1>
     </header>
-    
+
     <div class="posts-list">
       {posts.map((post, index) => (
         <PostCard post={post} index={index} />

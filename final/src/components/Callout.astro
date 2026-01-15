@@ -9,7 +9,7 @@ interface Props {
   type: 'note' | 'info' | 'warning' | 'danger';
 }
 
-const { type } = Astro.props;
+const { type } = Astro.props as Props;
 
 const config = {
   note: { icon: 'info' as const, title: 'Note', class: 'callout-note' },

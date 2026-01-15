@@ -9,43 +9,43 @@
   --color-surface: #141416;
   --color-surface-alt: #0f0f10;
   --color-border: #2a2a2e;
-  
+
   /* Text Colors */
   --color-text: #e4e4e7;
   --color-text-secondary: #a1a1aa;
   --color-text-muted: #71717a;
-  
+
   /* Accent - Cyan */
   --color-accent: #22d3ee;
   --color-accent-bg: rgba(34, 211, 238, 0.1);
   --color-accent-border: rgba(34, 211, 238, 0.3);
-  
+
   /* Status Colors */
   --color-success: #4ade80;
   --color-warning: #fbbf24;
   --color-danger: #f87171;
-  
+
   /* Code */
   --color-code-bg: #0d0d0e;
-  
+
   /* Callouts - Note (neutral gray) */
   --color-callout-note-bg: rgba(113, 113, 122, 0.1);
   --color-callout-note-border: #71717a;
   --color-callout-note-text: #a1a1aa;
   --color-callout-note-title: #e4e4e7;
-  
+
   /* Callouts - Info (cyan/accent) */
   --color-callout-info-bg: rgba(34, 211, 238, 0.08);
   --color-callout-info-border: #22d3ee;
   --color-callout-info-text: #a1a1aa;
   --color-callout-info-title: #22d3ee;
-  
+
   /* Callouts - Warning (amber) */
   --color-callout-warning-bg: rgba(251, 191, 36, 0.08);
   --color-callout-warning-border: #fbbf24;
   --color-callout-warning-text: #a1a1aa;
   --color-callout-warning-title: #fbbf24;
-  
+
   /* Callouts - Danger (red) */
   --color-callout-danger-bg: rgba(248, 113, 113, 0.08);
   --color-callout-danger-border: #f87171;
@@ -60,12 +60,11 @@ body {
 
 /* Terminal-style comment headers */
 .section-comment {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: "JetBrains Mono", monospace;
   font-size: 0.75rem;
   color: var(--color-text-muted);
   letter-spacing: 0.05em;
 }
-
 
 /* Dashed vertical separator for sidebar layouts */
 .dashed-separator-vertical {
@@ -86,7 +85,7 @@ body {
 }
 
 .page-title::after {
-  content: '_';
+  content: "_";
   animation: blink 1s step-end infinite;
   color: var(--color-accent);
 }

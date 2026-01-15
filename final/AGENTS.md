@@ -1,8 +1,4 @@
-# AGENTS.md (final)
-
-## Scope
-
-These instructions apply to all files under `final/`.
+# AGENTS.md
 
 ## Project Goals
 
@@ -48,5 +44,6 @@ These instructions apply to all files under `final/`.
 
 ## Validation
 
+- Use `npm run check` after any code changes.
 - Use `npm run build` to confirm static output.
 - Verify homepage, tags index, tag detail, and a post page.
