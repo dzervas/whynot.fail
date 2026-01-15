@@ -1,0 +1,54 @@
+---
+/**
+ * CI Build Badge component
+ * Terminal Noir style: [PASS] [FAIL] [???]
+ */
+interface Props {
+  status?: 'passing' | 'failing' | 'unknown';
+}
+
+const { status = 'unknown' } = Astro.props;
+
+const statusConfig = {
+  passing: { text: 'PASS', class: 'badge-passing' },
+  failing: { text: 'FAIL', class: 'badge-failing' },
+  unknown: { text: '???', class: 'badge-unknown' },
+};
+
+const config = statusConfig[status];
+---
+
+<span class:list={['build-badge', config.class]}>
+  <span class="badge-prefix">build:</span>
+  <span class="badge-status">[{config.text}]</span>
+</span>
+
+<style>
+  .build-badge {
+    display: inline-flex;
+    align-items: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8125rem;
+    letter-spacing: 0.02em;
+  }
+
+  .badge-prefix {
+    color: var(--color-text-muted);
+  }
+
+  .badge-status {
+    font-weight: 600;
+  }
+
+  .badge-passing .badge-status {
+    color: var(--color-success);
+  }
+
+  .badge-failing .badge-status {
+    color: var(--color-danger);
+  }
+
+  .badge-unknown .badge-status {
+    color: var(--color-warning);
+  }
+</style>
