@@ -1,0 +1,115 @@
+/**
+ * Pixel Punk Theme
+ * Retro tech aesthetic with amber accents and pixel art touches
+ */
+
+:root {
+  /* Base Colors - Dark with subtle warmth */
+  --color-bg: #0c0c0e;
+  --color-surface: #151518;
+  --color-surface-alt: #101012;
+  --color-border: #2d2d32;
+  
+  /* Text Colors */
+  --color-text: #f0f0f2;
+  --color-text-secondary: #a8a8ae;
+  --color-text-muted: #6b6b72;
+  
+  /* Accent - Amber/Orange */
+  --color-accent: #f59e0b;
+  --color-accent-bg: rgba(245, 158, 11, 0.1);
+  --color-accent-border: rgba(245, 158, 11, 0.4);
+  
+  /* Status Colors */
+  --color-success: #22c55e;
+  --color-success-bg: rgba(34, 197, 94, 0.1);
+  --color-warning: #eab308;
+  --color-warning-bg: rgba(234, 179, 8, 0.1);
+  --color-danger: #ef4444;
+  --color-danger-bg: rgba(239, 68, 68, 0.1);
+  
+  /* Code */
+  --color-code-bg: #0a0a0c;
+  
+  /* Callouts - Note (neutral gray) */
+  --color-callout-note-bg: rgba(107, 107, 114, 0.1);
+  --color-callout-note-border: #6b6b72;
+  --color-callout-note-text: #a8a8ae;
+  --color-callout-note-title: #f0f0f2;
+  
+  /* Callouts - Info (amber/accent) */
+  --color-callout-info-bg: rgba(245, 158, 11, 0.08);
+  --color-callout-info-border: #f59e0b;
+  --color-callout-info-text: #a8a8ae;
+  --color-callout-info-title: #f59e0b;
+  
+  /* Callouts - Warning (yellow) */
+  --color-callout-warning-bg: rgba(234, 179, 8, 0.08);
+  --color-callout-warning-border: #eab308;
+  --color-callout-warning-text: #a8a8ae;
+  --color-callout-warning-title: #eab308;
+  
+  /* Callouts - Danger (red) */
+  --color-callout-danger-bg: rgba(239, 68, 68, 0.08);
+  --color-callout-danger-border: #ef4444;
+  --color-callout-danger-text: #a8a8ae;
+  --color-callout-danger-title: #ef4444;
+}
+
+/* Noise texture background */
+body {
+  background-color: var(--color-bg);
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-blend-mode: overlay;
+  background-size: 128px 128px;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: var(--color-bg);
+  opacity: 0.97;
+  z-index: -1;
+}
+
+/* Pixel-style borders */
+.pixel-border {
+  border: 2px solid var(--color-border);
+  box-shadow: 
+    4px 0 0 0 var(--color-border),
+    -4px 0 0 0 var(--color-border),
+    0 4px 0 0 var(--color-border),
+    0 -4px 0 0 var(--color-border);
+}
+
+/* CRT glow effect for accents */
+.crt-glow {
+  text-shadow: 0 0 10px var(--color-accent);
+}
+
+/* Pixel Punk scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+  border-left: 2px solid var(--color-border);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent);
+}
+
+/* Selection with CRT feel */
+::selection {
+  background: var(--color-accent);
+  color: var(--color-bg);
+  text-shadow: none;
+}

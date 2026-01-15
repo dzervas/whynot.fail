@@ -1,0 +1,193 @@
+---
+/**
+ * Horizontal Post Card for homepage
+ * Midnight Editorial style with elegant typography
+ */
+import type { CollectionEntry } from 'astro:content';
+import TagList from './TagList.astro';
+import BuildBadge from './BuildBadge.astro';
+
+interface Props {
+  post: CollectionEntry<'posts'>;
+  index: number;
+}
+
+const { post, index } = Astro.props;
+const { title, date, tags, build_status, image, description, writer } = post.data;
+
+const formattedDate = date.toLocaleDateString('en-GB', {
+  day: '2-digit',
+  month: 'short',
+  year: '2-digit',
+});
+
+// Alternate layout direction
+const isReversed = index % 2 === 1;
+---
+
+<article class:list={['post-card', { reversed: isReversed }]}>
+  {image && (
+    <div class="post-card-image">
+      <a href={`/posts/${post.slug}/`}>
+        <img src={image} alt={title} loading="lazy" />
+      </a>
+    </div>
+  )}
+  <div class="post-card-content">
+    <header class="post-card-header">
+      <div class="post-card-meta">
+        <time datetime={date.toISOString()}>{formattedDate}</time>
+        <span class="meta-divider">&mdash;</span>
+        <span class="post-card-author">{writer}</span>
+        {build_status && (
+          <BuildBadge status={build_status} />
+        )}
+      </div>
+      <h2 class="post-card-title">
+        <a href={`/posts/${post.slug}/`}>{title}</a>
+      </h2>
+    </header>
+    
+    {description && (
+      <p class="post-card-excerpt">{description}</p>
+    )}
+    
+    <footer class="post-card-footer">
+      <TagList tags={tags} />
+      <a href={`/posts/${post.slug}/`} class="read-more">
+        Continue reading
+      </a>
+    </footer>
+  </div>
+</article>
+
+<style>
+  .post-card {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 2.5rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .post-card:first-child {
+    padding-top: 0;
+  }
+
+  @media (min-width: 768px) {
+    .post-card {
+      grid-template-columns: 1fr 1.2fr;
+      gap: 2.5rem;
+    }
+
+    .post-card.reversed {
+      direction: rtl;
+    }
+
+    .post-card.reversed > * {
+      direction: ltr;
+    }
+  }
+
+  .post-card-image {
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--color-surface);
+  }
+
+  .post-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    aspect-ratio: 16/10;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+  }
+
+  .post-card-image:hover img {
+    transform: scale(1.03);
+    opacity: 0.9;
+  }
+
+  .post-card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.25rem;
+  }
+
+  .post-card-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.8125rem;
+    color: var(--color-text-muted);
+  }
+
+  .meta-divider {
+    opacity: 0.5;
+  }
+
+  .post-card-title {
+    font-size: 1.625rem;
+    font-weight: 600;
+    line-height: 1.35;
+    margin: 0.25rem 0 0;
+    letter-spacing: -0.01em;
+  }
+
+  .post-card-title a {
+    color: var(--color-text);
+    text-decoration: none;
+    background-image: linear-gradient(var(--color-accent), var(--color-accent));
+    background-size: 0% 2px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 0.3s ease, color 0.3s ease;
+  }
+
+  .post-card-title a:hover {
+    color: var(--color-accent);
+    background-size: 100% 2px;
+  }
+
+  .post-card-excerpt {
+    color: var(--color-text-secondary);
+    font-size: 1rem;
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  .post-card-footer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 0.25rem;
+  }
+
+  .read-more {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-accent);
+    text-decoration: none;
+    position: relative;
+    padding-bottom: 2px;
+  }
+
+  .read-more::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--color-accent);
+    transition: width 0.3s ease;
+  }
+
+  .read-more:hover::after {
+    width: 100%;
+  }
+</style>

@@ -1,0 +1,143 @@
+/**
+ * Midnight Editorial Theme
+ * Modern editorial with purple accents and elegant typography
+ */
+
+:root {
+  /* Base Colors - Deep blue-black */
+  --color-bg: #0a0a10;
+  --color-surface: #12121a;
+  --color-surface-alt: #0e0e14;
+  --color-border: #252532;
+  
+  /* Text Colors */
+  --color-text: #f4f4f6;
+  --color-text-secondary: #a0a0ae;
+  --color-text-muted: #6a6a78;
+  
+  /* Accent - Purple/Violet */
+  --color-accent: #a855f7;
+  --color-accent-bg: rgba(168, 85, 247, 0.1);
+  --color-accent-border: rgba(168, 85, 247, 0.3);
+  
+  /* Status Colors */
+  --color-success: #34d399;
+  --color-warning: #fbbf24;
+  --color-danger: #f87171;
+  
+  /* Code */
+  --color-code-bg: #080810;
+  
+  /* Callouts - Note (neutral) */
+  --color-callout-note-bg: rgba(106, 106, 120, 0.1);
+  --color-callout-note-border: #6a6a78;
+  --color-callout-note-text: #a0a0ae;
+  --color-callout-note-title: #f4f4f6;
+  
+  /* Callouts - Info (purple/accent) */
+  --color-callout-info-bg: rgba(168, 85, 247, 0.08);
+  --color-callout-info-border: #a855f7;
+  --color-callout-info-text: #a0a0ae;
+  --color-callout-info-title: #a855f7;
+  
+  /* Callouts - Warning (amber) */
+  --color-callout-warning-bg: rgba(251, 191, 36, 0.08);
+  --color-callout-warning-border: #fbbf24;
+  --color-callout-warning-text: #a0a0ae;
+  --color-callout-warning-title: #fbbf24;
+  
+  /* Callouts - Danger (red) */
+  --color-callout-danger-bg: rgba(248, 113, 113, 0.08);
+  --color-callout-danger-border: #f87171;
+  --color-callout-danger-text: #a0a0ae;
+  --color-callout-danger-title: #f87171;
+}
+
+/* Gradient background */
+body {
+  background: 
+    radial-gradient(ellipse at 50% 0%, rgba(168, 85, 247, 0.03) 0%, transparent 50%),
+    linear-gradient(180deg, var(--color-bg) 0%, #0d0d15 100%);
+  background-attachment: fixed;
+}
+
+/* Elegant dashed horizontal rules */
+.dashed-rule {
+  border: none;
+  height: 1px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--color-border) 0,
+    var(--color-border) 6px,
+    transparent 6px,
+    transparent 12px
+  );
+}
+
+/* Ornamental separator */
+.ornament-separator {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.ornament-separator::before,
+.ornament-separator::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-border), transparent);
+}
+
+.ornament-separator .ornament {
+  width: 6px;
+  height: 6px;
+  background: var(--color-accent);
+  border-radius: 50%;
+  opacity: 0.7;
+}
+
+/* Elegant scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 100px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent);
+}
+
+/* Selection */
+::selection {
+  background: var(--color-accent);
+  color: white;
+}
+
+/* Link underline animation base */
+.animated-underline {
+  position: relative;
+}
+
+.animated-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: currentColor;
+  transition: width 0.3s ease;
+}
+
+.animated-underline:hover::after {
+  width: 100%;
+}

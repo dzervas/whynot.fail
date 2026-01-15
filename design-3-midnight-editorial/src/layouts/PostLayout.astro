@@ -1,0 +1,360 @@
+---
+/**
+ * Layout for individual blog posts
+ * Midnight Editorial version
+ */
+import type { CollectionEntry } from 'astro:content';
+import BaseLayout from './BaseLayout.astro';
+import TagList from '../components/TagList.astro';
+import BuildBadge from '../components/BuildBadge.astro';
+import Icon from '../components/Icon.astro';
+
+interface Props {
+  post: CollectionEntry<'posts'>;
+}
+
+const { post } = Astro.props;
+const { title, date, tags, build_status, writer, description } = post.data;
+
+const formattedDate = date.toLocaleDateString('en-GB', {
+  day: '2-digit',
+  month: 'long',
+  year: 'numeric',
+});
+---
+
+<BaseLayout title={title} description={description}>
+  <article class="post">
+    <header class="post-header">
+      <a href="/" class="back-link">
+        <Icon name="arrow-left" size={16} />
+        <span>Back to posts</span>
+      </a>
+      
+      <div class="post-meta">
+        <time datetime={date.toISOString()}>{formattedDate}</time>
+        <span class="meta-divider">&mdash;</span>
+        <span class="post-author">{writer}</span>
+        {build_status && (
+          <BuildBadge status={build_status} />
+        )}
+      </div>
+      
+      <h1 class="post-title">{title}</h1>
+      
+      {tags.length > 0 && (
+        <div class="post-tags">
+          <TagList tags={tags} />
+        </div>
+      )}
+    </header>
+    
+    <div class="post-content">
+      <slot />
+    </div>
+    
+    <footer class="post-footer">
+      <div class="footer-rule" aria-hidden="true">
+        <span class="rule-line"></span>
+        <span class="rule-ornament"></span>
+        <span class="rule-line"></span>
+      </div>
+      
+      <div class="author-card">
+        <img 
+          src={`https://www.gravatar.com/avatar/c9ccfe62d2de0aebdb79a1e7cf5c7019?s=100&d=identicon`}
+          alt={writer}
+          class="author-avatar"
+          width="56"
+          height="56"
+        />
+        <div class="author-info">
+          <p class="author-label">Written by</p>
+          <p class="author-name">{writer}</p>
+          <p class="author-bio">Creator of this site and lover of fails.</p>
+        </div>
+      </div>
+    </footer>
+  </article>
+</BaseLayout>
+
+<style>
+  .post {
+    max-width: 44rem;
+    margin: 0 auto;
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    text-decoration: none;
+    margin-bottom: 2rem;
+    transition: color 0.2s ease;
+  }
+
+  .back-link:hover {
+    color: var(--color-accent);
+  }
+
+  .post-header {
+    margin-bottom: 3rem;
+    text-align: center;
+  }
+
+  .post-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    margin-bottom: 1.25rem;
+  }
+
+  .meta-divider {
+    opacity: 0.5;
+  }
+
+  .post-title {
+    font-size: clamp(2rem, 5vw, 2.75rem);
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0 0 1.5rem;
+    color: var(--color-text);
+    letter-spacing: -0.02em;
+  }
+
+  .post-tags {
+    display: flex;
+    justify-content: center;
+  }
+
+  /* Post Content Styling */
+  .post-content {
+    font-size: 1.125rem;
+    line-height: 1.75;
+    color: var(--color-text-secondary);
+  }
+
+  .post-content :global(h2) {
+    font-size: 1.625rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin: 3rem 0 1.25rem;
+    letter-spacing: -0.01em;
+  }
+
+  .post-content :global(h3) {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin: 2.5rem 0 1rem;
+  }
+
+  .post-content :global(p) {
+    margin: 1.5rem 0;
+  }
+
+  .post-content :global(a) {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+    transition: text-decoration-thickness 0.2s ease;
+  }
+
+  .post-content :global(a:hover) {
+    text-decoration-thickness: 2px;
+  }
+
+  .post-content :global(strong) {
+    color: var(--color-text);
+    font-weight: 600;
+  }
+
+  .post-content :global(ul),
+  .post-content :global(ol) {
+    margin: 1.5rem 0;
+    padding-left: 1.75rem;
+  }
+
+  .post-content :global(li) {
+    margin: 0.625rem 0;
+  }
+
+  .post-content :global(blockquote) {
+    margin: 2rem 0;
+    padding: 1.25rem 1.5rem;
+    border-left: 3px solid var(--color-accent);
+    background: var(--color-surface);
+    border-radius: 0 8px 8px 0;
+    font-style: italic;
+  }
+
+  .post-content :global(blockquote p) {
+    margin: 0;
+  }
+
+  /* Callouts */
+  .post-content :global(.callout) {
+    margin: 2.25rem 0;
+    padding: 1.25rem 1.5rem;
+    border-left: 4px solid;
+    border-radius: 0 10px 10px 0;
+    background: var(--color-callout-note-bg);
+  }
+
+  .post-content :global(.callout-note) {
+    border-color: var(--color-callout-note-border);
+    color: var(--color-callout-note-text);
+  }
+
+  .post-content :global(.callout-info) {
+    border-color: var(--color-callout-info-border);
+    background: var(--color-callout-info-bg);
+    color: var(--color-callout-info-text);
+  }
+
+  .post-content :global(.callout-warning) {
+    border-color: var(--color-callout-warning-border);
+    background: var(--color-callout-warning-bg);
+    color: var(--color-callout-warning-text);
+  }
+
+  .post-content :global(.callout-danger) {
+    border-color: var(--color-callout-danger-border);
+    background: var(--color-callout-danger-bg);
+    color: var(--color-callout-danger-text);
+  }
+
+  /* Code Blocks */
+  .post-content :global(pre) {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: var(--color-code-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    overflow-x: auto;
+    font-size: 0.9375rem;
+    line-height: 1.65;
+  }
+
+  .post-content :global(code) {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9em;
+  }
+
+  .post-content :global(:not(pre) > code) {
+    padding: 0.2rem 0.4rem;
+    background: var(--color-surface);
+    border-radius: 6px;
+    color: var(--color-accent);
+  }
+
+  /* Tables */
+  .post-content :global(table) {
+    width: 100%;
+    margin: 2rem 0;
+    border-collapse: collapse;
+    font-size: 0.9375rem;
+  }
+
+  .post-content :global(th),
+  .post-content :global(td) {
+    padding: 0.875rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .post-content :global(th) {
+    font-weight: 600;
+    color: var(--color-text);
+    border-bottom-width: 2px;
+  }
+
+  .post-content :global(tr:hover) {
+    background: var(--color-surface-alt);
+  }
+
+  /* Horizontal Rules */
+  .post-content :global(hr) {
+    border: none;
+    height: 1px;
+    background: repeating-linear-gradient(
+      90deg,
+      var(--color-border) 0,
+      var(--color-border) 6px,
+      transparent 6px,
+      transparent 12px
+    );
+    margin: 3rem 0;
+  }
+
+  /* Post Footer */
+  .post-footer {
+    margin-top: 4rem;
+  }
+
+  .footer-rule {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .rule-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--color-border), transparent);
+  }
+
+  .rule-ornament {
+    width: 6px;
+    height: 6px;
+    background: var(--color-accent);
+    border-radius: 50%;
+    opacity: 0.7;
+  }
+
+  .author-card {
+    display: flex;
+    gap: 1.25rem;
+    align-items: center;
+  }
+
+  .author-avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  }
+
+  .author-info {
+    flex: 1;
+  }
+
+  .author-label {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    margin: 0 0 0.125rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .author-name {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin: 0 0 0.25rem;
+  }
+
+  .author-bio {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    margin: 0;
+  }
+</style>

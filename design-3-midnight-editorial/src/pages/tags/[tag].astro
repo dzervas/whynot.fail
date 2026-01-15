@@ -1,0 +1,115 @@
+---
+/**
+ * Dynamic tag page - shows posts filtered by tag
+ */
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PostCard from '../../components/PostCard.astro';
+import Icon from '../../components/Icon.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts');
+  
+  // Get all unique tags
+  const tags = [...new Set(posts.flatMap(post => 
+    post.data.tags.map(t => t.toLowerCase())
+  ))];
+  
+  return tags.map(tag => ({
+    params: { tag },
+    props: {
+      tag,
+      posts: posts
+        .filter(post => post.data.tags.map(t => t.toLowerCase()).includes(tag))
+        .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+    }
+  }));
+}
+
+interface Props {
+  tag: string;
+  posts: Awaited<ReturnType<typeof getCollection<'posts'>>>;
+}
+
+const { tag, posts } = Astro.props;
+---
+
+<BaseLayout title={`Posts tagged "${tag}"`} currentPath={`/tags/${tag}/`}>
+  <section class="tag-page">
+    <header class="page-header">
+      <a href="/tags/" class="back-link">
+        <Icon name="arrow-left" size={16} />
+        <span>All tags</span>
+      </a>
+      
+      <div class="tag-header">
+        <Icon name="tag" size={24} class="tag-icon" />
+        <h1 class="page-title">{tag}</h1>
+        <span class="post-count">{posts.length} post{posts.length !== 1 ? 's' : ''}</span>
+      </div>
+    </header>
+    
+    <div class="posts-list">
+      {posts.map((post, index) => (
+        <PostCard post={post} index={index} />
+      ))}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .tag-page {
+    padding: 1rem 0;
+  }
+
+  .page-header {
+    margin-bottom: 2rem;
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    text-decoration: none;
+    margin-bottom: 1.5rem;
+    transition: color 0.15s ease;
+  }
+
+  .back-link:hover {
+    color: var(--color-accent);
+  }
+
+  .tag-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .tag-icon {
+    color: var(--color-accent);
+  }
+
+  .page-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin: 0;
+    letter-spacing: -0.02em;
+  }
+
+  .post-count {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    padding: 0.25rem 0.75rem;
+    background: var(--color-surface);
+    border-radius: 100px;
+  }
+
+  .posts-list {
+    display: flex;
+    flex-direction: column;
+  }
+</style>

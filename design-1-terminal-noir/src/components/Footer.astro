@@ -1,0 +1,185 @@
+---
+/**
+ * Site Footer with social links
+ * Terminal Noir style with ASCII decoration
+ */
+import Icon from './Icon.astro';
+
+const socialLinks = [
+  { href: 'https://kafeneio.social/@dzervas', icon: 'mastodon' as const, label: 'Mastodon' },
+  { href: 'https://github.com/dzervas/whynot.fail', icon: 'github' as const, label: 'GitHub' },
+  { href: '/rss.xml', icon: 'rss' as const, label: 'RSS Feed' },
+];
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="footer-separator" aria-hidden="true"></div>
+  
+  <div class="footer-inner">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <h2 class="footer-title">WhyNot.Fail</h2>
+        <p class="footer-tagline">/* Cause when you fail, somebody has to laugh at you */</p>
+      </div>
+      
+      <nav class="footer-social" aria-label="Social links">
+        <ul class="social-list">
+          {socialLinks.map((link) => (
+            <li>
+              <a 
+                href={link.href} 
+                class="social-link"
+                target={link.href.startsWith('http') ? '_blank' : undefined}
+                rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+              >
+                <Icon name={link.icon} size={20} />
+                <span class="social-label">{link.label}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </div>
+    
+    <div class="footer-bottom">
+      <p class="copyright">
+        &copy; {currentYear} Dimitris Zervas
+      </p>
+      <div class="footer-ascii" aria-hidden="true">
+        <pre>{`
+  _____         
+ / ____\\ ___   
+| |    |/ _ \\  
+| |___ | (_) | 
+ \\_____\\\\___/  
+        `}</pre>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    margin-top: auto;
+    padding-bottom: 2rem;
+  }
+
+  .footer-separator {
+    height: 1px;
+    background: repeating-linear-gradient(
+      90deg,
+      var(--color-border) 0,
+      var(--color-border) 4px,
+      transparent 4px,
+      transparent 8px
+    );
+    margin-bottom: 2rem;
+  }
+
+  .footer-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 var(--gutter);
+  }
+
+  .footer-main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+
+  .footer-brand {
+    flex: 1;
+    min-width: 200px;
+  }
+
+  .footer-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem;
+    color: var(--color-text);
+  }
+
+  .footer-tagline {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8125rem;
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+
+  .social-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .social-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    transition: all 0.15s ease;
+  }
+
+  .social-link:hover {
+    color: var(--color-accent);
+    background: var(--color-surface);
+  }
+
+  .social-label {
+    display: none;
+  }
+
+  @media (min-width: 640px) {
+    .social-label {
+      display: inline;
+    }
+  }
+
+  .footer-bottom {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 1rem;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .copyright {
+    font-size: 0.8125rem;
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+
+  .footer-ascii {
+    display: none;
+  }
+
+  @media (min-width: 768px) {
+    .footer-ascii {
+      display: block;
+    }
+
+    .footer-ascii pre {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.5rem;
+      line-height: 1;
+      color: var(--color-border);
+      margin: 0;
+      opacity: 0.5;
+    }
+  }
+</style>

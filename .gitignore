@@ -34,3 +34,5 @@ resources/
 public/
 .hugo_build.lock
 notion-*
+
+.opencode

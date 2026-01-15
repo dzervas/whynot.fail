@@ -1,0 +1,185 @@
+---
+/**
+ * Horizontal Post Card for homepage
+ * Alternates image left/right for visual interest
+ */
+import type { CollectionEntry } from 'astro:content';
+import TagList from './TagList.astro';
+import BuildBadge from './BuildBadge.astro';
+
+interface Props {
+  post: CollectionEntry<'posts'>;
+  index: number;
+}
+
+const { post, index } = Astro.props;
+const { title, date, tags, build_status, image, description, writer } = post.data;
+
+const formattedDate = date.toLocaleDateString('en-GB', {
+  day: '2-digit',
+  month: 'short',
+  year: '2-digit',
+});
+
+// Alternate layout direction
+const isReversed = index % 2 === 1;
+---
+
+<article class:list={['post-card', { reversed: isReversed }]}>
+  {image && (
+    <div class="post-card-image">
+      <a href={`/posts/${post.slug}/`}>
+        <img src={image} alt={title} loading="lazy" />
+      </a>
+    </div>
+  )}
+  <div class="post-card-content">
+    <header class="post-card-header">
+      <div class="post-card-meta">
+        <time datetime={date.toISOString()}>{formattedDate}</time>
+        <span class="meta-sep">/</span>
+        <span class="post-card-author">{writer}</span>
+        {build_status && (
+          <>
+            <span class="meta-sep">/</span>
+            <BuildBadge status={build_status} />
+          </>
+        )}
+      </div>
+      <h2 class="post-card-title">
+        <a href={`/posts/${post.slug}/`}>{title}</a>
+      </h2>
+    </header>
+    
+    {description && (
+      <p class="post-card-excerpt">{description}</p>
+    )}
+    
+    <footer class="post-card-footer">
+      <TagList tags={tags} />
+      <a href={`/posts/${post.slug}/`} class="read-more">
+        Read post <span class="arrow">&rarr;</span>
+      </a>
+    </footer>
+  </div>
+</article>
+
+<style>
+  .post-card {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 2rem 0;
+    border-bottom: 1px dashed var(--color-border);
+  }
+
+  @media (min-width: 768px) {
+    .post-card {
+      grid-template-columns: 1fr 1.2fr;
+      gap: 2rem;
+    }
+
+    .post-card.reversed {
+      direction: rtl;
+    }
+
+    .post-card.reversed > * {
+      direction: ltr;
+    }
+  }
+
+  .post-card-image {
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--color-surface);
+  }
+
+  .post-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    aspect-ratio: 16/10;
+    transition: transform 0.3s ease;
+  }
+
+  .post-card-image:hover img {
+    transform: scale(1.02);
+  }
+
+  .post-card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .post-card-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8125rem;
+    color: var(--color-text-muted);
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .meta-sep {
+    opacity: 0.5;
+  }
+
+  .post-card-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.3;
+    margin: 0.5rem 0 0;
+  }
+
+  .post-card-title a {
+    color: var(--color-text);
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+
+  .post-card-title a:hover {
+    color: var(--color-accent);
+  }
+
+  .post-card-excerpt {
+    color: var(--color-text-secondary);
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .post-card-footer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 0.5rem;
+  }
+
+  .read-more {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-accent);
+    text-decoration: none;
+    transition: gap 0.15s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .read-more:hover {
+    gap: 0.5rem;
+  }
+
+  .read-more .arrow {
+    transition: transform 0.15s ease;
+  }
+
+  .read-more:hover .arrow {
+    transform: translateX(2px);
+  }
+</style>
