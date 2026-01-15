@@ -56,7 +56,6 @@ h6 {
   --radius: 8px;
 }
 
-
 body.search-open .site-wrapper {
   filter: blur(8px);
   pointer-events: none;
@@ -92,6 +91,7 @@ body {
     Roboto,
     sans-serif;
   font-size: 1rem;
+  font-weight: 500;
   line-height: 1.65;
   background: var(--color-bg);
   color: var(--color-text);
