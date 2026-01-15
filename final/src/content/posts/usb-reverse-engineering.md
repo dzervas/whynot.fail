@@ -2,6 +2,7 @@
 title: "Reverse Engineering a USB Protocol"
 date: 2024-03-15
 tags: ["reversing", "hardware", "python"]
+categories: ["reverse-engineering"]
 build_status: "failing"
 writer: "dzervas"
 description: "How I spent 3 weekends staring at hex dumps and questioning my life choices"

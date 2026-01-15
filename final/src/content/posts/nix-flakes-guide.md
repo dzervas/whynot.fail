@@ -2,6 +2,7 @@
 title: "Getting Started with Nix Flakes"
 date: 2024-08-10
 tags: ["nix", "linux", "devops"]
+categories: ["systems"]
 build_status: "passing"
 writer: "dzervas"
 description: "A practical guide to Nix Flakes that won't make you cry (probably)"

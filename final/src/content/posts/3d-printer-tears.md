@@ -2,6 +2,7 @@
 title: "My 3D Printer Made Me Cry (Again)"
 date: 2024-06-22
 tags: ["3d-printing", "hardware", "failure"]
+categories: ["hardware"]
 build_status: "unknown"
 writer: "dzervas"
 description: "A tale of layer shifts, spaghetti monsters, and existential dread"

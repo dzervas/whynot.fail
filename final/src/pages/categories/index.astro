@@ -1,0 +1,99 @@
+---
+/**
+ * Categories index page - shows all categories with post counts
+ */
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const posts = await getCollection('posts');
+
+const categoryCounts = posts.reduce((acc, post) => {
+  post.data.categories.forEach((category) => {
+    const normalized = category.toLowerCase();
+    acc[normalized] = (acc[normalized] || 0) + 1;
+  });
+  return acc;
+}, {} as Record<string, number>);
+
+const sortedCategories = Object.entries(categoryCounts).sort((a, b) =>
+  a[0].localeCompare(b[0])
+);
+---
+
+<BaseLayout title="Categories" currentPath="/categories/">
+  <section class="categories-page">
+    <header class="page-header">
+      <h1 class="page-title">Categories</h1>
+    </header>
+
+    <ul class="categories-grid">
+      {sortedCategories.map(([category, count]) => (
+        <li>
+          <a href={`/categories/${category}/`} class="category-card">
+            <span class="category-name">{category}</span>
+            <span class="category-count">{count}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+</BaseLayout>
+
+<style>
+  .categories-page {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .page-header {
+    margin-bottom: 2rem;
+  }
+
+  .page-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin: 0;
+  }
+
+  .categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .category-card {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 1.25rem;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.15s ease;
+  }
+
+  .category-card:hover {
+    border-color: var(--color-accent);
+    background: var(--color-accent-bg);
+  }
+
+  .category-name {
+    flex: 1;
+    font-weight: 500;
+    color: var(--color-text);
+  }
+
+  .category-count {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8125rem;
+    color: var(--color-text-muted);
+    padding: 0.125rem 0.5rem;
+    background: var(--color-bg);
+    border-radius: 4px;
+  }
+</style>

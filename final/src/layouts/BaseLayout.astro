@@ -2,10 +2,11 @@
 /**
  * Base layout with HTML shell, fonts, and global styles
  */
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import '../styles/global.css';
-import '../styles/theme.css';
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import SearchOverlay from "../components/SearchOverlay.astro";
+import "../styles/global.css";
+import "../styles/theme.css";
 
 interface Props {
   title: string;
@@ -16,10 +17,10 @@ interface Props {
 const {
   title,
   description = "Cause when you fail, somebody has to laugh at you",
-  currentPath = Astro.url.pathname
+  currentPath = Astro.url.pathname,
 } = Astro.props;
 
-const fullTitle = title === 'Home' ? 'WhyNot.Fail' : `${title} | WhyNot.Fail`;
+const fullTitle = title === "Home" ? "WhyNot.Fail" : `${title} | WhyNot.Fail`;
 ---
 
 <!DOCTYPE html>
@@ -42,7 +43,12 @@ const fullTitle = title === 'Home' ? 'WhyNot.Fail' : `${title} | WhyNot.Fail`;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
     <!-- RSS -->
-    <link rel="alternate" type="application/rss+xml" title="WhyNot.Fail RSS" href="/rss.xml" />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="WhyNot.Fail RSS"
+      href="/rss.xml"
+    />
   </head>
   <body>
     <div class="site-wrapper">
@@ -54,6 +60,9 @@ const fullTitle = title === 'Home' ? 'WhyNot.Fail' : `${title} | WhyNot.Fail`;
 
       <Footer />
     </div>
+
+    <SearchOverlay />
+    <script src="../scripts/search.ts"></script>
   </body>
 </html>
 

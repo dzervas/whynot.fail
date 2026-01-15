@@ -28,20 +28,33 @@ const navItems = [
       <span class="logo-tagline">// cause_when_you_fail_somebody_has_to_laugh_at_you</span>
     </a>
 
-    <nav class="nav-main" aria-label="Main navigation">
-      <ul class="nav-list">
-        {navItems.map((item) => (
-          <li>
-            <a
-              href={item.href}
-              class:list={['nav-link', { active: currentPath === item.href }]}
-            >
-              {item.label}
-            </a>
-          </li>
-        ))}
-      </ul>
-    </nav>
+    <div class="header-actions">
+      <nav class="nav-main" aria-label="Main navigation">
+        <ul class="nav-list">
+          {navItems.map((item) => (
+            <li>
+              <a
+                href={item.href}
+                class:list={['nav-link', { active: currentPath === item.href }]}
+              >
+                {item.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+
+      <div class="search-shell" data-search-trigger>
+        <input
+          type="search"
+          class="search-trigger"
+          placeholder="Search"
+          aria-label="Open search"
+          readonly
+        />
+        <span class="search-shortcut">Ctrl+K</span>
+      </div>
+    </div>
   </div>
 
   <div class="header-separator" aria-hidden="true"></div>
@@ -86,6 +99,12 @@ const navItems = [
     color: var(--color-text-muted);
   }
 
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
   .nav-main {
     display: flex;
     align-items: center;
@@ -97,6 +116,52 @@ const navItems = [
     list-style: none;
     margin: 0;
     padding: 0;
+  }
+
+  .search-shell {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.35rem 0.5rem;
+    border-radius: 8px;
+    border: 1px solid var(--color-border);
+    background: var(--color-surface);
+    cursor: pointer;
+  }
+
+  .search-trigger {
+    width: 140px;
+    background: transparent;
+    border: none;
+    color: var(--color-text-muted);
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.75rem;
+    pointer-events: none;
+  }
+
+  .search-shell:hover {
+    border-color: var(--color-accent);
+  }
+
+  .search-shell:hover .search-trigger {
+    color: var(--color-text);
+  }
+
+  .search-shortcut {
+    padding: 0.1rem 0.35rem;
+    border-radius: 4px;
+    border: 1px solid var(--color-border);
+    color: var(--color-text-secondary);
+  }
+
+  .js-enabled .search-shell {
+    display: inline-flex;
+  }
+
+  @media (max-width: 720px) {
+    .search-shortcut {
+      display: none;
+    }
   }
 
   .nav-link {

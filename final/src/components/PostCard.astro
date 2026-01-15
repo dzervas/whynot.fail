@@ -13,7 +13,9 @@ interface Props {
 }
 
 const { post, index } = Astro.props;
-const { title, date, tags, build_status, image, description, writer } = post.data;
+const { title, date, tags, categories, build_status, image, description, writer } = post.data;
+
+const primaryCategory = categories[0];
 
 const formattedDate = date.toLocaleDateString("en-GB", {
 	day: "2-digit",
@@ -41,6 +43,14 @@ const isReversed = index % 2 === 1;
 				<time datetime={date.toISOString()}>{formattedDate}</time>
 				<span class="meta-sep">/</span>
 				<span class="post-card-author">{writer}</span>
+				{primaryCategory && (
+					<>
+						<span class="meta-sep">/</span>
+						<a class="post-card-category" href={`/categories/${primaryCategory.toLowerCase()}/`}>
+							{primaryCategory}
+						</a>
+					</>
+				)}
 				{
 					build_status && (
 						<>
@@ -131,6 +141,15 @@ const isReversed = index % 2 === 1;
 		font-size: 0.8125rem;
 		color: var(--color-text-muted);
 		font-family: "JetBrains Mono", monospace;
+	}
+
+	.post-card-category {
+		color: var(--color-text-secondary);
+		text-decoration: none;
+	}
+
+	.post-card-category:hover {
+		color: var(--color-accent);
 	}
 
 	.meta-sep {

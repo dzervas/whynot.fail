@@ -1,0 +1,41 @@
+---
+/**
+ * Search page - enhanced via client-side JS
+ */
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Search" currentPath="/search/">
+  <section class="search-page">
+    <header class="page-header">
+      <h1 class="page-title">Search</h1>
+    </header>
+
+    <p class="search-hint" data-search-hint>
+      Search is loading. If nothing happens, awaken JavaScript.
+    </p>
+  </section>
+</BaseLayout>
+
+<style>
+  .search-page {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .page-header {
+    margin-bottom: 1rem;
+  }
+
+  .page-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin: 0;
+  }
+
+  .search-hint {
+    font-size: 1rem;
+    color: var(--color-text-muted);
+  }
+</style>

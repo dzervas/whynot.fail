@@ -2,6 +2,7 @@
 title: "Building a Mechanical Keyboard from Scratch"
 date: 2024-01-20
 tags: ["hardware", "electronics", "diy"]
+categories: ["hardware"]
 build_status: "passing"
 writer: "dzervas"
 description: "From PCB design to firmware - a complete custom keyboard journey"

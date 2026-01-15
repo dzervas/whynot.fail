@@ -13,7 +13,9 @@ interface Props {
 }
 
 const { post } = Astro.props;
-const { title, date, tags, build_status, writer, description } = post.data;
+const { title, date, tags, categories, build_status, writer, description, image } = post.data;
+
+const primaryCategory = categories[0];
 
 const formattedDate = date.toLocaleDateString("en-GB", {
 	day: "2-digit",
@@ -25,10 +27,17 @@ const formattedDate = date.toLocaleDateString("en-GB", {
 <BaseLayout title={title} description={description}>
 	<article class="post">
 		<header class="post-header">
-			<a href="/" class="back-link">
-				<Icon name="arrow-left" size={16} />
-				<span>Back to posts</span>
-			</a>
+			<div class="post-header-top">
+				<a href="/" class="back-link">
+					<Icon name="arrow-left" size={16} />
+					<span>Back to posts</span>
+				</a>
+				{primaryCategory && (
+					<a class="category-link" href={`/categories/${primaryCategory.toLowerCase()}/`}>
+						- {primaryCategory}
+					</a>
+				)}
+			</div>
 
 			<div class="post-meta">
 				<time datetime={date.toISOString()}>{formattedDate}</time>
@@ -54,6 +63,12 @@ const formattedDate = date.toLocaleDateString("en-GB", {
 				)
 			}
 		</header>
+
+		{image && (
+			<div class="post-hero">
+				<img src={image} alt={title} loading="lazy" />
+			</div>
+		)}
 
 		<div class="post-content">
 			<slot />
@@ -86,6 +101,14 @@ const formattedDate = date.toLocaleDateString("en-GB", {
 		margin: 0 auto;
 	}
 
+	.post-header-top {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 0.5rem;
+		margin-bottom: 1.5rem;
+	}
+
 	.back-link {
 		display: inline-flex;
 		align-items: center;
@@ -93,12 +116,34 @@ const formattedDate = date.toLocaleDateString("en-GB", {
 		font-size: 0.875rem;
 		color: var(--color-text-muted);
 		text-decoration: none;
-		margin-bottom: 1.5rem;
 		transition: color 0.15s ease;
 	}
 
 	.back-link:hover {
 		color: var(--color-accent);
+	}
+
+	.category-link {
+		font-size: 0.875rem;
+		color: var(--color-text-secondary);
+		text-decoration: none;
+	}
+
+	.category-link:hover {
+		color: var(--color-accent);
+	}
+
+	.post-hero {
+		margin: 0 0 2rem;
+		border-radius: 12px;
+		overflow: hidden;
+		background: var(--color-surface);
+	}
+
+	.post-hero img {
+		width: 100%;
+		height: clamp(220px, 35vh, 360px);
+		object-fit: cover;
 	}
 
 	.post-header {

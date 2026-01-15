@@ -56,6 +56,21 @@ h6 {
   --radius: 8px;
 }
 
+
+body.search-open .site-wrapper {
+  filter: blur(8px);
+  pointer-events: none;
+}
+
+body.search-open .search-overlay,
+body.search-open .search-overlay * {
+  pointer-events: auto;
+}
+
+body.search-open {
+  overflow: hidden;
+}
+
 @media (min-width: 640px) {
   :root {
     --gutter: 2rem;

@@ -11,8 +11,13 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.6",
+    "@astrojs/rss": "^4.0.14",
     "astro": "^5.16.9",
     "lucide": "^0.562.0",
+    "lunr": "^2.3.9",
     "typescript": "^5.9.3"
+  },
+  "devDependencies": {
+    "@types/lunr": "^2.3.7"
   }
 }
