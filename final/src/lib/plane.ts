@@ -61,14 +61,9 @@ export function planePostsLoader(options: PlanePostsLoaderOptions): Loader {
           continue;
         }
 
-        if (!rawSlug) {
-          logger.error(`Plane work item ${item.id} is missing slug custom property value.`);
-          continue;
-        }
-
         const slug = rawSlug.replace(/^\/+/, "").trim();
         if (!slug) {
-          logger.error(`Plane work item ${item.id} has empty slug value.`);
+          logger.error(`Plane work item ${item.id} is missing or has empty slug value.`);
           continue;
         }
 

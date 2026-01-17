@@ -31,7 +31,7 @@ function createTurndownService(): TurndownService {
     // Handle empty elements like Plane's horizontal rule divs
     blankReplacement: (_content, node) => {
       const el = node as Element;
-      if (el.nodeType === 1 && el.tagName === "DIV" && el.getAttribute("data-type") === "horizontalRule") {
+      if (el.tagName === "DIV" && el.getAttribute("data-type") === "horizontalRule") {
         return "\n\n---\n\n";
       }
       return "";

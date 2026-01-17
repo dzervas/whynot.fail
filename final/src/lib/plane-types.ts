@@ -20,7 +20,6 @@ export type WorkItem = {
   name: string;
   description_html: string | null;
   description_stripped?: string | null;
-  created_at: string;
   updated_at: string;
   completed_at: string | null;
   is_draft: boolean;
