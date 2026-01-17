@@ -42,6 +42,13 @@
 - Favicon: `public/favicon.svg` (stylized “W”). Keep it in sync with header branding.
 - Header ASCII logo is embedded in `src/components/Header.astro`.
 
+## Content Sync
+
+- Posts can be sourced from Plane work items (completed, non-draft) at build time.
+- HTML to Markdown conversion uses `turndown` with custom rules for callouts, fenced code, `<br>` hard breaks, and horizontal rules.
+- Callout background mappings: blue/light-blue -> INFO, peach -> DANGER, orange -> WARNING, gray -> NOTE.
+- Required env vars for Plane fetch: `PLANE_API_BASE_URL`, `PLANE_WORKSPACE_SLUG`, `PLANE_PROJECT_ID`, `API_TOKEN`.
+
 ## Validation
 
 - Use `npm run check` after any code changes.

@@ -90,12 +90,12 @@ const fullTitle = title === "Home" ? "WhyNot.Fail" : `${title} | WhyNot.Fail`;
       const footer = document.querySelector(".site-footer");
 
       const toggleBackToTop = () => {
-        if (!backToTop) return;
+        if (!(backToTop instanceof HTMLElement)) return;
         backToTop.toggleAttribute("data-visible", window.scrollY > 240);
       };
 
       const syncBackToTopHeight = () => {
-        if (!backToTop || !footer) return;
+        if (!(backToTop instanceof HTMLElement) || !(footer instanceof HTMLElement)) return;
         const height = footer.getBoundingClientRect().height;
         backToTop.style.setProperty("--footer-height", `${height}px`);
       };

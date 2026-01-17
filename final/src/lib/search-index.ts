@@ -19,7 +19,7 @@ export async function buildSearchIndex(): Promise<SearchDocument[]> {
       description: post.data.description ?? "",
       tags: post.data.tags,
       category: post.data.categories[0] ?? null,
-      slug: `/posts/${post.slug}/`,
+      slug: `/posts/${post.id}/`,
       date: post.data.date.toISOString(),
     }));
 }

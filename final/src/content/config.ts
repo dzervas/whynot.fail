@@ -1,7 +1,15 @@
 import { defineCollection, z } from "astro:content";
+import { glob } from "astro/loaders";
+import { planePostsLoader } from "../lib/plane";
 
 const posts = defineCollection({
-  type: "content",
+  loader: planePostsLoader({
+    apiBaseUrl: String(import.meta.env["PLANE_API_BASE_URL"] ?? ""),
+    workspaceSlug: String(import.meta.env["PLANE_WORKSPACE_SLUG"] ?? ""),
+    projectId: String(import.meta.env["PLANE_PROJECT_ID"] ?? ""),
+    apiToken: String(import.meta.env["API_TOKEN"] ?? ""),
+    localLoader: glob({ pattern: "**/*.md", base: "src/content/posts" }),
+  }),
   schema: z.object({
     title: z.string(),
     date: z.date(),

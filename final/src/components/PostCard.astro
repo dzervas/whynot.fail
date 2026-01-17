@@ -31,7 +31,7 @@ const isReversed = index % 2 === 1;
 	{
 		image && (
 			<div class="post-card-image">
-				<a href={`/posts/${post.slug}/`}>
+				<a href={`/posts/${post.id}/`}>
 					<img src={image} alt={title} loading="lazy" />
 				</a>
 			</div>
@@ -61,7 +61,7 @@ const isReversed = index % 2 === 1;
 				}
 			</div>
 			<h2 class="post-card-title">
-				<a href={`/posts/${post.slug}/`}>{title}</a>
+				<a href={`/posts/${post.id}/`}>{title}</a>
 			</h2>
 		</header>
 
@@ -69,7 +69,7 @@ const isReversed = index % 2 === 1;
 
 		<footer class="post-card-footer">
 			<TagList tags={tags} />
-			<a href={`/posts/${post.slug}/`} class="read-more">
+			<a href={`/posts/${post.id}/`} class="read-more">
 				Read post <span class="arrow">&rarr;</span>
 			</a>
 		</footer>

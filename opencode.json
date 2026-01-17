@@ -4,6 +4,10 @@
 		"browsermcp": {
 			"type": "local",
 			"command": ["npx", "@browsermcp/mcp@latest"]
+		},
+		"astro": {
+			"type": "remote",
+			"url": "https://mcp.docs.astro.build/mcp"
 		}
 	}
 }

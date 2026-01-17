@@ -15,9 +15,11 @@
     "astro": "^5.16.9",
     "lucide": "^0.562.0",
     "lunr": "^2.3.9",
+    "turndown": "^7.2.2",
     "typescript": "^5.9.3"
   },
   "devDependencies": {
-    "@types/lunr": "^2.3.7"
+    "@types/lunr": "^2.3.7",
+    "@types/turndown": "^5.0.6"
   }
 }
