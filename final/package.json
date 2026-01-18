@@ -20,6 +20,7 @@
   },
   "devDependencies": {
     "@types/lunr": "^2.3.7",
+    "@types/node": "^20.19.30",
     "@types/turndown": "^5.0.6"
   }
 }

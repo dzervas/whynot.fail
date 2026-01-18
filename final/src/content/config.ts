@@ -9,6 +9,8 @@ const posts = defineCollection({
     projectId: String(import.meta.env["PLANE_PROJECT_ID"] ?? ""),
     apiToken: String(import.meta.env["API_TOKEN"] ?? ""),
     localLoader: glob({ pattern: "**/*.md", base: "content/posts" }),
+    saveToDisk: true,
+    outputDir: "content/posts",
   }),
   schema: z.object({
     title: z.string(),

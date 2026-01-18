@@ -2,6 +2,10 @@ import type { Loader } from "astro/loaders";
 import type { PlanePostsLoaderOptions } from "./plane-types";
 import { PlaneClient } from "./plane-client";
 import { htmlToMarkdown } from "./plane-turndown";
+import { mkdir, writeFile } from "fs/promises";
+import { dirname, join } from "path";
+
+const DEFAULT_OUTPUT_DIR = "content/posts";
 
 export function planePostsLoader(options: PlanePostsLoaderOptions): Loader {
   return {
@@ -88,29 +92,126 @@ export function planePostsLoader(options: PlanePostsLoaderOptions): Loader {
           continue;
         }
 
-        const data = await parseData({
+         const data = {
+          title: item.name,
+          date,
+          tags,
+          categories: category ? [category] : [],
+          build_status: undefined,
+          image: undefined,
+          writer: "dzervas",
+          description: item.description_stripped?.trim() || item.name,
+        };
+
+        const parsed = await parseData({
           id: slug,
-          data: {
-            title: item.name,
-            date,
-            tags,
-            categories: category ? [category] : [],
-            build_status: undefined,
-            image: undefined,
-            writer: "dzervas",
-            description: item.description_stripped?.trim() || item.name,
-          },
+          data,
         });
 
         const status = store.get(slug) ? "updated" : "downloaded";
         const rendered = await renderMarkdown(markdown);
-        const digest = generateDigest({ data, markdown });
+        const digest = generateDigest({ data: parsed, markdown });
 
-        store.set({ id: slug, data, body: markdown, rendered, digest });
+        store.set({ id: slug, data: parsed, body: markdown, rendered, digest });
+
+        if (options.saveToDisk) {
+          try {
+            await savePostToDisk({
+              slug,
+              markdown,
+              data,
+              outputDir: options.outputDir,
+            });
+            logger.info(`[plane-posts-loader] saved ${slug} to disk`);
+          } catch (error) {
+            logger.error(`[plane-posts-loader] failed to save ${slug}: ${errorMsg(error)}`);
+          }
+        }
+
         logger.info(`[plane-posts-loader] ${status} post ${slug} from work item ${item.id}`);
       }
     },
   };
+}
+
+async function savePostToDisk({
+  slug,
+  markdown,
+  data,
+  outputDir,
+}: {
+  slug: string;
+  markdown: string;
+  data: {
+    title: string;
+    date: Date;
+    tags: string[];
+    categories: string[];
+    build_status: string | undefined;
+    image: string | undefined;
+    writer: string;
+    description: string;
+  };
+  outputDir?: string;
+}): Promise<void> {
+  const targetDir = outputDir ?? DEFAULT_OUTPUT_DIR;
+  const safeSlug = slug.replace(/^\/|\/$/g, "");
+  const filePath = join(targetDir, `${safeSlug}.md`);
+  const frontmatter = buildFrontmatter(data);
+  const contents = `${frontmatter}\n${markdown.trim()}\n`;
+  await mkdir(dirname(filePath), { recursive: true });
+  await writeFile(filePath, contents, "utf8");
+}
+
+function buildFrontmatter(data: {
+  title: string;
+  date: Date;
+  tags: string[];
+  categories: string[];
+  build_status: string | undefined;
+  image: string | undefined;
+  writer: string;
+  description: string;
+}): string {
+  const lines = ["---"];
+  lines.push(`title: ${escapeYaml(data.title)}`);
+  lines.push(`date: ${data.date.toISOString()}`);
+
+  if (data.description) {
+    lines.push(`description: ${escapeYaml(data.description)}`);
+  }
+
+  lines.push("tags:");
+  if (data.tags.length === 0) {
+    lines.push("  - untagged");
+  } else {
+    data.tags.forEach((tag) => lines.push(`  - ${escapeYaml(tag)}`));
+  }
+
+  lines.push("categories:");
+  if (data.categories.length === 0) {
+    lines.push("  - uncategorized");
+  } else {
+    data.categories.forEach((category) => lines.push(`  - ${escapeYaml(category)}`));
+  }
+
+  if (data.build_status) {
+    lines.push(`build_status: ${data.build_status}`);
+  }
+
+  if (data.image) {
+    lines.push(`image: ${data.image}`);
+  }
+
+  lines.push(`writer: ${escapeYaml(data.writer)}`);
+  lines.push("---");
+  return lines.join("\n");
+}
+
+function escapeYaml(value: string): string {
+  const trimmed = value.trim();
+  if (!trimmed) return "\"\"";
+  return trimmed.includes(":") || trimmed.includes("#") ? `"${trimmed.replace(/"/g, "\\\"")}"` : trimmed;
 }
 
 function missingEnv(options: PlanePostsLoaderOptions): string[] {
