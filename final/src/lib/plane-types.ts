@@ -6,6 +6,8 @@ export type PlanePostsLoaderOptions = {
   projectId: string;
   apiToken: string;
   localLoader?: Loader;
+  saveToDisk?: boolean;
+  outputDir?: string;
 };
 
 export type WorkItemsResponse = {
