@@ -2,6 +2,7 @@
 /**
  * Horizontal Post Card for homepage
  * Alternates image left/right for visual interest
+ * Posts without images span full width with 3-column layout
  */
 import type { CollectionEntry } from "astro:content";
 import TagList from "./TagList.astro";
@@ -25,20 +26,55 @@ const formattedDate = date.toLocaleDateString("en-GB", {
 
 // Alternate layout direction
 const isReversed = index % 2 === 1;
+const hasImage = !!image;
 ---
 
-<article class:list={["post-card", { reversed: isReversed }]}>
-	{
-		image && (
-			<div class="post-card-image">
-				<a href={`/posts/${post.id}/`}>
-					<img src={image} alt={title} loading="lazy" />
+{hasImage ? (
+	<article class:list={["post-card", { reversed: isReversed }]}>
+		<div class="post-card-image">
+			<a href={`/posts/${post.id}/`}>
+				<img src={image} alt={title} loading="lazy" />
+			</a>
+		</div>
+		<div class="post-card-content">
+			<header class="post-card-header">
+				<div class="post-card-meta">
+					<time datetime={date.toISOString()}>{formattedDate}</time>
+					<span class="meta-sep">/</span>
+					<span class="post-card-author">{writer}</span>
+					{primaryCategory && (
+						<>
+							<span class="meta-sep">/</span>
+							<a class="post-card-category" href={`/categories/${primaryCategory.toLowerCase()}/`}>
+								{primaryCategory}
+							</a>
+						</>
+					)}
+					{build_status && (
+						<>
+							<span class="meta-sep">/</span>
+							<BuildBadge status={build_status} />
+						</>
+					)}
+				</div>
+				<h2 class="post-card-title">
+					<a href={`/posts/${post.id}/`}>{title}</a>
+				</h2>
+			</header>
+
+			{description && <p class="post-card-excerpt">{description}</p>}
+
+			<footer class="post-card-footer">
+				<TagList tags={tags} />
+				<a href={`/posts/${post.id}/`} class="read-more">
+					Read post <span class="arrow">&rarr;</span>
 				</a>
-			</div>
-		)
-	}
-	<div class="post-card-content">
-		<header class="post-card-header">
+			</footer>
+		</div>
+	</article>
+) : (
+	<article class:list={["post-card", "no-image"]}>
+		<div class="post-card-meta-row">
 			<div class="post-card-meta">
 				<time datetime={date.toISOString()}>{formattedDate}</time>
 				<span class="meta-sep">/</span>
@@ -51,30 +87,27 @@ const isReversed = index % 2 === 1;
 						</a>
 					</>
 				)}
-				{
-					build_status && (
-						<>
-							<span class="meta-sep">/</span>
-							<BuildBadge status={build_status} />
-						</>
-					)
-				}
+				{build_status && (
+					<>
+						<span class="meta-sep">/</span>
+						<BuildBadge status={build_status} />
+					</>
+				)}
 			</div>
+		</div>
+
+		<div class="post-card-main-row">
 			<h2 class="post-card-title">
 				<a href={`/posts/${post.id}/`}>{title}</a>
 			</h2>
-		</header>
-
-		{description && <p class="post-card-excerpt">{description}</p>}
-
-		<footer class="post-card-footer">
+			{description && <p class="post-card-excerpt">{description}</p>}
 			<TagList tags={tags} />
 			<a href={`/posts/${post.id}/`} class="read-more">
 				Read post <span class="arrow">&rarr;</span>
 			</a>
-		</footer>
-	</div>
-</article>
+		</div>
+	</article>
+)}
 
 <style>
 	.post-card {
@@ -94,19 +127,43 @@ const isReversed = index % 2 === 1;
 		padding-bottom: 0;
 	}
 
+	/* Posts WITH images - 2 column layout */
 	@media (min-width: 768px) {
-		.post-card {
+		.post-card:not(.no-image) {
 			grid-template-columns: 1fr 1.2fr;
 			gap: 2rem;
 		}
 
-		.post-card.reversed {
+		.post-card:not(.no-image).reversed {
 			direction: rtl;
 		}
 
-		.post-card.reversed > * {
+		.post-card:not(.no-image).reversed > * {
 			direction: ltr;
 		}
+	}
+
+	/* Posts WITHOUT images - full width with meta row above */
+	.post-card.no-image {
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+	}
+
+	.post-card-meta-row {
+		display: flex;
+		justify-content: center;
+	}
+
+	.post-card-main-row {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: baseline;
+		gap: 0.5rem 1rem;
+	}
+
+	.post-card.no-image .post-card-title {
+		margin: 0;
 	}
 
 	.post-card-image {
