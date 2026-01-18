@@ -32,7 +32,7 @@ const hasImage = !!image;
 {hasImage ? (
 	<article class:list={["post-card", { reversed: isReversed }]}>
 		<div class="post-card-image">
-			<a href={`/posts/${post.id}/`}>
+			<a href={`/${post.id}/`}>
 				<img src={image} alt={title} loading="lazy" />
 			</a>
 		</div>
@@ -58,7 +58,7 @@ const hasImage = !!image;
 					)}
 				</div>
 				<h2 class="post-card-title">
-					<a href={`/posts/${post.id}/`}>{title}</a>
+					<a href={`/${post.id}/`}>{title}</a>
 				</h2>
 			</header>
 
@@ -66,7 +66,7 @@ const hasImage = !!image;
 
 			<footer class="post-card-footer">
 				<TagList tags={tags} />
-				<a href={`/posts/${post.id}/`} class="read-more">
+				<a href={`/${post.id}/`} class="read-more">
 					Read post <span class="arrow">&rarr;</span>
 				</a>
 			</footer>
@@ -98,11 +98,11 @@ const hasImage = !!image;
 
 		<div class="post-card-main-row">
 			<h2 class="post-card-title">
-				<a href={`/posts/${post.id}/`}>{title}</a>
+				<a href={`/${post.id}/`}>{title}</a>
 			</h2>
 			{description && <p class="post-card-excerpt">{description}</p>}
 			<TagList tags={tags} />
-			<a href={`/posts/${post.id}/`} class="read-more">
+			<a href={`/${post.id}/`} class="read-more">
 				Read post <span class="arrow">&rarr;</span>
 			</a>
 		</div>

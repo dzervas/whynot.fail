@@ -2,15 +2,15 @@
 /**
  * Dynamic post page
  */
-import { getCollection, render } from 'astro:content';
-import PostLayout from '../../layouts/PostLayout.astro';
+import { getCollection, render } from "astro:content";
+import PostLayout from "../layouts/PostLayout.astro";
 
 export async function getStaticPaths() {
-  const posts = await getCollection('posts');
+  const posts = await getCollection("posts");
 
-  return posts.map(post => ({
+  return posts.map((post) => ({
     params: { slug: post.id },
-    props: { post }
+    props: { post },
   }));
 }
 
