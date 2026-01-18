@@ -8,9 +8,8 @@ build_status: passing
 image: /images/notion-db9c6583-f1cb-4edb-b5f5-8f80725ac6c7-image.jpeg
 title: Let's Encrypt the house!
 ---
-```callout gray_background
-💡This whole setup described is deprecated. Cloudflare offers this whole service for free with a much easier setup and 0 maintenance. Reported by an [HN comment](https://news.ycombinator.com/item?id=22838330) (my handle on HN is ttouch). Don’t use what I describe bellow unless you really have a reason not to use Cloudflare. That’s what this blog is about. Failures 🙂
-```
+> [!NOTE]
+> 💡 This whole setup described is deprecated. Cloudflare offers this whole service for free with a much easier setup and 0 maintenance. Reported by an [HN comment](https://news.ycombinator.com/item?id=22838330) (my handle on HN is ttouch). Don’t use what I describe bellow unless you really have a reason not to use Cloudflare. That’s what this blog is about. Failures 🙂
 
 That’s what my mother always said when I was little. And don’t talk to strangers. And the cold comes from the feet (so never walk barefoot). I never got it. How the hell do you use proper signed certificates in a private network? Why have a house if you can’t walk around barefoot? Anyway…
 

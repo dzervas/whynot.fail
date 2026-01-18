@@ -137,6 +137,8 @@ const fullTitle = title === "Home" ? "WhyNot.Fail" : `${title} | WhyNot.Fail`;
     height: clamp(80px, 12vh, 140px);
     pointer-events: none;
     z-index: 15;
+    --webring-width: clamp(170px, 18vw, 260px);
+    --webring-label-width: 9.5rem;
   }
 
   .edge-link {
@@ -166,7 +168,7 @@ const fullTitle = title === "Home" ? "WhyNot.Fail" : `${title} | WhyNot.Fail`;
     position: absolute;
     top: 0;
     height: 100%;
-    width: min(18vw, 260px);
+    width: var(--webring-width);
     pointer-events: auto;
   }
 
@@ -218,6 +220,8 @@ const fullTitle = title === "Home" ? "WhyNot.Fail" : `${title} | WhyNot.Fail`;
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--color-text-muted);
+    text-align: center;
+    max-width: var(--webring-label-width);
   }
 
   .webring-link:hover,
@@ -239,6 +243,7 @@ const fullTitle = title === "Home" ? "WhyNot.Fail" : `${title} | WhyNot.Fail`;
       padding: 0 var(--gutter) 1.5rem;
       margin: 0 auto;
       max-width: var(--max-width);
+      --webring-label-width: none;
     }
 
     .edge-link {
