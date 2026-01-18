@@ -8,7 +8,7 @@ const posts = defineCollection({
     workspaceSlug: String(import.meta.env["PLANE_WORKSPACE_SLUG"] ?? ""),
     projectId: String(import.meta.env["PLANE_PROJECT_ID"] ?? ""),
     apiToken: String(import.meta.env["API_TOKEN"] ?? ""),
-    localLoader: glob({ pattern: "**/*.md", base: "src/content/posts" }),
+    localLoader: glob({ pattern: "**/*.md", base: "content/posts" }),
   }),
   schema: z.object({
     title: z.string(),

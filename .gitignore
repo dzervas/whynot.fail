@@ -33,6 +33,6 @@ test/*
 resources/
 public/
 .hugo_build.lock
-notion-*
+# notion-*
 
 .opencode
