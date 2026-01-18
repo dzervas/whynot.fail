@@ -31,7 +31,7 @@ node_modules/
 test/*
 .jekyll-metadata
 resources/
-public/
+# public/
 .hugo_build.lock
 # notion-*
 
