@@ -1,0 +1,116 @@
+/**
+ * Terminal Noir Theme
+ * Clean dark theme with cyan accents and subtle terminal influences
+ */
+
+:root {
+  /* Base Colors */
+  --color-bg: #0a0a0b;
+  --color-surface: #141416;
+  --color-surface-alt: #0f0f10;
+  --color-border: #2a2a2e;
+
+  /* Text Colors */
+  --color-text: #e4e4e7;
+  --color-text-secondary: #c4c4cd;
+  --color-text-muted: #71717a;
+
+  /* Accent - Cyan */
+  --color-accent: #22d3ee;
+  --color-accent-bg: rgba(34, 211, 238, 0.1);
+  --color-accent-border: rgba(34, 211, 238, 0.3);
+
+  /* Status Colors */
+  --color-success: #4ade80;
+  --color-warning: #fbbf24;
+  --color-danger: #f87171;
+
+  /* Code */
+  --color-code-bg: #0d0d0e;
+
+  /* Callouts - Note (neutral gray) */
+  --color-callout-note-bg: rgba(113, 113, 122, 0.1);
+  --color-callout-note-border: #71717a;
+  --color-callout-note-text: #a1a1aa;
+  --color-callout-note-title: #e4e4e7;
+
+  /* Callouts - Info (cyan/accent) */
+  --color-callout-info-bg: rgba(34, 211, 238, 0.08);
+  --color-callout-info-border: #22d3ee;
+  --color-callout-info-text: #a1a1aa;
+  --color-callout-info-title: #22d3ee;
+
+  /* Callouts - Warning (amber) */
+  --color-callout-warning-bg: rgba(251, 191, 36, 0.08);
+  --color-callout-warning-border: #fbbf24;
+  --color-callout-warning-text: #a1a1aa;
+  --color-callout-warning-title: #fbbf24;
+
+  /* Callouts - Danger (red) */
+  --color-callout-danger-bg: rgba(248, 113, 113, 0.08);
+  --color-callout-danger-border: #f87171;
+  --color-callout-danger-text: #a1a1aa;
+  --color-callout-danger-title: #f87171;
+}
+
+/* Subtle ASCII circuit pattern background */
+body {
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg stroke='%232a2a2e' stroke-width='0.5' stroke-opacity='0.15'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Terminal-style comment headers */
+.section-comment {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Dashed vertical separator for sidebar layouts */
+.dashed-separator-vertical {
+  width: 1px;
+  background: repeating-linear-gradient(
+    180deg,
+    var(--color-border) 0,
+    var(--color-border) 4px,
+    transparent 4px,
+    transparent 8px
+  );
+}
+
+/* Page title styling */
+.page-title {
+  position: relative;
+  display: inline-block;
+}
+
+.page-title::after {
+  content: "_";
+  animation: blink 1s step-end infinite;
+  color: var(--color-accent);
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Terminal Noir specific scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-muted);
+}

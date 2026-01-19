@@ -1,0 +1,107 @@
+---
+/**
+ * Callout component for note/info/warning/danger blocks
+ * Usage in markdown: > [!NOTE] or > [!WARNING] etc.
+ */
+import Icon from './Icon.astro';
+
+interface Props {
+  type: 'note' | 'info' | 'warning' | 'danger';
+}
+
+const { type } = Astro.props as Props;
+
+const config = {
+  note: { icon: 'info' as const, title: 'Note', class: 'callout-note' },
+  info: { icon: 'info' as const, title: 'Info', class: 'callout-info' },
+  warning: { icon: 'alert-triangle' as const, title: 'Warning', class: 'callout-warning' },
+  danger: { icon: 'alert-circle' as const, title: 'Danger', class: 'callout-danger' },
+};
+
+const cfg = config[type];
+---
+
+<aside class:list={['callout', cfg.class]}>
+  <div class="callout-header">
+    <Icon name={cfg.icon} size={18} />
+    <span class="callout-title">{cfg.title}</span>
+  </div>
+  <div class="callout-content">
+    <slot />
+  </div>
+</aside>
+
+<style>
+  .callout {
+    margin: 1.5rem 0;
+    padding: 1rem 1.25rem;
+    border-radius: 6px;
+    border-left: 4px solid;
+  }
+
+  .callout-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    font-size: 0.9375rem;
+  }
+
+  .callout-content {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+  }
+
+  .callout-content :global(p) {
+    margin: 0;
+  }
+
+  .callout-content :global(p + p) {
+    margin-top: 0.75rem;
+  }
+
+  /* Note - default/neutral */
+  .callout-note {
+    background: var(--color-callout-note-bg);
+    border-color: var(--color-callout-note-border);
+    color: var(--color-callout-note-text);
+  }
+
+  .callout-note .callout-header {
+    color: var(--color-callout-note-title);
+  }
+
+  /* Info - accent color */
+  .callout-info {
+    background: var(--color-callout-info-bg);
+    border-color: var(--color-callout-info-border);
+    color: var(--color-callout-info-text);
+  }
+
+  .callout-info .callout-header {
+    color: var(--color-callout-info-title);
+  }
+
+  /* Warning - amber/yellow */
+  .callout-warning {
+    background: var(--color-callout-warning-bg);
+    border-color: var(--color-callout-warning-border);
+    color: var(--color-callout-warning-text);
+  }
+
+  .callout-warning .callout-header {
+    color: var(--color-callout-warning-title);
+  }
+
+  /* Danger - red */
+  .callout-danger {
+    background: var(--color-callout-danger-bg);
+    border-color: var(--color-callout-danger-border);
+    color: var(--color-callout-danger-text);
+  }
+
+  .callout-danger .callout-header {
+    color: var(--color-callout-danger-title);
+  }
+</style>

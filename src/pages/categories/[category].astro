@@ -1,0 +1,69 @@
+---
+/**
+ * Category page - shows posts filtered by category
+ */
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PostCard from '../../components/PostCard.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts');
+  const categories = [...new Set(posts.flatMap((post) =>
+    post.data.categories.map((category) => category.toLowerCase())
+  ))];
+
+  return categories.map((category) => ({
+    params: { category },
+    props: {
+      category,
+      posts: posts
+        .filter((post) => post.data.categories.map((c) => c.toLowerCase()).includes(category))
+        .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf()),
+    },
+  }));
+}
+
+interface Props {
+  category: string;
+  posts: Awaited<ReturnType<typeof getCollection<'posts'>>>;
+}
+
+const { category, posts } = Astro.props;
+---
+
+<BaseLayout title={`Category: ${category}`} currentPath={`/categories/${category}/`}>
+  <section class="category-page">
+    <header class="page-header">
+      <h1 class="page-title">{category}</h1>
+    </header>
+
+    <div class="posts-list">
+      {posts.map((post, index) => (
+        <PostCard post={post} index={index} />
+      ))}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .category-page {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .page-header {
+    margin-bottom: 2rem;
+  }
+
+  .page-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin: 0;
+  }
+
+  .posts-list {
+    display: flex;
+    flex-direction: column;
+  }
+</style>

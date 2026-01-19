@@ -1,0 +1,28 @@
+---
+/**
+ * Homepage - List of posts with horizontal cards
+ */
+import { getCollection } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PostCard from "../components/PostCard.astro";
+
+// Get all posts, sorted by date (newest first)
+const posts = (await getCollection("posts")).sort(
+	(a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+---
+
+<BaseLayout title="Home" currentPath="/">
+	<section class="posts-section">
+		<div class="posts-list">
+			{posts.map((post, index) => <PostCard post={post} index={index} />)}
+		</div>
+	</section>
+</BaseLayout>
+
+<style>
+	.posts-list {
+		display: flex;
+		flex-direction: column;
+	}
+</style>

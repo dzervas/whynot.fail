@@ -1,0 +1,52 @@
+---
+date: 2022-06-26T00:00:00
+url: /coding/notion-blog
+tags:
+  - coding
+  - programming
+writer: dzervas
+build_status: passing
+image: /images/notion-1f86c812-e6f3-435a-9c48-bb65005291db-notion-wordmark.png
+title: This post is written in Notion
+---
+I’ve been searching for a way to write blog posts through a beautiful, mobile-friendly interface for almost two years.
+
+Notion was always a very good answer but the code required to make it work was always keeping me back. But I finally did it, this blog’s content is now fully hosted in Notion
+
+![Me writing a blog post with vim](/images/notion-18bdeff6-aa7d-436f-a55b-b8bbdcc9c074-012E6354-B620-4723-B799-772BCB9B01A5.jpeg)
+
+# Existing solutions
+
+There are some UIs built specifically for git enabled static sites like [forestry.io](http://forestry.io) but all of them lack the support for custom pieces of markdown (also known as [shortcodes](https://gohugo.io/content-management/shortcodes/) in the [hugo](https://gohugo.io) world). This makes the actual blog posting experience harder, as your general view of the content is quite different to what the user will consume.
+
+There are also blog engines such as Wordpress or [ghost.org](http://ghost.org) but I didn’t want to manage yet another service, give my data to yet another company or pay yet another subscription.
+
+> [!NOTE]
+> 💡 Ghost is probably a very good solution as it’s something between a CMS and static site generator. I didn’t go that way though
+
+The last solution was to use [Notion.se](http://Notion.se) as a content editor and generate the actual pages with Hugo through a GitHub Action, as I already do. I already use Notion, Hugo and GitHub separately so no new company or technology was needed to get in the way. Just a little bit of python glue to make them kiss
+
+# Announcing notion-markdown
+
+There are two things that needed to be bridged:
+
+ - Notion content → Markdown
+ - Trigger a blog rebuild when I edit content through Notion
+[notion-markdown](https://github.com/dzervas/notion-markdown) does the first part and does it quite well. It’s a simple python script that needs almost no external dependencies and takes a Notion page that includes a database as an argument. First, it proceeds to write its properties as a JSON object at the start of the target file and then to translate its content blocks to markdown.
+
+The only thing missing right now (for my needs at least) is gallery support, as it’s a database on its own.
+
+I’m sure there are a lot of blocks missing but I just don’t use them (mainly weird collection views and external blocks). If you’re missing something, open an issue on GitHub or, even better, open an MR.
+
+I decided to use the API that notion uses to render its front end in the web interface, as otherwise I’d have to use the extension API and hassle with secret keys etc. I just hope that the front end API does not change without a notice all the time.
+
+# TODO
+
+The current state is very pleasant to me and I’m very proud for what it achieves. Maybe in some time I’ll implement the following too, as they would be nice to have:
+
+ - Watch the target Notion Collection for changes and trigger the build action
+ - Short-lived staging environment (maybe with authentication) using the 30’ timeout in GitHub Action runner that builds drafts too
+ - Trigger staging build at every Notion Collection event
+ - Support Notion comments (and maybe sync with [utteranc.es](http://utteranc.es)?)
+That’s all, I’m just too excited to share the news! 🎉
+

@@ -1,0 +1,168 @@
+---
+/**
+ * Search overlay - rendered once and controlled by JS
+ */
+---
+
+<div class="search-overlay" data-search-overlay hidden>
+  <div class="search-backdrop" data-search-close></div>
+  <div class="search-panel" role="dialog" aria-modal="true" aria-label="Search">
+    <header class="search-header">
+      <input
+        type="search"
+        class="search-input"
+        placeholder="Search posts..."
+        aria-label="Search posts"
+        data-search-input
+      />
+      <button class="search-close" type="button" aria-label="Close search" data-search-close>
+        &times;
+      </button>
+    </header>
+    <div class="search-results" data-search-results>
+      <p class="search-empty">Type something and hit Enter. Or just panic.</p>
+    </div>
+  </div>
+</div>
+
+<style is:global>
+  .search-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .search-overlay[hidden] {
+    display: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .search-panel {
+      transition: none;
+    }
+  }
+
+  .search-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(10, 10, 11, 0.55);
+    backdrop-filter: blur(10px);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  .search-overlay:not([hidden]) .search-backdrop {
+    opacity: 1;
+  }
+
+  .search-panel {
+    position: relative;
+    width: min(820px, 94vw);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+    padding: 1.25rem 1.5rem 1.5rem;
+    transform: translateY(10px) scale(0.98);
+    opacity: 0;
+    transition: all 0.2s ease;
+  }
+
+  .search-overlay:not([hidden]) .search-panel {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+
+  .search-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .search-input {
+    flex: 1;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 0.75rem 0.9rem;
+    color: var(--color-text);
+    font-size: 1rem;
+  }
+
+  .search-input:focus {
+    border-color: var(--color-accent);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(34, 211, 238, 0.15);
+  }
+
+  .search-close {
+    background: transparent;
+    border: none;
+    color: var(--color-text-muted);
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+  }
+
+  .search-close:hover {
+    color: var(--color-text);
+  }
+
+  .search-results {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .search-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    background: var(--color-bg);
+    text-decoration: none;
+  }
+
+  .search-item:hover,
+  .search-item.is-active {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 1px rgba(34, 211, 238, 0.2);
+  }
+
+  .search-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .search-description {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+  }
+
+  .search-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .search-tag {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.6875rem;
+    padding: 0.2rem 0.45rem;
+    border-radius: 4px;
+    background: var(--color-accent-bg);
+    color: var(--color-accent);
+  }
+
+  .search-empty {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+  }
+</style>

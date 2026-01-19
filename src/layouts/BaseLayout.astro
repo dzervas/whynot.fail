@@ -1,0 +1,279 @@
+---
+/**
+ * Base layout with HTML shell, fonts, and global styles
+ */
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import SearchOverlay from "../components/SearchOverlay.astro";
+import "../styles/global.css";
+import "../styles/theme.css";
+
+interface Props {
+  title: string;
+  description?: string;
+  currentPath?: string;
+}
+
+const {
+  title,
+  description = "Cause when you fail, somebody has to laugh at you",
+  currentPath = Astro.url.pathname,
+} = Astro.props;
+
+const fullTitle = title === "Home" ? "WhyNot.Fail" : `${title} | WhyNot.Fail`;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <title>{fullTitle}</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Raleway:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- RSS -->
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="WhyNot.Fail RSS"
+      href="/rss.xml"
+    />
+  </head>
+  <body id="top">
+    <div class="site-wrapper">
+      <Header currentPath={currentPath} />
+
+      <main class="main-content">
+        <slot />
+      </main>
+
+      <Footer />
+
+      <nav class="webring" aria-label="Webring">
+        <a
+          class="webring-link edge-link webring-link--prev"
+          href="https://webring.stavros.io/prev"
+        >
+          <span class="webring-arrow" aria-hidden="true">&lt;</span>
+          <span class="webring-label">Previous blog</span>
+        </a>
+        <a
+          class="webring-link edge-link webring-link--next"
+          href="https://webring.stavros.io/next"
+        >
+          <span class="webring-arrow" aria-hidden="true">&gt;</span>
+          <span class="webring-label">Next blog</span>
+        </a>
+      </nav>
+
+      <a class="back-to-top edge-link" href="#top" data-back-to-top>
+        <span class="webring-arrow back-to-top-arrow" aria-hidden="true">^</span>
+        <span class="webring-label back-to-top-label">Top</span>
+      </a>
+    </div>
+
+    <SearchOverlay />
+    <script src="../scripts/search.ts"></script>
+    <script>
+      const backToTop = document.querySelector("[data-back-to-top]");
+      const footer = document.querySelector(".site-footer");
+
+      const toggleBackToTop = () => {
+        if (!(backToTop instanceof HTMLElement)) return;
+        backToTop.toggleAttribute("data-visible", window.scrollY > 240);
+      };
+
+      const syncBackToTopHeight = () => {
+        if (!(backToTop instanceof HTMLElement) || !(footer instanceof HTMLElement)) return;
+        const height = footer.getBoundingClientRect().height;
+        backToTop.style.setProperty("--footer-height", `${height}px`);
+      };
+
+      toggleBackToTop();
+      syncBackToTopHeight();
+      window.addEventListener("scroll", toggleBackToTop, { passive: true });
+      window.addEventListener("resize", syncBackToTopHeight, { passive: true });
+      window.addEventListener("load", syncBackToTopHeight, { passive: true });
+
+      if (footer) {
+        const footerObserver = new ResizeObserver(syncBackToTopHeight);
+        footerObserver.observe(footer);
+      }
+    </script>
+  </body>
+</html>
+
+<style is:global>
+  .site-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .main-content {
+    flex: 1;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: calc(2rem + clamp(80px, 12vh, 140px)) var(--gutter) 2rem;
+    width: 100%;
+  }
+
+  .webring {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: clamp(80px, 12vh, 140px);
+    pointer-events: none;
+    z-index: 15;
+    --webring-width: clamp(170px, 18vw, 260px);
+    --webring-label-width: 9.5rem;
+  }
+
+  .edge-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    font-family: "JetBrains Mono", monospace;
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    transition: color 0.2s ease, border-color 0.2s ease;
+  }
+
+  .edge-link:hover,
+  .edge-link:focus-visible {
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+  }
+
+  .edge-link:hover .webring-label,
+  .edge-link:focus-visible .webring-label {
+    color: var(--color-text);
+  }
+
+  .webring-link {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: var(--webring-width);
+    pointer-events: auto;
+  }
+
+  .webring-link:focus-visible,
+  .back-to-top:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: -2px;
+  }
+
+  .webring-link--prev {
+    left: 0;
+    border-right: 1px dashed rgba(34, 211, 238, 0.2);
+  }
+
+  .webring-link--next {
+    right: 0;
+    border-left: 1px dashed rgba(34, 211, 238, 0.2);
+  }
+
+  .back-to-top {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    height: var(--footer-height, clamp(80px, 12vh, 140px));
+    width: min(18vw, 260px);
+    border-radius: 0;
+    border-left: 1px dashed rgba(34, 211, 238, 0.2);
+    font-size: 0.75rem;
+    opacity: 0;
+    transform: translateY(6px);
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    z-index: 20;
+  }
+
+  .back-to-top[data-visible] {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .webring-arrow {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    color: var(--color-accent);
+  }
+
+  .webring-label {
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    text-align: center;
+    max-width: var(--webring-label-width);
+  }
+
+  .webring-link:hover,
+  .webring-link:focus-visible {
+    color: var(--color-accent);
+  }
+
+  @media (max-width: 900px) {
+    .main-content {
+      padding-top: 2rem;
+    }
+
+    .webring {
+      position: static;
+      pointer-events: auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0 var(--gutter) 1.5rem;
+      margin: 0 auto;
+      max-width: var(--max-width);
+      --webring-label-width: none;
+    }
+
+    .edge-link {
+      flex-direction: row;
+      padding: 0.45rem 0.75rem;
+      border-radius: 999px;
+      background: var(--color-surface);
+      border: 1px dashed rgba(34, 211, 238, 0.2);
+    }
+
+    .webring-link {
+      position: relative;
+      width: 100%;
+      min-height: 80px;
+      border-radius: 12px;
+    }
+
+    .webring-link--prev,
+    .webring-link--next {
+      left: auto;
+      right: auto;
+    }
+
+    .back-to-top {
+      width: auto;
+      height: auto;
+    }
+
+    .webring-arrow {
+      font-size: 1.1rem;
+    }
+  }
+</style>
