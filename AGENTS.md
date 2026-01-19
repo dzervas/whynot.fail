@@ -47,7 +47,7 @@
 - Posts can be sourced from Plane work items (completed, non-draft) at build time.
 - HTML to Markdown conversion uses `turndown` with custom rules for callouts, fenced code, `<br>` hard breaks, and horizontal rules.
 - Callout background mappings: blue/light-blue -> INFO, peach -> DANGER, orange -> WARNING, gray -> NOTE.
-- Required env vars for Plane fetch: `PLANE_API_BASE_URL`, `PLANE_WORKSPACE_SLUG`, `PLANE_PROJECT_ID`, `API_TOKEN`.
+- Required env vars for Plane fetch: `PLANE_API_BASE_URL`, `PLANE_WORKSPACE_SLUG`, `PLANE_PROJECT_ID`, `PLANE_API_TOKEN`.
 
 ## Validation
 
