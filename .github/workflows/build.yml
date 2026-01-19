@@ -20,27 +20,19 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/checkout@v4
-        with:
-          repository: dzervas/notion-markdown
-          path: notion-markdown
+      - uses: actions/checkout@v6
+      - uses: oven-sh/setup-bun@v2
 
-      - name: Setup NPM
-        uses: actions/setup-node@v4
       - name: Install dependencies
-        run: npm ci
-
-      - name: Hugo setup
-        uses: peaceiris/actions-hugo@v3
-        with:
-          extended: true
-
-      - name: Download notion pages
-        run: notion-markdown/getter.py -c content/post -d static/img -u /img ${{ secrets.NOTIONDB_ID }}
+        run: bun install
 
       - name: Build site
-        run: hugo --minify --gc
+        run: bun run build
+        # env:
+        #   PLANE_API_BASE_URL: https://projects.vpn.dzerv.art/api
+        #   PLANE_WORKSPACE_SLUG: personal
+        #   PLANE_PROJECT_ID: 32980ecb-00f3-448e-b2f0-7b68b4647711
+        #   PLANE_API_TOKEN: ${{ secrets.PLANE_API_TOKEN }}
 
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v4
