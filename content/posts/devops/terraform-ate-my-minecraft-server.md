@@ -3,10 +3,10 @@ date: 2024-10-24T00:00:00
 draft: true
 url: /devops/terraform-ate-my-minecraft-server
 tags:
-- linux
-- kubernetes
-- devops
-- terraform
+  - linux
+  - kubernetes
+  - devops
+  - terraform
 writer: dzervas
 build_status: passing
 title: Terraform ate my minecraft server - a sad postmortem

@@ -2,7 +2,7 @@
   languages = {
     javascript = {
       enable = true;
-      npm.enable = true;
+      bun.enable = true;
     };
   };
 
