@@ -3,7 +3,7 @@ name: Hugo Build
 on:
   push:
     branches:
-    - main
+      - main
   workflow_dispatch:
 
 # We have several possible workflows:
@@ -40,3 +40,4 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           force_orphan: true
           cname: whynot.fail
+          publish_dir: ./dist
