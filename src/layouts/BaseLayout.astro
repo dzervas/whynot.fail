@@ -5,6 +5,7 @@
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import SearchOverlay from "../components/SearchOverlay.astro";
+import { siteConfig, getMastodonUrl } from "../config/site";
 import "../styles/global.css";
 import "../styles/theme.css";
 
@@ -16,9 +17,11 @@ interface Props {
 
 const {
   title,
-  description = "Cause when you fail, somebody has to laugh at you",
+  description = siteConfig.description,
   currentPath = Astro.url.pathname,
 } = Astro.props;
+
+const mastodonUrl = getMastodonUrl(siteConfig.author.mastodon);
 
 const fullTitle = title === "Home" ? "WhyNot.Fail" : `${title} | WhyNot.Fail`;
 ---
@@ -49,6 +52,10 @@ const fullTitle = title === "Home" ? "WhyNot.Fail" : `${title} | WhyNot.Fail`;
       title="WhyNot.Fail RSS"
       href="/rss.xml"
     />
+
+    <!-- Author & Mastodon verification -->
+    <link rel="author" href={mastodonUrl} />
+    <link rel="me" href={mastodonUrl} />
   </head>
   <body id="top">
     <div class="site-wrapper">
