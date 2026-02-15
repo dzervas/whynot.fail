@@ -48,6 +48,7 @@
 - HTML to Markdown conversion uses `turndown` with custom rules for callouts, fenced code, `<br>` hard breaks, and horizontal rules.
 - Callout background mappings: blue/light-blue -> INFO, peach -> DANGER, orange -> WARNING, gray -> NOTE.
 - Required env vars for Plane fetch: `PLANE_API_BASE_URL`, `PLANE_WORKSPACE_SLUG`, `PLANE_PROJECT_ID`, `PLANE_API_TOKEN`.
+- If a Plane work item's `description_html` starts with an image (standalone or wrapped in `<p>`), it is extracted as the post's featured/header image: downloaded to `public/images/plane-<slug>.ext` and set as the `image` frontmatter field. The image is removed from the body to avoid duplication.
 
 ## Validation
 

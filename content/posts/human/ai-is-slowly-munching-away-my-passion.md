@@ -1,0 +1,81 @@
+---
+title: AI is slowly munching away my passion
+date: 2026-02-15T13:42:41.143Z
+description: "My passion has always been programming - one way or another, it always has been and all my life choices led me back to it. I love building stuff, especially on computers.It seems though, that LLMs and the current craze around them is slowly affecting it and most importantly the human community around it. Don't get me wrong, I'm astonished by the capabilities of the current (Feb 2026) models.I use it quite a bit for all sorts of stuff - from agentic coding to data classification to small artsy stuff that I'd never pay to get done.I'm gonna leave art outside of the current post since humanity has found yet another way to fuck artists and my lil engineering mind can't comprehend that.The programming (open source or not) community has made a pretty sharp turn \"towards AI\" and that seems to be such a loaded term that I'm starting to feel disassociated. \"Towards AI\" could mean:Uses it (which could also mean a bunch of stuff)Uses it but with local LLMs (which I'll politely put as \"something other than just using claude\")Makes it (trains it)Builds products around itSpawned 10 ralph loops (== while (true) { claude \"continue\" }) last night to build 3 different \"products\"Uses Google searchShips 50kLOC/day and feels unbelievably productiveI don't want to point the conversation towards the \"they split us and make us fight each other\" angle since it quickly throws the whole discussion towards tinfoil-hattery and we always loved to fight anywy - (← not an m-dash) there was never a need to find a new topic, mentioning emacs was more than enough and still is. We always were, and still are in a basement (metaphorically or literally) doing god knows what for internet points or even worse, to shave a millisecond off of something that at some point got internet points. Words are hard and communication is exponentially harder, throw in a touch of the spectrum and you get out a freshly baked soup of people that likes that they're part of \"the community\", without any sense of community whatsoever.I don't want to point the conversation go towards the \"Programming is dead, get over it\" angle either since at this point, it's baseless. Maybe I didn't get the memo but companies are now a trust anchor? Their marketing department? OF STARTUPS? Apart from that I get the sense that the most people that weigh in on that matter are mostly ex-non-programmers or programmer-adjacent. I'm most probably biased on this but this is not a whitepaper.The first I'll go with is determinism. We came such a long way just to end up back to RNGs making concrete choices and deciding weather to rm -rf our homedir today. We gladly gave them that power in what feels like a glimpse. My response to \"why do you like programming/computers\" was always \"because I get it, because if I tell it to do X, it will do so, very fucking literally, to a fault the vast majority of the time\" and instead of fixing the definition of X we fixed the \"literally\". Honestly, ingenious. Hilarious.That led me to me having feelings for a program. I caught myself getting angry. Against an algorithm.Honestly, I have no words. \"Feelings for an algorithm\". I wasn't frustrated by a UX human choice, I wasn't pleased by the color palette that a human picked, I was angry at the results of an algorithm.Imagine having feelings against bubblesort or base64 encoding. Not the \"elegance\" or \"proper implementation\" or \"efficiency\" of them which are all human creation and choices, their fucking result, what they spit out, the list of numbers. It's difficult to even explain what that means.It's ok though, I thought, each new tool has its quirks and learning curve, especially when it's under the heaviest development a tool has ever been in. I more or less got through that stage, my brain started to adapt and understand that what I read is fake, it's a virtual interface, like many other things that I use daily.And I used (and still do) AI quite a bit. It got better, faster, more effective, more versatile and my workflow adapted as well around it.I get to debug my homelab with it and help me develop personal projects in what feels like no time. Getting from \"I've never heard that before\" to \"I have a vague summary of what this is\" is maybe 10' away. Whipping up a script to migrate your post from reddit to mastodon with scrapping is not even considered \"scripting\" anymore, it's a prompt and an MCP server.And that's what fucked me. I used to be \"the guy that automates stuff\". I used to be the one to ask for \"the company VPN hack that makes it work on Arch\".Don't get me wrong, I'm not talking about being \"the chosen one\", nor did it give me some kind of weird power dynamic - neither literal nor fictional. The more the merrier. I wanted stuff to get done on their own, doing it myself was not as important. It gave me sense of self, something that I am, something that is part of me - much like someone that \"is\" an early bird or good at parking. It's not a race, it's something that you do for whatever reason and it's definitely something that you can connect over with other people. Maybe they have the same trait or maybe they hate that trait, whatever the case, there's a chance that they feel something about it. Something to connect or fight or discuss over.Now however, AI is the thing that automates and fixes corporate VPNs on outdated distros better than I would be able to in a thousand lifetimes. It has \"robbed\" me of a trait - or maybe a couple of them. A trait that I used very often to connect, to start conversations, to exchange knowledge and fun stories, to communicate.What the fuck does someone feel about it? How does one handle such thing? Imagine being always an early morning person and suddenly the sun rises on demand, per person. Your trait isn't taken away from you but it's given to everyone, freely, with close to no required effort/skill/planning towards it.I don't know what to feel. I have 0 idea what to feel. Mind you, I'm not talking about anything technical. I'm more than sure that at one point or another the need for such knowledge will rise, engineering is not dead, nor is knowledge. I'm focusing on the human factor, me, as a person. Is it elitist/gatekeep-y to have negative emotions when something turns from a craft to an every day action? Is that how shoe shiners and milkmen felt? Am I the woodworker to a CNC? Is my craft reduced from \"something to be done out of need\" to \"something to be done out of love towards the craft itself\"? Is that art? Am I now a bash script artist?Last but not least, AI has robbed me of credibility. I've always developed my personal projects in the open. Everything's on public GitHub repos. It was very easy to see how much I code, what I've done, when, how, for how long. Now? \"it might just be AI\". My life's work \"might be AI\". And I keep using AI since it makes fucking sense, in specific cases, it's faster and autonomous. I'm the guy that wants stuff to get done on their own, remember?Am I shooting my own foot by using AI or will I be shooting my own foot if I stop doing so? After all, it's a spectrum, you can use AI however and wherever you like.At this point what I've come up with is to use agentic AI as I did for work and stop using agents for personal projects, or at least for stuff that I care to learn about. The web interface of this blog is vibe coded and I have 0 regrets, I'm not into web dev, especially with the trajectory that it has taken. I just want it to look nice and work at an acceptable rate - it has no backend so there's nothing to secure.All in all, I'm mourning my craft.Tangent posts from other people:AI fatigue is and nobody talks about itI am happy writing code by handAI slop terrifies me"
+tags:
+  - untagged
+categories:
+  - human
+writer: dzervas
+---
+My passion has always been programming - one way or another, it always has been and all my life choices led me back to it. I love building stuff, especially on computers.
+
+It seems though, that LLMs and the current craze around them is slowly affecting it and most importantly the human community around it. Don't get me wrong, I'm astonished by the capabilities of the current (Feb 2026) models.
+
+I use it quite a bit for all sorts of stuff - from agentic coding to data classification to small artsy stuff that I'd never pay to get done.
+
+I'm gonna leave art outside of the current post since humanity has found yet another way to fuck artists and my lil engineering mind can't comprehend that.
+
+---
+
+The programming (open source or not) community has made a pretty sharp turn "towards AI" and that seems to be such a loaded term that I'm starting to feel disassociated. "Towards AI" could mean:
+
+-   Uses it (which could also mean a bunch of stuff)
+
+-   Uses it but with local LLMs (which I'll politely put as "something other than just using claude")
+
+-   Makes it (trains it)
+
+-   Builds products around it
+
+-   Spawned 10 ralph loops (== `while (true) { claude "continue" }`) last night to build 3 different "products"
+
+-   Uses Google search
+
+-   Ships 50kLOC/day and feels unbelievably productive
+
+I don't want to point the conversation towards the "they split us and make us fight each other" angle since it quickly throws the whole discussion towards tinfoil-hattery and we always loved to fight anywy - (← not an m-dash) there was never a need to find a new topic, mentioning emacs was more than enough and still is. We always were, and still are in a basement (metaphorically or literally) doing god knows what for internet points or even worse, to shave a millisecond off of something that at some point got internet points. Words are hard and communication is exponentially harder, throw in a touch of the spectrum and you get out a freshly baked soup of people that likes that they're part of "the community", without any sense of community whatsoever.
+
+I don't want to point the conversation go towards the "Programming is dead, get over it" angle either since at this point, it's baseless. Maybe I didn't get the memo but companies are now a trust anchor? Their marketing department? OF STARTUPS? Apart from that I get the sense that the most people that weigh in on that matter are mostly ex-non-programmers or programmer-adjacent. I'm most probably biased on this but this is not a whitepaper.
+
+The first I'll go with is determinism. We came such a long way just to end up back to RNGs making concrete choices and deciding weather to `rm -rf` our homedir today. We gladly gave them that power in what feels like a glimpse. My response to "why do you like programming/computers" was always "because I get it, because if I tell it to do X, it will do so, very fucking literally, to a fault the vast majority of the time" and instead of fixing the definition of X we fixed the "literally". Honestly, ingenious. Hilarious.
+
+That led me to me having feelings for a program. I caught myself getting angry. Against an algorithm.
+
+Honestly, I have no words. "Feelings for an algorithm". I wasn't frustrated by a UX human choice, I wasn't pleased by the color palette that a human picked, I was angry at the results of an algorithm.
+
+Imagine having feelings against bubblesort or base64 encoding. Not the "elegance" or "proper implementation" or "efficiency" of them which are all human creation and choices, their fucking result, what they spit out, the list of numbers. It's difficult to even explain what that means.
+
+It's ok though, I thought, each new tool has its quirks and learning curve, especially when it's under the heaviest development a tool has ever been in. I more or less got through that stage, my brain started to adapt and understand that what I read is fake, it's a virtual interface, like many other things that I use daily.
+
+And I used (and still do) AI quite a bit. It got better, faster, more effective, more versatile and my workflow adapted as well around it.
+
+I get to debug my homelab with it and help me develop personal projects in what feels like no time. Getting from "I've never heard that before" to "I have a vague summary of what this is" is maybe 10' away. Whipping up a script to migrate your post from reddit to mastodon with scrapping is not even considered "scripting" anymore, it's a prompt and an MCP server.
+
+And that's what fucked me. I used to be "the guy that automates stuff". I used to be the one to ask for "the company VPN hack that makes it work on Arch".
+
+Don't get me wrong, I'm not talking about being "the chosen one", nor did it give me some kind of weird power dynamic - neither literal nor fictional. The more the merrier. I wanted stuff to get done on their own, doing it myself was not as important. It gave me sense of self, something that I am, something that is part of me - much like someone that "is" an early bird or good at parking. It's not a race, it's something that you do for whatever reason and it's definitely something that you can connect over with other people. Maybe they have the same trait or maybe they hate that trait, whatever the case, there's a chance that they feel something about it. Something to connect or fight or discuss over.
+
+Now however, AI is the thing that automates and fixes corporate VPNs on outdated distros better than I would be able to in a thousand lifetimes. It has "robbed" me of a trait - or maybe a couple of them. A trait that I used very often to connect, to start conversations, to exchange knowledge and fun stories, to communicate.
+
+What the fuck does someone feel about it? How does one handle such thing? Imagine being always an early morning person and suddenly the sun rises on demand, per person. Your trait isn't taken away from you but it's given to everyone, freely, with close to no required effort/skill/planning towards it.
+
+I don't know what to feel. I have 0 idea what to feel. Mind you, I'm not talking about anything technical. I'm more than sure that at one point or another the need for such knowledge will rise, engineering is not dead, nor is knowledge. I'm focusing on the human factor, me, as a person. Is it elitist/gatekeep-y to have negative emotions when something turns from a craft to an every day action? Is that how shoe shiners and milkmen felt? Am I the woodworker to a CNC? Is my craft reduced from "something to be done out of need" to "something to be done out of love towards the craft itself"? Is that art? Am I now a bash script artist?
+
+---
+
+Last but not least, AI has robbed me of credibility. I've always developed my personal projects in the open. Everything's on public GitHub repos. It was very easy to see how much I code, what I've done, when, how, for how long. Now? "it might just be AI". My life's work "might be AI". And I keep using AI since it makes fucking sense, in specific cases, it's faster and autonomous. I'm the guy that wants stuff to get done on their own, remember?
+
+Am I shooting my own foot by using AI or will I be shooting my own foot if I stop doing so? After all, it's a spectrum, you can use AI however and wherever you like.
+
+At this point what I've come up with is to use agentic AI as I did for work and stop using agents for personal projects, or at least for stuff that I care to learn about. The web interface of this blog is vibe coded and I have 0 regrets, I'm not into web dev, especially with the trajectory that it has taken. I just want it to look nice and work at an acceptable rate - it has no backend so there's nothing to secure.
+
+All in all, [I'm mourning my craft](https://nolanlawson.com/2026/02/07/we-mourn-our-craft/).
+
+Tangent posts from other people:
+
+-   [AI fatigue is and nobody talks about it](https://siddhantkhare.com/writing/ai-fatigue-is-real)
+
+-   [I am happy writing code by hand](https://www.abhinavomprakash.com/posts/i-am-happier-writing-code-by-hand/)
+
+-   [AI slop terrifies me](https://ezhik.jp/ai-slop-terrifies-me/)

@@ -20,8 +20,25 @@ export function htmlToMarkdown(html: string, title: string): string {
   const service = createTurndownService();
   const markdown = service.turndown(html);
   const cleaned = markdown.replace(/\n{3,}/g, "\n\n").replace(/\n\s+\n/g, "\n\n").trim();
+  if (!cleaned) return "";
 
-  return cleaned ? `# ${title}\n\n${cleaned}` : "";
+  const withoutDuplicateHeading = stripLeadingHeading(cleaned, title);
+  return withoutDuplicateHeading;
+}
+
+function stripLeadingHeading(markdown: string, title: string): string {
+  const leadingHeading = markdown.match(/^\s{0,3}#{1,6}\s+(.+?)\s*#*\s*(?:\n+|$)/);
+  if (!leadingHeading) return markdown;
+
+  const headingText = normalizeHeading(leadingHeading[1] ?? "");
+  const normalizedTitle = normalizeHeading(title);
+  if (!headingText || headingText !== normalizedTitle) return markdown;
+
+  return markdown.slice(leadingHeading[0].length).trim();
+}
+
+function normalizeHeading(text: string): string {
+  return text.replace(/\\/g, "").replace(/`/g, "").trim().toLowerCase();
 }
 
 function createTurndownService(): TurndownService {

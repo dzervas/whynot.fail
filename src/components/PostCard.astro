@@ -14,7 +14,7 @@ interface Props {
 }
 
 const { post, index } = Astro.props;
-const { title, date, tags, categories, build_status, image, description, writer } = post.data;
+const { title, date, tags, categories, build_status, image, writer } = post.data;
 
 const primaryCategory = categories[0];
 
@@ -62,8 +62,6 @@ const hasImage = !!image;
 				</h2>
 			</header>
 
-			{description && <p class="post-card-excerpt">{description}</p>}
-
 			<footer class="post-card-footer">
 				<TagList tags={tags} />
 				<a href={`/${post.id}/`} class="read-more">
@@ -100,7 +98,6 @@ const hasImage = !!image;
 			<h2 class="post-card-title">
 				<a href={`/${post.id}/`}>{title}</a>
 			</h2>
-			{description && <p class="post-card-excerpt">{description}</p>}
 			<TagList tags={tags} />
 			<a href={`/${post.id}/`} class="read-more">
 				Read post <span class="arrow">&rarr;</span>
@@ -228,13 +225,6 @@ const hasImage = !!image;
 
 	.post-card-title a:hover {
 		color: var(--color-accent);
-	}
-
-	.post-card-excerpt {
-		color: var(--color-text-secondary);
-		font-size: 1rem;
-		line-height: 1.6;
-		margin: 0;
 	}
 
 	.post-card-footer {
